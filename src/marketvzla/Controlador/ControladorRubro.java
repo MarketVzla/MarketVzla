@@ -39,8 +39,9 @@ public class ControladorRubro {
             connection = DriverManager.getConnection(url, "postgres", Etiquetas.contraseña);
             
             s = connection.createStatement();
+            int z;
             
-            int z = s.executeUpdate("insert into rubro (rub_codigo,rub_nombre,rub_descripcion,rub_fk_rubro,rub_fk_almacen) values (nextval('rubro_rub_codigo_seq'::regclass),'"+nombre+"','"+descripcion+"',(select rub_codigo from rubro where rub_nombre='"+rubro+"'),(select alm_codigo from almacen where alm_nombre='"+almacen+"' and alm_fk_tienda=(select tie_codigo from tienda where tie_nombre='"+tienda+"')))");
+            z = s.executeUpdate("insert into rubro (rub_codigo,rub_nombre,rub_descripcion,rub_fk_rubro,rub_fk_almacen) values (nextval('rubro_rub_codigo_seq'::regclass),'"+nombre+"','"+descripcion+"',(select rub_codigo from rubro where rub_nombre='"+rubro+"'),(select alm_codigo from almacen where alm_nombre='"+almacen+"' and alm_fk_tienda=(select tie_codigo from tienda where tie_nombre='"+tienda+"')))");
             
             if (z==1){
                 System.out.println("Se agrego el registro");
@@ -139,6 +140,33 @@ public class ControladorRubro {
      * @return ArrayList<String> con el rubro seleccionado
      */
     public static ArrayList<String> ConsultarRubro (String rubro, String almacen, String tienda){
+        ArrayList<String> tiendas= new ArrayList();
+        java.sql.Connection connection = null;
+        ResultSet rs = null;
+        Statement s = null;
+        String url = "jdbc:postgresql://localhost:"+Etiquetas.puerto+"/"+Etiquetas.nombrebd+"";
+        
+        try {
+            Class.forName("org.postgresql.Driver");
+            
+            connection = DriverManager.getConnection(url, "postgres", Etiquetas.contraseña);
+            
+            s = connection.createStatement();
+            
+            rs = s.executeQuery("select rub_nombre, rub_descripcion from rubro where rub_fk_almacen=(select alm_codigo from almacen where alm_nombre='"+almacen+"' and alm_fk_tienda=(select tie_codigo from tienda where tie_nombre='"+tienda+"'))");
+            
+            while (rs.next()){
+                tiendas.add(rs.getString(1));
+                tiendas.add(rs.getString(2));
+            }
+            return tiendas;
+        }catch(Exception e){
+            System.err.println("Error de Conexion");
+        }
+        return null;
+    }
+    
+    public static ArrayList<String> ConsultarRubros (String almacen, String tienda){
         ArrayList<String> tiendas= new ArrayList();
         java.sql.Connection connection = null;
         ResultSet rs = null;
