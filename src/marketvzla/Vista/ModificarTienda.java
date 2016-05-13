@@ -26,8 +26,52 @@ public class ModificarTienda extends javax.swing.JFrame {
      */
     public ModificarTienda() {
         initComponents();
-        simpleDateFormat = new SimpleDateFormat("dd/mm/yyyy");
+        simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         llenarComboBoxDeLugar();
+        this.tienda="Market Venezuela CCS";
+        ArrayList<String> infotienda = Controlador.ControladorTienda.ConsultarTienda(tienda);
+        jTextField_nombretienda.setText(tienda);
+        ArrayList<String> parroquia=Controlador.ControladorLugar.ConsultarParroquia(Integer.parseInt(infotienda.get(4)));
+        ArrayList<String> municipio = Controlador.ControladorLugar.ConsultarMunicipio(Integer.parseInt(parroquia.get(1)));
+        jComboBox_lugarestado.setSelectedItem(municipio.get(1));
+        jComboBox_lugarmunicipio.setSelectedItem(municipio.get(0));
+        jComboBox_lugarparroquia.setSelectedItem(parroquia.get(0));
+        System.out.println(infotienda.get(2));
+         try {
+            jDateChooser_fechatienda.setDate(simpleDateFormat.parse(infotienda.get(2).toString()));
+        } catch (Exception e) {
+            // Nunca llega aqui
+            // Me asegure de ello
+            System.err.println("ERROR DE FECHA");
+        }
+        jTextField_valorpuntostienda.setText(infotienda.get(3));
+        
+    }
+    
+    private String tienda;
+    
+    public ModificarTienda(String tienda)
+    {
+        initComponents();
+        simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        llenarComboBoxDeLugar();
+        this.tienda=tienda;
+        ArrayList<String> infotienda = Controlador.ControladorTienda.ConsultarTienda(tienda);
+        jTextField_nombretienda.setText(tienda);
+        ArrayList<String> parroquia=Controlador.ControladorLugar.ConsultarParroquia(Integer.parseInt(infotienda.get(4)));
+        ArrayList<String> municipio = Controlador.ControladorLugar.ConsultarMunicipio(Integer.parseInt(parroquia.get(1)));
+        jComboBox_lugarestado.setSelectedItem(municipio.get(1));
+        jComboBox_lugarmunicipio.setSelectedItem(municipio.get(0));
+        jComboBox_lugarparroquia.setSelectedItem(parroquia.get(0));
+        System.out.println(infotienda.get(2));
+         try {
+            jDateChooser_fechatienda.setDate(simpleDateFormat.parse(infotienda.get(2).toString()));
+        } catch (Exception e) {
+            // Nunca llega aqui
+            // Me asegure de ello
+            System.err.println("ERROR DE FECHA");
+        }
+        jTextField_valorpuntostienda.setText(infotienda.get(3));
         
     }
 
@@ -119,6 +163,8 @@ public class ModificarTienda extends javax.swing.JFrame {
                 jComboBox_lugarparroquiaActionPerformed(evt);
             }
         });
+
+        jDateChooser_fechatienda.setDateFormatString("yyyy/MM/dd");
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("Fecha :");
@@ -300,13 +346,13 @@ public class ModificarTienda extends javax.swing.JFrame {
                                 break;
                             }
                         }
-                        if(Controlador.ControladorTienda.RegistrarTienda(jTextField_nombretienda.getText(), fecha, Double.parseDouble(jTextField_valorpuntostienda.getText()), parroquia))
+                        if(Controlador.ControladorTienda.ActualizarTienda(tienda, jTextField_nombretienda.getText(), Double.parseDouble(jTextField_valorpuntostienda.getText()), fecha, parroquia))
                         {
-                            JOptionPane.showMessageDialog(rootPane, "Usuario Registrado", "Registro", JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.showMessageDialog(rootPane, "Tienda Actualizada", "Registro", JOptionPane.INFORMATION_MESSAGE);
                         }
                         else
                         {
-                            JOptionPane.showMessageDialog(rootPane, "Error al Registrar", "Registro", JOptionPane.ERROR_MESSAGE);
+                            JOptionPane.showMessageDialog(rootPane, "Error al Actualizar", "Registro", JOptionPane.ERROR_MESSAGE);
                         }
                     }
                 }
