@@ -109,7 +109,7 @@ public class ControladorPasillo {
             
             s = connection.createStatement();
             
-            int z = s.executeUpdate("update pasillo set pas_numero="+numero+", pas_descripcion='"+descripcion+"' where pas_fk_tienda=(select tie_codigo from tienda where tie_nombre='"+tienda+"')");
+            int z = s.executeUpdate("update pasillo set  pas_descripcion='"+descripcion+"' where pas_numero="+numero+" and  pas_fk_tienda=(select tie_codigo from tienda where tie_nombre='"+tienda+"')");
             
             if (z==1){
                 System.out.println("Se actualizo el registro");
@@ -128,10 +128,11 @@ public class ControladorPasillo {
     /**
      * Consultar datos de pasillo, el formato es:
      * [pas_numero,pas_descripcion]
+     * @param pasillo
      * @param tienda
      * @return ArrayList<String> con la informacion dle pasillo
      */
-    public static ArrayList<String> ConsultarPasillo (String tienda){
+    public static ArrayList<String> ConsultarPasillo (String pasillo, String tienda){
         ArrayList<String> tiendas= new ArrayList();
         java.sql.Connection connection = null;
         ResultSet rs = null;
@@ -145,7 +146,34 @@ public class ControladorPasillo {
             
             s = connection.createStatement();
             
-            rs = s.executeQuery("select pas_numero, pas_descripcion from tienda where pas_fk_tienda=(select tie_codigo from tienda where tie_nombre='"+tienda+"')");
+            rs = s.executeQuery("select pas_numero, pas_descripcion from pasillo where pas_numero="+pasillo+" and pas_fk_tienda=(select tie_codigo from tienda where tie_nombre='"+tienda+"')");
+            
+            while (rs.next()){
+                tiendas.add(rs.getString(1));
+                tiendas.add(rs.getString(2));
+            }
+            return tiendas;
+        }catch(Exception e){
+            System.err.println("Error de Conexion");
+        }
+        return null;
+    }
+    
+    public static ArrayList<String> BuscarPasillos (String tienda){
+        ArrayList<String> tiendas= new ArrayList();
+        java.sql.Connection connection = null;
+        ResultSet rs = null;
+        Statement s = null;
+        String url = "jdbc:postgresql://localhost:"+Etiquetas.puerto+"/"+Etiquetas.nombrebd+"";
+        
+        try {
+            Class.forName("org.postgresql.Driver");
+            
+            connection = DriverManager.getConnection(url, "postgres", Etiquetas.contraseña);
+            
+            s = connection.createStatement();
+            
+            rs = s.executeQuery("select pas_numero, pas_descripcion from pasillo where pas_fk_tienda=(select tie_codigo from tienda where tie_nombre='"+tienda+"') order by pas_numero asc");
             
             while (rs.next()){
                 tiendas.add(rs.getString(1));

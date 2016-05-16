@@ -73,7 +73,7 @@ public class ControladorAlmacen {
             
             s = connection.createStatement();
             
-            int z = s.executeUpdate("delete from almacen where alm_codigo=(select alm_codigo from almacen where alm_nombre='"+nombre+"' and  pas_fk_tienda=(select tie_codigo from tienda where tie_nombre='"+tienda+"'))");
+            int z = s.executeUpdate("delete from almacen where alm_codigo=(select alm_codigo from almacen where alm_nombre='"+nombre+"' and  alm_fk_tienda=(select tie_codigo from tienda where tie_nombre='"+tienda+"'))");
             
             if (z==1){
                 System.out.println("Se elimino el registro");
@@ -146,6 +146,33 @@ public class ControladorAlmacen {
             s = connection.createStatement();
             
             rs = s.executeQuery("select alm_nombre, alm_descripcion from almacen where alm_nombre='"+nombre+"' and alm_fk_tienda=(select tie_codigo from tienda where tie_nombre='"+tienda+"')");
+            
+            while (rs.next()){
+                tiendas.add(rs.getString(1));
+                tiendas.add(rs.getString(2));
+            }
+            return tiendas;
+        }catch(Exception e){
+            System.err.println("Error de Conexion");
+        }
+        return null;
+    }
+    
+    public static ArrayList<String> BuscarAlmacenes (String nombre,String tienda){
+        ArrayList<String> tiendas= new ArrayList();
+        java.sql.Connection connection = null;
+        ResultSet rs = null;
+        Statement s = null;
+        String url = "jdbc:postgresql://localhost:"+Etiquetas.puerto+"/"+Etiquetas.nombrebd+"";
+        
+        try {
+            Class.forName("org.postgresql.Driver");
+            
+            connection = DriverManager.getConnection(url, "postgres", Etiquetas.contraseña);
+            
+            s = connection.createStatement();
+            
+            rs = s.executeQuery("select alm_nombre, alm_descripcion from almacen where alm_nombre like '"+nombre+"%' and alm_fk_tienda=(select tie_codigo from tienda where tie_nombre like '"+tienda+"')");
             
             while (rs.next()){
                 tiendas.add(rs.getString(1));

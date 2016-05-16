@@ -77,7 +77,7 @@ public class ControladorRubro {
             
             s = connection.createStatement();
             
-            int z = s.executeUpdate("delete from rubro where rub_codigo=(select rub_codigo from rubro where rub_nombre="+nombre+" and  rub_fk_almacen=(select alm_codigo from almacen where alm_nombre='"+almacen+"' and  alm_fk_tienda='"+tienda+"'))");
+            int z = s.executeUpdate("delete from rubro where rub_codigo=(select rub_codigo from rubro where rub_nombre='"+nombre+"' and  rub_fk_almacen=(select alm_codigo from almacen where alm_nombre='"+almacen+"' and  alm_fk_tienda=(select tie_codigo from tienda where tie_nombre='"+tienda+"')))");
             
             if (z==1){
                 System.out.println("Se elimino el registro");
@@ -153,7 +153,7 @@ public class ControladorRubro {
             
             s = connection.createStatement();
             
-            rs = s.executeQuery("select rub_nombre, rub_descripcion from rubro where rub_fk_almacen=(select alm_codigo from almacen where alm_nombre='"+almacen+"' and alm_fk_tienda=(select tie_codigo from tienda where tie_nombre='"+tienda+"'))");
+            rs = s.executeQuery("select rub_nombre, rub_descripcion from rubro where rub_nombre='"+rubro+"' and  rub_fk_almacen=(select alm_codigo from almacen where alm_nombre='"+almacen+"' and alm_fk_tienda=(select tie_codigo from tienda where tie_nombre='"+tienda+"'))");
             
             while (rs.next()){
                 tiendas.add(rs.getString(1));
@@ -181,6 +181,33 @@ public class ControladorRubro {
             s = connection.createStatement();
             
             rs = s.executeQuery("select rub_nombre, rub_descripcion from rubro where rub_fk_almacen=(select alm_codigo from almacen where alm_nombre='"+almacen+"' and alm_fk_tienda=(select tie_codigo from tienda where tie_nombre='"+tienda+"'))");
+            
+            while (rs.next()){
+                tiendas.add(rs.getString(1));
+                tiendas.add(rs.getString(2));
+            }
+            return tiendas;
+        }catch(Exception e){
+            System.err.println("Error de Conexion");
+        }
+        return null;
+    }
+    
+    public static ArrayList<String> BuscarRubros (String rubro, String almacen, String tienda){
+        ArrayList<String> tiendas= new ArrayList();
+        java.sql.Connection connection = null;
+        ResultSet rs = null;
+        Statement s = null;
+        String url = "jdbc:postgresql://localhost:"+Etiquetas.puerto+"/"+Etiquetas.nombrebd+"";
+        
+        try {
+            Class.forName("org.postgresql.Driver");
+            
+            connection = DriverManager.getConnection(url, "postgres", Etiquetas.contraseña);
+            
+            s = connection.createStatement();
+            
+            rs = s.executeQuery("select rub_nombre, rub_descripcion from rubro where rub_nombre like '"+rubro+"%' and rub_fk_almacen=(select alm_codigo from almacen where alm_nombre='"+almacen+"' and alm_fk_tienda=(select tie_codigo from tienda where tie_nombre='"+tienda+"'))");
             
             while (rs.next()){
                 tiendas.add(rs.getString(1));

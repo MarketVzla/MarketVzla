@@ -163,4 +163,34 @@ public class ControladorTienda {
         return null;
     }
     
+    public static ArrayList<String> BuscarTiendas (String tienda){
+        ArrayList<String> tiendas= new ArrayList();
+        java.sql.Connection connection = null;
+        ResultSet rs = null;
+        Statement s = null;
+        String url = "jdbc:postgresql://localhost:"+Etiquetas.puerto+"/"+Etiquetas.nombrebd+"";
+        
+        try {
+            Class.forName("org.postgresql.Driver");
+            
+            connection = DriverManager.getConnection(url, "postgres", Etiquetas.contraseña);
+            
+            s = connection.createStatement();
+            
+            rs = s.executeQuery("select tie_codigo, tie_nombre, tie_fecha, tie_valorpuntos,tie_fk_lugar from tienda where tie_nombre like '"+tienda+"%' limit 10");
+            
+            while (rs.next()){
+                tiendas.add(rs.getString(1));
+                tiendas.add(rs.getString(2));
+                tiendas.add(rs.getString(3));
+                tiendas.add(rs.getString(4));
+                tiendas.add(rs.getString(5));
+            }
+            return tiendas;
+        }catch(Exception e){
+            System.err.println("Error de Conexion");
+        }
+        return null;
+    }
+    
 }
