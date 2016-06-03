@@ -12,7 +12,7 @@ insert into cli_tip (ct_fk_tipopago,ct_fk_natural) values (1,15);
 insert into cli_tip (ct_fk_tipopago,ct_fk_natural) values (1,17);
 insert into cli_tip (ct_fk_tipopago,ct_fk_natural) values (1,18);
 insert into cli_tip (ct_fk_tipopago,ct_fk_natural) values (1,20);
-insert into cli_tip (ct_fk_tipopago,ct_fk_natural) values (1,121);
+insert into cli_tip (ct_fk_tipopago,ct_fk_natural) values (1,21);
 insert into cli_tip (ct_fk_tipopago,ct_fk_natural) values (1,22);
 insert into cli_tip (ct_fk_tipopago,ct_fk_natural) values (1,24);
 insert into cli_tip (ct_fk_tipopago,ct_fk_natural) values (1,27);
@@ -62,7 +62,7 @@ insert into cli_tip (ct_fk_tipopago,ct_fk_natural) values (1,94);
 insert into cli_tip (ct_fk_tipopago,ct_fk_natural) values (1,95);
 insert into cli_tip (ct_fk_tipopago,ct_fk_natural) values (1,97);
 insert into cli_tip (ct_fk_tipopago,ct_fk_natural) values (1,100);
-insert into cli_tip (ct_fk_tipopago,ct_fk_natural) values (1,101;
+insert into cli_tip (ct_fk_tipopago,ct_fk_natural) values (1,101);
 insert into cli_tip (ct_fk_tipopago,ct_fk_natural) values (1,102);
 insert into cli_tip (ct_fk_tipopago,ct_fk_natural) values (1,103);
 insert into cli_tip (ct_fk_tipopago,ct_fk_natural) values (1,104);
@@ -75,9 +75,3 @@ insert into cli_tip (ct_fk_tipopago,ct_fk_natural) values (1,115);
 insert into cli_tip (ct_fk_tipopago,ct_fk_natural) values (1,116);
 insert into cli_tip (ct_fk_tipopago,ct_fk_natural) values (1,117);
 insert into cli_tip (ct_fk_tipopago,ct_fk_natural) values (1,118);
-
-
-select distinct clI_codigo
-from "natural",compra
-where cli_codigo=com_fk_natural
-order by cli_codigo

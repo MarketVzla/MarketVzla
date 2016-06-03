@@ -107,7 +107,7 @@ constraint ck_estado check (pre_estado in ('Pedido','Reservado','Entregado','Pag
 );
 create table "natural" (
 cli_codigo serial,
-cli_consecutivocarnet integer default nextval('cliente_cli_consecutivocarnet_seq'::regclass),,
+cli_consecutivocarnet integer default nextval('cliente_cli_consecutivocarnet_seq'::regclass),
 nat_cedula character varying not null unique,
 nat_rif character varying unique,
 nat_primernombre character varying not null,
