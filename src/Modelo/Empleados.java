@@ -11,7 +11,24 @@ package Modelo;
  */
 public class Empleados {
     String cedulaEmpleado,primerNombreEmpleado,segundoNombreEmpleado,primerApellidoEmpleado,
-            segundoApellidoEmpleado,salarioEMpleado,vacacionesEmpleado,FechaNacimientoEMpleado;
+            segundoApellidoEmpleado,salarioEMpleado,vacacionesEmpleado,FechaNacimientoEMpleado,tienda,fechaIngreso,
+            fechaVacacionInicial,fechaVacacionFinal;
+
+    public String getFechaVacacionInicial() {
+        return fechaVacacionInicial;
+    }
+
+    public void setFechaVacacionInicial(String fechaVacacionInicial) {
+        this.fechaVacacionInicial = fechaVacacionInicial;
+    }
+
+    public String getFechaVacacionFinal() {
+        return fechaVacacionFinal;
+    }
+
+    public void setFechaVacacionFinal(String fechaVacacionFinal) {
+        this.fechaVacacionFinal = fechaVacacionFinal;
+    }
 
     public String getCedulaEmpleado() {
         return cedulaEmpleado;
@@ -75,6 +92,22 @@ public class Empleados {
 
     public void setFechaNacimientoEMpleado(String FechaNacimientoEMpleado) {
         this.FechaNacimientoEMpleado = FechaNacimientoEMpleado;
+    }
+
+    public String getTienda() {
+        return tienda;
+    }
+
+    public void setTienda(String tienda) {
+        this.tienda = tienda;
+    }
+
+    public String getFechaIngreso() {
+        return fechaIngreso;
+    }
+
+    public void setFechaIngreso(String fechaIngreso) {
+        this.fechaIngreso = fechaIngreso;
     }
     
     

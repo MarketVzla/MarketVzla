@@ -5,21 +5,22 @@
  */
 package Controlador;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.text.SimpleDateFormat;
-import javax.swing.JOptionPane;
 import Modelo.ExpresionesRegulares;
 import Modelo.Lugar;
 import Modelo.RegistroModel;
 import Vista.LoginVista;
 import Vista.RegistroCliente;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
+
+
 
 /**
  *
  * @author migue
  */
-public class RegistroClienteController implements ActionListener{
+public class RegistroClienteController implements ActionListener/*,KeyListener*/{
 private RegistroCliente user;
 private LoginVista login;
 private static boolean value;
@@ -225,7 +226,7 @@ private static int cod_nuevo_user ;
             Lugar.getLugarFK(municipioJuridicoFiscal.getCodigo(), user.jComboBoxRegistroCLienteJuridicoParroquiaDireccionFiscal);
         }
         
-        
+        //8635921
         //Direccion fisica Natural
         if(e.getSource() == user.jComboBoxRegistroCLienteNaturalEstado){
             String  nombreEstadoNatural = (String)user.jComboBoxRegistroCLienteNaturalEstado.getItemAt(user.jComboBoxRegistroCLienteNaturalEstado.getSelectedIndex());
@@ -270,5 +271,20 @@ private static int cod_nuevo_user ;
     public static void setCod_nuevo_user(int cod_nuevo_user2) {
         cod_nuevo_user = cod_nuevo_user2;
     }
+
+   /* @Override
+    public void keyTyped(KeyEvent ke) {
+         //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void keyPressed(KeyEvent ke) {
+         //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void keyReleased(KeyEvent ke) {
+         //To change body of generated methods, choose Tools | Templates.
+    }*/
     
 }

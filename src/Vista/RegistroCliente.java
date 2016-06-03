@@ -20,37 +20,7 @@ public class RegistroCliente extends javax.swing.JFrame {
     public RegistroCliente() {
         initComponents();
     }
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegistrarTienda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegistrarTienda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegistrarTienda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegistrarTienda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new RegistroCliente().setVisible(true);
-            }
-        });
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -84,7 +54,6 @@ public class RegistroCliente extends javax.swing.JFrame {
         textRegistroCLienteNaturalSegundoNombre = new javax.swing.JTextField();
         textRegistroCLienteNaturalApellido = new javax.swing.JTextField();
         textRegistroCLienteNaturalTelefono = new javax.swing.JTextField();
-        textRegistroCLienteNaturalRif = new javax.swing.JTextField();
         textRegistroCLienteNaturalEmail = new javax.swing.JTextField();
         textRegistroCLienteNaturalSegundoApellido = new javax.swing.JTextField();
         textRegistroCLienteNaturalUser = new javax.swing.JTextField();
@@ -109,17 +78,18 @@ public class RegistroCliente extends javax.swing.JFrame {
         lblErrorRegistoClienteNaturalRespuestaSecreta = new javax.swing.JLabel();
         jLabel64 = new javax.swing.JLabel();
         jLabel65 = new javax.swing.JLabel();
-        jLabel49 = new javax.swing.JLabel();
         textRegistroCLienteNaturalCedula = new javax.swing.JTextField();
         textRegistroCLienteNaturalRespuestaSecreta = new javax.swing.JTextField();
-        jLabel66 = new javax.swing.JLabel();
-        lblErrorRegistoClienteNaturalRif = new javax.swing.JLabel();
         lblErrorRegistoClienteNaturalPrimerNombre = new javax.swing.JLabel();
         lblErrorRegistoClienteNaturalSegundoNOmbre = new javax.swing.JLabel();
         lblErrorRegistoClienteNaturalApellido = new javax.swing.JLabel();
         lblErrorRegistoClienteNaturalSegundoApellido = new javax.swing.JLabel();
         lblErrorRegistoClienteNaturalEmail1 = new javax.swing.JLabel();
         lblErrorRegistoClienteNaturalEmail2 = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
+        textRegistroCLienteNaturalRif = new javax.swing.JTextField();
+        lblErrorRegistoClienteNaturalRif = new javax.swing.JLabel();
+        jLabel58 = new javax.swing.JLabel();
         jScrollPanePersonaJuridica = new javax.swing.JScrollPane();
         PanelPersonaJuridica = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -152,8 +122,6 @@ public class RegistroCliente extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jComboBoxRegistroCLienteJuridicoParroquiaDireccionFisica = new javax.swing.JComboBox();
-        jLabel17 = new javax.swing.JLabel();
-        jComboBoxRegistroCLienteJuridicoEstadoDireccionFiscal = new javax.swing.JComboBox();
         jLabel18 = new javax.swing.JLabel();
         jComboBoxRegistroCLienteJuridicoMunicipioDireccionFiscal = new javax.swing.JComboBox();
         jLabel19 = new javax.swing.JLabel();
@@ -183,6 +151,8 @@ public class RegistroCliente extends javax.swing.JFrame {
         jLabel44 = new javax.swing.JLabel();
         lblErrorRegistoClienteJuridicoCapitalUsuarioRepetido = new javax.swing.JLabel();
         lblErrorRegistoClienteJuridicoCapitalDisponilbe2 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jComboBoxRegistroCLienteJuridicoEstadoDireccionFiscal = new javax.swing.JComboBox();
         jtbtnRegistroCLienteVolver = new javax.swing.JButton();
 
         jLabel23.setForeground(new java.awt.Color(255, 0, 0));
@@ -273,14 +243,6 @@ public class RegistroCliente extends javax.swing.JFrame {
         jLabel65.setForeground(new java.awt.Color(0, 0, 255));
         jLabel65.setText("(2222)222-2222");
 
-        jLabel49.setText("RIF");
-
-        jLabel66.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel66.setText("(*)");
-
-        lblErrorRegistoClienteNaturalRif.setForeground(new java.awt.Color(255, 0, 0));
-        lblErrorRegistoClienteNaturalRif.setText("Error, ingresar una cedula correcta");
-
         lblErrorRegistoClienteNaturalPrimerNombre.setForeground(new java.awt.Color(255, 0, 0));
         lblErrorRegistoClienteNaturalPrimerNombre.setText("Error, Igresar caracteres alfanumericos");
 
@@ -299,69 +261,20 @@ public class RegistroCliente extends javax.swing.JFrame {
         lblErrorRegistoClienteNaturalEmail2.setForeground(new java.awt.Color(255, 0, 0));
         lblErrorRegistoClienteNaturalEmail2.setText("Campo Obligatorio");
 
+        jLabel49.setText("RIF");
+
+        lblErrorRegistoClienteNaturalRif.setForeground(new java.awt.Color(255, 0, 0));
+        lblErrorRegistoClienteNaturalRif.setText("Error, ingresar una cedula correcta");
+
+        jLabel58.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel58.setText("(*)");
+
         javax.swing.GroupLayout PanelPersonaNaturalLayout = new javax.swing.GroupLayout(PanelPersonaNatural);
         PanelPersonaNatural.setLayout(PanelPersonaNaturalLayout);
         PanelPersonaNaturalLayout.setHorizontalGroup(
             PanelPersonaNaturalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelPersonaNaturalLayout.createSequentialGroup()
                 .addGroup(PanelPersonaNaturalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelPersonaNaturalLayout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addGroup(PanelPersonaNaturalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel40)
-                            .addComponent(jLabel35)
-                            .addComponent(jLabel34)
-                            .addComponent(jLabel33)
-                            .addComponent(jLabel31)
-                            .addComponent(jLabel30)
-                            .addComponent(jLabel28))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(PanelPersonaNaturalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PanelPersonaNaturalLayout.createSequentialGroup()
-                                .addGroup(PanelPersonaNaturalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(textRegistroCLienteNaturalNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
-                                    .addComponent(textRegistroCLienteNaturalSegundoNombre)
-                                    .addComponent(textRegistroCLienteNaturalApellido)
-                                    .addComponent(textRegistroCLienteNaturalTelefono)
-                                    .addComponent(textRegistroCLienteNaturalSegundoApellido)
-                                    .addComponent(textRegistroCLienteNaturalCedula, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(PanelPersonaNaturalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(PanelPersonaNaturalLayout.createSequentialGroup()
-                                        .addComponent(jLabel57)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lblErrorRegistoClienteNaturalCedula))
-                                    .addGroup(PanelPersonaNaturalLayout.createSequentialGroup()
-                                        .addComponent(jLabel65)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(lblErrorRegistoClienteNaturalTelefono))
-                                    .addComponent(lblErrorRegistoClienteNaturalPrimerNombre)
-                                    .addComponent(lblErrorRegistoClienteNaturalSegundoNOmbre)
-                                    .addComponent(lblErrorRegistoClienteNaturalApellido)
-                                    .addComponent(lblErrorRegistoClienteNaturalSegundoApellido))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(PanelPersonaNaturalLayout.createSequentialGroup()
-                                .addComponent(jLabel52)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBoxRegistroCLienteNaturalEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel53)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBoxRegistroCLienteNaturalMunicipio, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel54)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jComboBoxRegistroCLienteNaturalParroquia, 0, 149, Short.MAX_VALUE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPersonaNaturalLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel49)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(textRegistroCLienteNaturalRif, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel66)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblErrorRegistoClienteNaturalRif)
-                        .addGap(254, 254, 254))
                     .addGroup(PanelPersonaNaturalLayout.createSequentialGroup()
                         .addGap(52, 52, 52)
                         .addGroup(PanelPersonaNaturalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -400,20 +313,76 @@ public class RegistroCliente extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(jLabel60))))
                     .addGroup(PanelPersonaNaturalLayout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addComponent(jLabel37)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(textRegistroCLienteNaturalEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
                         .addGroup(PanelPersonaNaturalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(PanelPersonaNaturalLayout.createSequentialGroup()
-                                .addComponent(jLabel61)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblErrorRegistoClienteNaturalEmail1))
-                            .addGroup(PanelPersonaNaturalLayout.createSequentialGroup()
-                                .addComponent(jLabel55)
+                                .addGap(61, 61, 61)
+                                .addGroup(PanelPersonaNaturalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel40)
+                                    .addComponent(jLabel35)
+                                    .addComponent(jLabel34)
+                                    .addComponent(jLabel33)
+                                    .addComponent(jLabel31)
+                                    .addComponent(jLabel30)
+                                    .addComponent(jLabel28)
+                                    .addComponent(jLabel49))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblErrorRegistoClienteNaturalEmail)))))
+                                .addGroup(PanelPersonaNaturalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(PanelPersonaNaturalLayout.createSequentialGroup()
+                                        .addGroup(PanelPersonaNaturalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(textRegistroCLienteNaturalNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                                            .addComponent(textRegistroCLienteNaturalSegundoNombre)
+                                            .addComponent(textRegistroCLienteNaturalApellido)
+                                            .addComponent(textRegistroCLienteNaturalTelefono)
+                                            .addComponent(textRegistroCLienteNaturalSegundoApellido)
+                                            .addComponent(textRegistroCLienteNaturalCedula, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(textRegistroCLienteNaturalRif))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(PanelPersonaNaturalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(PanelPersonaNaturalLayout.createSequentialGroup()
+                                                .addComponent(jLabel65)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(lblErrorRegistoClienteNaturalTelefono))
+                                            .addComponent(lblErrorRegistoClienteNaturalPrimerNombre)
+                                            .addComponent(lblErrorRegistoClienteNaturalSegundoNOmbre)
+                                            .addComponent(lblErrorRegistoClienteNaturalApellido)
+                                            .addComponent(lblErrorRegistoClienteNaturalSegundoApellido)
+                                            .addGroup(PanelPersonaNaturalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addGroup(PanelPersonaNaturalLayout.createSequentialGroup()
+                                                    .addComponent(jLabel58)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(lblErrorRegistoClienteNaturalRif))
+                                                .addGroup(PanelPersonaNaturalLayout.createSequentialGroup()
+                                                    .addComponent(jLabel57)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(lblErrorRegistoClienteNaturalCedula)))))
+                                    .addGroup(PanelPersonaNaturalLayout.createSequentialGroup()
+                                        .addComponent(jLabel52)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jComboBoxRegistroCLienteNaturalEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel53)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jComboBoxRegistroCLienteNaturalMunicipio, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel54)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jComboBoxRegistroCLienteNaturalParroquia, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(PanelPersonaNaturalLayout.createSequentialGroup()
+                                .addGap(119, 119, 119)
+                                .addComponent(jLabel37)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(textRegistroCLienteNaturalEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(PanelPersonaNaturalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(PanelPersonaNaturalLayout.createSequentialGroup()
+                                        .addComponent(jLabel61)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblErrorRegistoClienteNaturalEmail1))
+                                    .addGroup(PanelPersonaNaturalLayout.createSequentialGroup()
+                                        .addComponent(jLabel55)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(lblErrorRegistoClienteNaturalEmail)))))
+                        .addGap(0, 89, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         PanelPersonaNaturalLayout.setVerticalGroup(
@@ -454,32 +423,25 @@ public class RegistroCliente extends javax.swing.JFrame {
                     .addComponent(textRegistroCLienteNaturalTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblErrorRegistoClienteNaturalTelefono)
                     .addComponent(jLabel65))
-                .addGroup(PanelPersonaNaturalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelPersonaNaturalLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(PanelPersonaNaturalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel35)
-                            .addComponent(jLabel57)
-                            .addComponent(lblErrorRegistoClienteNaturalCedula))
-                        .addGap(15, 15, 15)
-                        .addGroup(PanelPersonaNaturalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel66)
-                            .addComponent(lblErrorRegistoClienteNaturalRif))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(PanelPersonaNaturalLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(textRegistroCLienteNaturalCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PanelPersonaNaturalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(textRegistroCLienteNaturalRif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel49))
-                        .addGap(18, 18, 18)
-                        .addGroup(PanelPersonaNaturalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(textRegistroCLienteNaturalEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel37)
-                            .addComponent(jLabel55)
-                            .addComponent(lblErrorRegistoClienteNaturalEmail))
-                        .addGap(13, 13, 13)))
+                .addGap(18, 18, 18)
+                .addGroup(PanelPersonaNaturalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel35)
+                    .addComponent(jLabel57)
+                    .addComponent(lblErrorRegistoClienteNaturalCedula)
+                    .addComponent(textRegistroCLienteNaturalCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addGroup(PanelPersonaNaturalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel49)
+                    .addComponent(textRegistroCLienteNaturalRif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblErrorRegistoClienteNaturalRif)
+                    .addComponent(jLabel58))
+                .addGap(10, 10, 10)
+                .addGroup(PanelPersonaNaturalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textRegistroCLienteNaturalEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel37)
+                    .addComponent(jLabel55)
+                    .addComponent(lblErrorRegistoClienteNaturalEmail))
+                .addGap(13, 13, 13)
                 .addGroup(PanelPersonaNaturalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel45)
                     .addComponent(textRegistroCLienteNaturalUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -508,7 +470,7 @@ public class RegistroCliente extends javax.swing.JFrame {
                 .addComponent(jLabel60)
                 .addGap(1, 1, 1)
                 .addComponent(jbtnRegistroCLienteNatural)
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         jScrollPaneRegistroNAtural.setViewportView(PanelPersonaNatural);
@@ -550,8 +512,6 @@ public class RegistroCliente extends javax.swing.JFrame {
         jLabel15.setText("Municipio:");
 
         jLabel16.setText("Parroquia:");
-
-        jLabel17.setText("Estado:");
 
         jLabel18.setText("Municipio:");
 
@@ -629,6 +589,8 @@ public class RegistroCliente extends javax.swing.JFrame {
         lblErrorRegistoClienteJuridicoCapitalDisponilbe2.setForeground(new java.awt.Color(255, 0, 0));
         lblErrorRegistoClienteJuridicoCapitalDisponilbe2.setText("Campo Obligatorio");
 
+        jLabel32.setText("Estado:");
+
         javax.swing.GroupLayout PanelPersonaJuridicaLayout = new javax.swing.GroupLayout(PanelPersonaJuridica);
         PanelPersonaJuridica.setLayout(PanelPersonaJuridicaLayout);
         PanelPersonaJuridicaLayout.setHorizontalGroup(
@@ -652,7 +614,9 @@ public class RegistroCliente extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PanelPersonaJuridicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelPersonaJuridicaLayout.createSequentialGroup()
-                        .addComponent(jLabel14)
+                        .addGroup(PanelPersonaJuridicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel32))
                         .addGroup(PanelPersonaJuridicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(PanelPersonaJuridicaLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -661,7 +625,10 @@ public class RegistroCliente extends javax.swing.JFrame {
                                         .addComponent(jComboBoxRegistroCLienteJuridicoEstadoDireccionFisica, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jLabel15))
-                                    .addComponent(jLabel18))
+                                    .addGroup(PanelPersonaJuridicaLayout.createSequentialGroup()
+                                        .addComponent(jComboBoxRegistroCLienteJuridicoEstadoDireccionFiscal, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(10, 10, 10)
+                                        .addComponent(jLabel18)))
                                 .addGap(18, 18, 18)
                                 .addGroup(PanelPersonaJuridicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jComboBoxRegistroCLienteJuridicoMunicipioDireccionFisica, 0, 161, Short.MAX_VALUE)
@@ -679,13 +646,7 @@ public class RegistroCliente extends javax.swing.JFrame {
                                 .addGroup(PanelPersonaJuridicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblErrorRegistoClienteJuridicoWeb)
                                     .addComponent(lblErrorRegistoClienteJuridicoTelefono))
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPersonaJuridicaLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel17)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBoxRegistroCLienteJuridicoEstadoDireccionFiscal, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(438, 438, 438))
+                                .addGap(0, 191, Short.MAX_VALUE))))
                     .addGroup(PanelPersonaJuridicaLayout.createSequentialGroup()
                         .addGroup(PanelPersonaJuridicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(textRegistroCLienteJuridicoDenominacionComercial)
@@ -702,46 +663,44 @@ public class RegistroCliente extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(PanelPersonaJuridicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(PanelPersonaJuridicaLayout.createSequentialGroup()
-                                .addGroup(PanelPersonaJuridicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(PanelPersonaJuridicaLayout.createSequentialGroup()
-                                        .addComponent(jLabel24)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lblErrorRegistoClienteJuridicoRazonSocial))
-                                    .addGroup(PanelPersonaJuridicaLayout.createSequentialGroup()
-                                        .addComponent(jLabel21)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblErrorRegistoClienteJuridicoDenominacionComercial))
-                                    .addComponent(jLabel36)
-                                    .addGroup(PanelPersonaJuridicaLayout.createSequentialGroup()
-                                        .addComponent(jLabel39)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lblErrorRegistoClienteJuridicoRespuestaSecreta))
-                                    .addComponent(jLabel41)
+                                .addComponent(jLabel24)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblErrorRegistoClienteJuridicoRazonSocial))
+                            .addGroup(PanelPersonaJuridicaLayout.createSequentialGroup()
+                                .addComponent(jLabel21)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblErrorRegistoClienteJuridicoDenominacionComercial))
+                            .addComponent(jLabel36)
+                            .addGroup(PanelPersonaJuridicaLayout.createSequentialGroup()
+                                .addComponent(jLabel39)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblErrorRegistoClienteJuridicoRespuestaSecreta))
+                            .addComponent(jLabel41)
+                            .addGroup(PanelPersonaJuridicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPersonaJuridicaLayout.createSequentialGroup()
+                                    .addComponent(jLabel38)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(lblErrorRegistoClienteJuridicoPreguntaSecreta))
+                                .addGroup(PanelPersonaJuridicaLayout.createSequentialGroup()
                                     .addGroup(PanelPersonaJuridicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPersonaJuridicaLayout.createSequentialGroup()
-                                            .addComponent(jLabel38)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(lblErrorRegistoClienteJuridicoPreguntaSecreta))
-                                        .addGroup(PanelPersonaJuridicaLayout.createSequentialGroup()
-                                            .addGroup(PanelPersonaJuridicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(jLabel44))
-                                            .addGap(34, 34, 34)
-                                            .addGroup(PanelPersonaJuridicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(lblErrorRegistoClienteJuridicoCapitalDisponilbe)
-                                                .addComponent(lblErrorRegistoClienteJuridicoEmail)
-                                                .addComponent(lblErrorRegistoClienteJuridicoCapitalUsuarioRepetido)
-                                                .addComponent(lblErrorRegistoClienteJuridicoCapitalDisponilbe2))))
-                                    .addComponent(jLabel42)
-                                    .addGroup(PanelPersonaJuridicaLayout.createSequentialGroup()
-                                        .addComponent(jLabel22)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel43)))
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                        .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel44))
+                                    .addGap(34, 34, 34)
+                                    .addGroup(PanelPersonaJuridicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblErrorRegistoClienteJuridicoCapitalDisponilbe)
+                                        .addComponent(lblErrorRegistoClienteJuridicoEmail)
+                                        .addComponent(lblErrorRegistoClienteJuridicoCapitalUsuarioRepetido)
+                                        .addComponent(lblErrorRegistoClienteJuridicoCapitalDisponilbe2))))
+                            .addComponent(jLabel42)
+                            .addGroup(PanelPersonaJuridicaLayout.createSequentialGroup()
+                                .addComponent(jLabel22)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel43))
                             .addGroup(PanelPersonaJuridicaLayout.createSequentialGroup()
                                 .addComponent(jLabel26)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblErrorRegistoClienteJuridicoRif))))
+                                .addComponent(lblErrorRegistoClienteJuridicoRif)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(PanelPersonaJuridicaLayout.createSequentialGroup()
                         .addComponent(jbtnRegistroCLienteJuridico, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -782,12 +741,12 @@ public class RegistroCliente extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(PanelPersonaJuridicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jLabel17)
-                    .addComponent(jComboBoxRegistroCLienteJuridicoEstadoDireccionFiscal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18)
                     .addComponent(jLabel19)
                     .addComponent(jComboBoxRegistroCLienteJuridicoParroquiaDireccionFiscal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBoxRegistroCLienteJuridicoMunicipioDireccionFiscal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxRegistroCLienteJuridicoMunicipioDireccionFiscal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel32)
+                    .addComponent(jComboBoxRegistroCLienteJuridicoEstadoDireccionFiscal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19)
                 .addGroup(PanelPersonaJuridicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -846,7 +805,7 @@ public class RegistroCliente extends javax.swing.JFrame {
                 .addGroup(PanelPersonaJuridicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtnRegistroCLienteJuridico)
                     .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         jScrollPanePersonaJuridica.setViewportView(PanelPersonaJuridica);
@@ -876,8 +835,8 @@ public class RegistroCliente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jlblRegistroCLienteTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPaneRegistroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 591, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTabbedPaneRegistroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jtbtnRegistroCLienteVolver)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -968,7 +927,7 @@ public class RegistroCliente extends javax.swing.JFrame {
            
                 
                 setTitle("Bienvenido");
-		setResizable(false);
+		//setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setVisible(true);
@@ -995,7 +954,6 @@ public class RegistroCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -1012,6 +970,7 @@ public class RegistroCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
@@ -1036,6 +995,7 @@ public class RegistroCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
@@ -1043,7 +1003,6 @@ public class RegistroCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel64;
     private javax.swing.JLabel jLabel65;
-    private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;

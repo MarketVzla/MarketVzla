@@ -137,7 +137,7 @@ public class LoginVista extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panelLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 569, Short.MAX_VALUE)
+                .addComponent(panelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 569, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
