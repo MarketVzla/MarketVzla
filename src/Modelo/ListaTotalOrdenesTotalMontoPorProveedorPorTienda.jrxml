@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="70c4293b-c99a-4b97-af91-e530439b9c06">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[select count(des_codigo)as nroOrdenes, sum(des_monto)as monto,pro_razonsocial,tie_nombre
+from despacho, proveedor, tienda
+where des_fk_tienda=tie_codigo and des_fk_proveedor=pro_rif
+group by tie_nombre, pro_razonsocial
+order by tie_nombre,pro_razonsocial]]>
+	</queryString>
+	<field name="nroordenes" class="java.lang.Long"/>
+	<field name="monto" class="java.math.BigDecimal"/>
+	<field name="pro_razonsocial" class="java.lang.String"/>
+	<field name="tie_nombre" class="java.lang.String"/>
+	<group name="tie_nombre">
+		<groupExpression><![CDATA[$F{tie_nombre}]]></groupExpression>
+		<groupHeader>
+			<band height="33">
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="0" width="100" height="32" forecolor="#666666" backcolor="#E6E6E6" uuid="110ea7db-f2ea-4928-bebc-4845fb2e1c71"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Tienda]]></text>
+				</staticText>
+				<textField>
+					<reportElement mode="Opaque" x="100" y="0" width="455" height="32" forecolor="#006699" backcolor="#E6E6E6" uuid="90321726-bc20-45e9-8361-5639fafb6802"/>
+					<textElement>
+						<font size="24" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tie_nombre}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="-20" y="32" width="595" height="1" forecolor="#666666" uuid="0e2e442a-6ab1-4476-a758-146d3af7274a"/>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="pro_razonsocial">
+		<groupExpression><![CDATA[$F{pro_razonsocial}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<textField>
+					<reportElement x="100" y="0" width="455" height="32" forecolor="#006699" uuid="033348c5-5ffa-4cdc-8d08-0be57733f4ed"/>
+					<textElement>
+						<font size="22" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{pro_razonsocial}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="20" forecolor="#666666" uuid="d064615b-dfd0-438b-9225-13dac355fa1b"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Proveedor]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="nroordenes">
+		<groupExpression><![CDATA[$F{nroordenes}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<textField>
+					<reportElement x="100" y="0" width="455" height="32" forecolor="#006699" uuid="09a87521-528c-48d5-a385-917508ec2ba0"/>
+					<textElement>
+						<font size="20" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nroordenes}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="20" forecolor="#666666" uuid="8e4cee7b-1a59-4083-b050-ef58bf47704e"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Nro Ordenes]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="monto">
+		<groupExpression><![CDATA[$F{monto}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<textField>
+					<reportElement x="100" y="0" width="455" height="32" forecolor="#006699" uuid="44d91adc-f112-43ea-8eab-a3aa836f5492"/>
+					<textElement>
+						<font size="16" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{monto}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="20" forecolor="#666666" uuid="c468936d-504c-41b4-a18b-b7fe62feb2a5"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Monto Total]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="ae51c453-cff0-4a1f-84f3-6871ce7c6071"/>
+				<staticText>
+					<reportElement x="20" y="20" width="256" height="59" forecolor="#FFFFFF" uuid="c8fc3324-b491-4f1f-9e88-97ed4c8382c2"/>
+					<textElement textAlignment="Center">
+						<font size="20" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Total Ordenes y Monto por Proveedor Por Tienda]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="320" y="33" width="255" height="43" forecolor="#FFFFFF" uuid="1bd576dd-39b2-44cd-b0fc-77d955fd6e16"/>
+					<textElement textAlignment="Center">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Lista Total de Ordenes y montos totales por Proveedor Por Tienda]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="8ee51ba1-6e53-4bd2-bbc4-c37a9cf38267"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="176be757-0e10-4264-a863-70dff79595bf"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="3a080df6-a4b4-4f5b-9a75-e171577478f4"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="fee7f081-81c9-455f-9430-292c342048bc"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="993f1ed8-b327-4910-bf1b-260f469d671d"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
