@@ -31,7 +31,7 @@ public class MaketVenezuelaPrincipal {
             }
             
             PrincipalModel.InicirarPrincipalModel("postgres","1234","marketvenezuela","localhost:5432");
-           Lugar.llenarLugares();
+          // Lugar.llenarLugares();
             
             loginVista = new LoginVista();
             loginController = new LoginController(loginVista);
