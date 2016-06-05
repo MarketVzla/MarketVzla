@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JLabel;
@@ -20,47 +21,45 @@ import javax.swing.JOptionPane;
  */
 public class LoginModel {
 
+ public static ArrayList<RolPermiso> usuarios = new ArrayList<RolPermiso>();
 
-
-  
+    
    
-    public static void  ValidarLogin (String nick,String pass){ //Busca por nick y pass
-     
+    public static void  Login (){ //Busca por nick y pass
+     RolPermiso user ;
         try {
         PrincipalModel.setStm(
                 PrincipalModel.getCon().createStatement());
        
         String sql;
-            sql = "SELECT * FROM rol_per where rp_nick = '"+nick+"' and rp_contraseña='"+pass+"';"; //Consulta
+            sql = "SELECT * FROM usuario;"; //Consulta
          ResultSet rs =PrincipalModel.getStm().executeQuery(sql);
-            ResultSetMetaData rsmd = rs.getMetaData();
+           
 
             
  
                 
                    while (rs.next()) {   
-                            System.out.println("entra");
-                    String rp_codigo = rs.getString("rp_codigo");
-                     String rp_nick = rs.getString("rp_nick");
-                     String rp_contraseña = rs.getString("rp_contraseña");
-                     String rp_preguntasecreta = rs.getString("rp_preguntasecreta");
+                            
+                    
+                     String rp_nick = rs.getString("usu_nick");
+                     String rp_contraseña = rs.getString("usu_contraseña");
+                    /* String rp_preguntasecreta = rs.getString("rp_preguntasecreta");
                      String rp_respuestasecreta = rs.getString("rp_respuestasecreta");
                      int rp_fk_rol= rs.getInt("rp_fk_rol");
                      int rp_fk_permiso = rs.getInt("rp_fk_permiso");
                     int rp_fk_empleado= (rs.getInt("rp_fk_empleado"));
                      int rp_fk_juridico= (rs.getInt("rp_fk_juridico"));
-                     int rp_fk_natural= ((rs.getInt("rp_fk_natural")));
+                     int rp_fk_natural= ((rs.getInt("rp_fk_natural")));*/
 
-                           
+                           user = new RolPermiso();
 
-                                             
+                                           
                          
+                                               user.setRp_nick(rp_nick);
+                                           user.setRp_contraseña(rp_contraseña);
                        
-                           
-                           
-                       RolPermiso.iniciarRolPermiso(rp_codigo, rp_nick, rp_contraseña, rp_preguntasecreta,
-                                    rp_respuestasecreta, rp_fk_rol, rp_fk_permiso,
-                                    rp_fk_empleado, rp_fk_juridico, rp_fk_natural);
+                       usuarios.add(user);
                        
                                            
                       
@@ -87,6 +86,24 @@ public class LoginModel {
         
     }
     
+    public static  int validarLog(String nick,String pass){
+        int value =0;
+        for (int i = 0; i <  usuarios .size(); i++) {
+           
+            if(! usuarios.isEmpty()){
+                
+                     if( usuarios.get(i).getRp_nick().equals(nick) && 
+                             usuarios.get(i).getRp_contraseña().equals(pass)){
+                        value=1;
+                     }
+               
+
+                
+            }else {System.out.println("Lista Vacia get LugarFK");}
+        }
+        
+        return value;
+    }
     
     
     public static void SalirLogin(){

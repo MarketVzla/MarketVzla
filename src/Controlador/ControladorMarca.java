@@ -32,7 +32,7 @@ public class ControladorMarca {
             
             s = connection.createStatement();
             
-            int z = s.executeUpdate("insert into marca (mar_nombre,mar_descripcion,mar_interna) values ('"+mar_nombre+"','"+mar_descripcion+"',"+interna+") )");
+            int z = s.executeUpdate("insert into marca (mar_nombre,mar_descripcion,mar_interna) values ('"+mar_nombre+"','"+mar_descripcion+"',TRUE )");
 
             
           //  int z = s.executeUpdate("insert into proveedor (pro_rif,pro_razonsocial,pro_denominacioncomercial,pro_paginaweb,pro_fk_lugar_fisica,pro_fk_lugar_fiscal,pro_fk_marca) values ('"+rif+"','"+razonSocial+"','"+denominacionComercial+"','"+paginaWeb+"',"+lugarFisico+","+lugarFiscal+","+marca+")");
@@ -95,7 +95,7 @@ public class ControladorMarca {
      * @param lugar
      * @return 
      */
-    public static boolean ActualizarMarca (String nombre,String nombrenuevo,String descripcion, boolean estado){
+    public static boolean ActualizarMarca (String nombre,String nombrenuevo,String descripcion){
         java.sql.Connection connection = null;
         Statement s = null;
         
@@ -108,7 +108,7 @@ public class ControladorMarca {
             
             s = connection.createStatement();
             
-            int z = s.executeUpdate("update marca set mar_nombre='"+nombrenuevo+"', mar_descripcion='"+descripcion+"', mar_estado='"+estado+"' where mar_nombre='"+nombre+"'");
+            int z = s.executeUpdate("update marca set mar_nombre='"+nombrenuevo+"', mar_descripcion='"+descripcion+"' where mar_nombre='"+nombre+"'");
             
             if (z==1){
                 System.out.println("Se actualizo el registro");
@@ -144,12 +144,13 @@ public class ControladorMarca {
             
             s = connection.createStatement();
             
-            rs = s.executeQuery("select mar_nombre, mar_descripcion, mar_interna from marca where mar_nombre ='"+marca+"'");
+            rs = s.executeQuery("select mar_codigo, mar_nombre, mar_descripcion, mar_interna from marca where mar_nombre ='"+marca+"'");
             
             while (rs.next()){
                 tiendas.add(rs.getString(1));
                 tiendas.add(rs.getString(2));
                 tiendas.add(rs.getString(3));
+                tiendas.add(rs.getString(4));
             }
             return tiendas;
         }catch(Exception e){
@@ -172,7 +173,7 @@ public class ControladorMarca {
             
             s = connection.createStatement();
             
-            rs = s.executeQuery("select mar_nombre, mar_descripcion, mar_interna from marca where mar_nombre like '"+marca+"%' limit 10");
+            rs = s.executeQuery("select mar_nombre, mar_descripcion, mar_interna from marca where mar_nombre like '"+marca+"%' limit 20");
             
             while (rs.next()){
                 tiendas.add(rs.getString(1));
@@ -186,4 +187,30 @@ public class ControladorMarca {
         return null;
     }
     
+     public static ArrayList<String> ArregloMarcas (){
+        ArrayList<String> tiendas= new ArrayList();
+        java.sql.Connection connection = null;
+        ResultSet rs = null;
+        Statement s = null;
+        String url = "jdbc:postgresql://localhost:"+Etiquetas.puerto+"/"+Etiquetas.nombrebd+"";
+        
+        try {
+            Class.forName("org.postgresql.Driver");
+            
+            connection = DriverManager.getConnection(url, "postgres", Etiquetas.contraseña);
+            
+            s = connection.createStatement();
+            
+            rs = s.executeQuery("select mar_nombre from marca  ");
+            
+            while (rs.next()){
+                tiendas.add(rs.getString(1));
+               
+            }
+            return tiendas;
+        }catch(Exception e){
+            System.err.println("Error de Conexion");
+        }
+        return null;
+    }
 }

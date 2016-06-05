@@ -23,6 +23,7 @@ public class AdministradorZona extends javax.swing.JFrame {
      */
     public AdministradorZona() {
         initComponents();
+             getContentPane().setBackground(java.awt.Color.white);
         defaultTableModel.addColumn("Nombre");
         defaultTableModel.addColumn("Descripcion");
         jTable1.setModel(defaultTableModel);

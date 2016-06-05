@@ -53,6 +53,11 @@ public class LoginVista extends javax.swing.JFrame {
         lblLoginPass.setText("Contraseña");
 
         jbtnLogin.setText("Login");
+        jbtnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnLoginActionPerformed(evt);
+            }
+        });
 
         jbtnRegistrar.setText("Registrar");
 
@@ -77,12 +82,12 @@ public class LoginVista extends javax.swing.JFrame {
         panelLoginLayout.setHorizontalGroup(
             panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLoginLayout.createSequentialGroup()
-                .addGap(89, 89, 89)
+                .addContainerGap()
                 .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblLoginRegistro)
                     .addComponent(lblLoginPass)
                     .addComponent(LblLoginUsuario))
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLoginLayout.createSequentialGroup()
                         .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -93,7 +98,7 @@ public class LoginVista extends javax.swing.JFrame {
                         .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblLoginErrorUsuario)
                             .addComponent(lblLoginErrorPass))
-                        .addGap(197, 197, 197))
+                        .addGap(161, 161, 161))
                     .addGroup(panelLoginLayout.createSequentialGroup()
                         .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jbtnSalir)
@@ -103,12 +108,12 @@ public class LoginVista extends javax.swing.JFrame {
                                 .addComponent(jbtnRecuperarPass)))
                         .addGap(18, 18, 18)
                         .addComponent(lblLoginRecuperarPass)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(154, Short.MAX_VALUE))))
         );
         panelLoginLayout.setVerticalGroup(
             panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLoginLayout.createSequentialGroup()
-                .addGap(120, 120, 120)
+                .addGap(21, 21, 21)
                 .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LblLoginUsuario)
                     .addComponent(textLoginUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -128,17 +133,14 @@ public class LoginVista extends javax.swing.JFrame {
                     .addComponent(lblLoginRecuperarPass))
                 .addGap(29, 29, 29)
                 .addComponent(jbtnSalir)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 569, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(panelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 581, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,6 +152,10 @@ public class LoginVista extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jbtnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnLoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbtnLoginActionPerformed
 
 public void setLoginController (LoginController controller){
     jbtnLogin.addActionListener(controller);

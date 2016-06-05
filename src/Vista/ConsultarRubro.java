@@ -21,6 +21,7 @@ public class ConsultarRubro extends javax.swing.JFrame {
      */
     public ConsultarRubro() {
         initComponents();
+             getContentPane().setBackground(java.awt.Color.white);
         this.rubro="Congelados";
         this.almacen="Refrigeracion";
         this.tienda="Market Venezuela CCS";

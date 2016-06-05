@@ -27,6 +27,7 @@ public class RegistrarTienda extends javax.swing.JFrame {
      */
     public RegistrarTienda() {
         initComponents();
+             getContentPane().setBackground(java.awt.Color.white);
         this.administracionDeTiendas=administracionDeTiendas;
         llenarComboBoxDeLugar();
         jComboBox_lugarmunicipio.addItem("   ");

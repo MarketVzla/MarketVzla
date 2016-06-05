@@ -16,6 +16,7 @@ public class AdministradorProductos extends javax.swing.JFrame {
      */
     public AdministradorProductos() {
         initComponents();
+             getContentPane().setBackground(java.awt.Color.white);
     }
 
     /**

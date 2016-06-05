@@ -20,6 +20,7 @@ public class RegistroProveedor extends javax.swing.JFrame {
      */
     public RegistroProveedor() {
         initComponents();
+             getContentPane().setBackground(java.awt.Color.white);
     }
 
         public static void main(String args[]) {

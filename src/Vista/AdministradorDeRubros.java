@@ -21,6 +21,7 @@ public class AdministradorDeRubros extends javax.swing.JFrame {
      */
     public AdministradorDeRubros() {
         initComponents();
+             getContentPane().setBackground(java.awt.Color.white);
         defaultTableModel.addColumn("Nombre");
         defaultTableModel.addColumn("Descripcion");
         jTable1.setModel(defaultTableModel);

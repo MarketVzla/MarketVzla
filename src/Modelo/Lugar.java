@@ -127,7 +127,7 @@ public class Lugar {
            
             if(!lugarList.isEmpty()){
                 
-                     if(lugarList.get(i).getLugar().equals(fkLugar)){
+                     if(lugarList.get(i).getCodigo().equals(fkLugar)){
                     combo.addItem(lugarList.get(i).nombre);
                 }
                
@@ -135,6 +135,23 @@ public class Lugar {
                 
             }else {System.out.println("Lista Vacia get LugarFK");}
         }
+    }
+    
+    public static String lugarFK(String fkLugar){
+        String nombre="";
+        for (int i = 0; i < lugarList.size(); i++) {
+           
+            if(!lugarList.isEmpty()){
+                
+                     if(lugarList.get(i).getCodigo().equals(fkLugar)){
+                        nombre=lugarList.get(i).getNombre();
+                }
+               
+
+                
+            }else {System.out.println("Lista Vacia get LugarFK");}
+        }
+        return nombre;
     }
     
     public static void llenarLugares(){
@@ -170,5 +187,7 @@ public class Lugar {
         }
     
     }
+   
+    
     
 }

@@ -23,6 +23,7 @@ public class AdministracionDeTiendas extends javax.swing.JFrame {
      */
     public AdministracionDeTiendas() {
         initComponents();
+             getContentPane().setBackground(java.awt.Color.white);
         defaultTableModel.addColumn("Nombre");
         defaultTableModel.addColumn("Fecha");
         defaultTableModel.addColumn("Valor Puntos");
@@ -53,6 +54,7 @@ public class AdministracionDeTiendas extends javax.swing.JFrame {
         jButton1Consultar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel_tiendas.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel_tiendas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -121,16 +123,16 @@ public class AdministracionDeTiendas extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                             .addGap(34, 34, 34)
                             .addComponent(jLabel_tiendas, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(154, 154, 154)
-                            .addComponent(jTextField_NombreTienda, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jButton_NuevaTienda))))
+                            .addGap(472, 472, 472)
+                            .addComponent(jButton_NuevaTienda)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jTextField_NombreTienda, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton1Eliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -144,8 +146,8 @@ public class AdministracionDeTiendas extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addComponent(jLabel_tiendas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton_NuevaTienda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton_NuevaTienda)
                     .addComponent(jTextField_NombreTienda))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,7 +158,7 @@ public class AdministracionDeTiendas extends javax.swing.JFrame {
                         .addComponent(jButton1Modificar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton1Consultar)))
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();

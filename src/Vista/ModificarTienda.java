@@ -28,6 +28,7 @@ public class ModificarTienda extends javax.swing.JFrame {
      */
     public ModificarTienda() {
         initComponents();
+             getContentPane().setBackground(java.awt.Color.white);
         simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         llenarComboBoxDeLugar();
         this.tienda="Market Venezuela CCS";

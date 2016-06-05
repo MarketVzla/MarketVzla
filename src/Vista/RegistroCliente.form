@@ -72,8 +72,8 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jlblRegistroCLienteTitulo" min="-2" pref="46" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTabbedPaneRegistroCliente" min="-2" pref="591" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jTabbedPaneRegistroCliente" min="-2" pref="620" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jtbtnRegistroCLienteVolver" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -124,73 +124,6 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="jLabel40" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel35" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel34" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel33" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel31" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel30" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel28" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="textRegistroCLienteNaturalNombre" alignment="0" pref="169" max="32767" attributes="0"/>
-                                              <Component id="textRegistroCLienteNaturalSegundoNombre" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="textRegistroCLienteNaturalApellido" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="textRegistroCLienteNaturalTelefono" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="textRegistroCLienteNaturalSegundoApellido" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="textRegistroCLienteNaturalCedula" alignment="1" max="32767" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel57" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="lblErrorRegistoClienteNaturalCedula" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel65" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="lblErrorRegistoClienteNaturalTelefono" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Component id="lblErrorRegistoClienteNaturalPrimerNombre" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblErrorRegistoClienteNaturalSegundoNOmbre" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblErrorRegistoClienteNaturalApellido" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblErrorRegistoClienteNaturalSegundoApellido" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <Component id="jLabel52" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jComboBoxRegistroCLienteNaturalEstado" min="-2" pref="152" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="jLabel53" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jComboBoxRegistroCLienteNaturalMunicipio" min="-2" pref="138" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jLabel54" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="jComboBoxRegistroCLienteNaturalParroquia" pref="149" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  <Component id="jLabel49" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="textRegistroCLienteNaturalRif" min="-2" pref="169" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jLabel66" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lblErrorRegistoClienteNaturalRif" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="254" max="-2" attributes="0"/>
-                              </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
@@ -240,24 +173,93 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
-                                  <Component id="jLabel37" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="textRegistroCLienteNaturalEmail" min="-2" pref="171" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <Component id="jLabel61" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="lblErrorRegistoClienteNaturalEmail1" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <Component id="jLabel55" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="jLabel40" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel35" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel34" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel33" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel31" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel30" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel28" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel49" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          </Group>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="lblErrorRegistoClienteNaturalEmail" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Component id="textRegistroCLienteNaturalNombre" alignment="0" pref="169" max="32767" attributes="0"/>
+                                                      <Component id="textRegistroCLienteNaturalSegundoNombre" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="textRegistroCLienteNaturalApellido" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="textRegistroCLienteNaturalTelefono" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="textRegistroCLienteNaturalSegundoApellido" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="textRegistroCLienteNaturalCedula" alignment="1" max="32767" attributes="0"/>
+                                                      <Component id="textRegistroCLienteNaturalRif" alignment="0" max="32767" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="jLabel65" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                          <Component id="lblErrorRegistoClienteNaturalTelefono" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Component id="lblErrorRegistoClienteNaturalPrimerNombre" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lblErrorRegistoClienteNaturalSegundoNOmbre" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lblErrorRegistoClienteNaturalApellido" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lblErrorRegistoClienteNaturalSegundoApellido" min="-2" max="-2" attributes="0"/>
+                                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                                          <Group type="102" attributes="0">
+                                                              <Component id="jLabel58" min="-2" max="-2" attributes="0"/>
+                                                              <EmptySpace max="32767" attributes="0"/>
+                                                              <Component id="lblErrorRegistoClienteNaturalRif" min="-2" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <Group type="102" attributes="0">
+                                                              <Component id="jLabel57" min="-2" max="-2" attributes="0"/>
+                                                              <EmptySpace max="-2" attributes="0"/>
+                                                              <Component id="lblErrorRegistoClienteNaturalCedula" min="-2" max="-2" attributes="0"/>
+                                                          </Group>
+                                                      </Group>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="jLabel52" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="jComboBoxRegistroCLienteNaturalEstado" min="-2" pref="152" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="jLabel53" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="jComboBoxRegistroCLienteNaturalMunicipio" min="-2" pref="138" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="jLabel54" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="jComboBoxRegistroCLienteNaturalParroquia" min="-2" pref="107" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
+                                          <Component id="jLabel37" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="textRegistroCLienteNaturalEmail" min="-2" pref="171" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Component id="jLabel61" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="lblErrorRegistoClienteNaturalEmail1" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="jLabel55" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="lblErrorRegistoClienteNaturalEmail" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
                                       </Group>
                                   </Group>
+                                  <EmptySpace min="0" pref="89" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -308,39 +310,28 @@
                               <Component id="lblErrorRegistoClienteNaturalTelefono" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel65" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel35" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel57" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblErrorRegistoClienteNaturalCedula" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel66" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblErrorRegistoClienteNaturalRif" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="textRegistroCLienteNaturalCedula" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="textRegistroCLienteNaturalRif" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel49" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="textRegistroCLienteNaturalEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel37" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel55" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblErrorRegistoClienteNaturalEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-                              </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel35" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel57" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblErrorRegistoClienteNaturalCedula" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="textRegistroCLienteNaturalCedula" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace pref="20" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel49" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="textRegistroCLienteNaturalRif" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblErrorRegistoClienteNaturalRif" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel58" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="textRegistroCLienteNaturalEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel37" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel55" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblErrorRegistoClienteNaturalEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel45" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="textRegistroCLienteNaturalUser" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -374,7 +365,7 @@
                           <Component id="jLabel60" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                           <Component id="jbtnRegistroCLienteNatural" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="55" max="32767" attributes="0"/>
+                          <EmptySpace pref="64" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -464,11 +455,6 @@
                   </AuxValues>
                 </Component>
                 <Component class="javax.swing.JTextField" name="textRegistroCLienteNaturalTelefono">
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-                  </AuxValues>
-                </Component>
-                <Component class="javax.swing.JTextField" name="textRegistroCLienteNaturalRif">
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                   </AuxValues>
@@ -650,36 +636,12 @@
                     <Property name="text" type="java.lang.String" value="(2222)222-2222"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel49">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="RIF"/>
-                  </Properties>
-                </Component>
                 <Component class="javax.swing.JTextField" name="textRegistroCLienteNaturalCedula">
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                   </AuxValues>
                 </Component>
                 <Component class="javax.swing.JTextField" name="textRegistroCLienteNaturalRespuestaSecreta">
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-                  </AuxValues>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel66">
-                  <Properties>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="0" green="0" red="ff" type="rgb"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="(*)"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lblErrorRegistoClienteNaturalRif">
-                  <Properties>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="0" green="0" red="ff" type="rgb"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Error, ingresar una cedula correcta"/>
-                  </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                   </AuxValues>
@@ -750,6 +712,35 @@
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                   </AuxValues>
                 </Component>
+                <Component class="javax.swing.JLabel" name="jLabel49">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="RIF"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="textRegistroCLienteNaturalRif">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblErrorRegistoClienteNaturalRif">
+                  <Properties>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="0" green="0" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Error, ingresar una cedula correcta"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel58">
+                  <Properties>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="0" green="0" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="(*)"/>
+                  </Properties>
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>
@@ -799,7 +790,10 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel32" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Group type="102" alignment="1" attributes="0">
                                           <EmptySpace max="-2" attributes="0"/>
@@ -809,7 +803,11 @@
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
                                               </Group>
-                                              <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="jComboBoxRegistroCLienteJuridicoEstadoDireccionFiscal" max="32767" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                                  <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -833,16 +831,9 @@
                                               <Component id="lblErrorRegistoClienteJuridicoWeb" min="-2" max="-2" attributes="0"/>
                                               <Component id="lblErrorRegistoClienteJuridicoTelefono" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          <EmptySpace min="0" pref="191" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jComboBoxRegistroCLienteJuridicoEstadoDireccionFiscal" min="-2" pref="123" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="438" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -959,12 +950,12 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jComboBoxRegistroCLienteJuridicoEstadoDireccionFiscal" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jComboBoxRegistroCLienteJuridicoParroquiaDireccionFiscal" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jComboBoxRegistroCLienteJuridicoMunicipioDireccionFiscal" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel32" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jComboBoxRegistroCLienteJuridicoEstadoDireccionFiscal" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -1037,7 +1028,7 @@
                               <Component id="jbtnRegistroCLienteJuridico" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel27" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="35" max="32767" attributes="0"/>
+                          <EmptySpace pref="52" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1193,17 +1184,6 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="jComboBoxRegistroCLienteJuridicoParroquiaDireccionFisica">
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value=""/>
-                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-                  </AuxValues>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel17">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Estado:"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBoxRegistroCLienteJuridicoEstadoDireccionFiscal">
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value=""/>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1459,6 +1439,17 @@
                     <Property name="text" type="java.lang.String" value="Campo Obligatorio"/>
                   </Properties>
                   <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel32">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Estado:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="jComboBoxRegistroCLienteJuridicoEstadoDireccionFiscal">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value=""/>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                   </AuxValues>
                 </Component>

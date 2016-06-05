@@ -10,7 +10,7 @@ package Modelo;
  * @author migue
  */
 public class EmpleadoHorario {
-    String codigoHorario,fechaInicioHorario,fechafinHorario;
+    String codigoHorario,diaHorario,horarioInicial,horarioFinal;
 
     public String getCodigoHorario() {
         return codigoHorario;
@@ -20,21 +20,31 @@ public class EmpleadoHorario {
         this.codigoHorario = codigoHorario;
     }
 
-    public String getFechaInicioHorario() {
-        return fechaInicioHorario;
+    public String getDiaHorario() {
+        return diaHorario;
     }
 
-    public void setFechaInicioHorario(String fechaInicioHorario) {
-        this.fechaInicioHorario = fechaInicioHorario;
+    public void setDiaHorario(String diaHorario) {
+        this.diaHorario = diaHorario;
     }
 
-    public String getFechafinHorario() {
-        return fechafinHorario;
+    public String getHorarioInicial() {
+        return horarioInicial;
     }
 
-    public void setFechafinHorario(String fechafinHorario) {
-        this.fechafinHorario = fechafinHorario;
+    public void setHorarioInicial(String horarioInicial) {
+        this.horarioInicial = horarioInicial;
     }
+
+    public String getHorarioFinal() {
+        return horarioFinal;
+    }
+
+    public void setHorarioFinal(String horarioFinal) {
+        this.horarioFinal = horarioFinal;
+    }
+
+   
     
     
     

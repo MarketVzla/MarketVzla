@@ -23,17 +23,13 @@ public class AdministradorPasillos extends javax.swing.JFrame {
      */
     public AdministradorPasillos() {
         initComponents();
+             getContentPane().setBackground(java.awt.Color.white);
         defaultTableModel.addColumn("Numero");
         defaultTableModel.addColumn("Descripcion");
         jTable1.setModel(defaultTableModel);
         jTable1.getColumnModel().getColumn(0).setWidth(150);
         jTable1.getColumnModel().getColumn(1).setWidth(100);
         select=0;
-        
-        ArrayList<String> tiendas = Controlador.ControladorTienda.ArregloTiendas();
-        for(String tienda:tiendas){
-            jComboBox1.addItem(tienda);
-        }
     }
 
     /**
@@ -47,13 +43,13 @@ public class AdministradorPasillos extends javax.swing.JFrame {
 
         jLabel_tiendas = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jTextField1Tienda = new javax.swing.JTextField();
         jButton1Buscar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,19 +112,19 @@ public class AdministradorPasillos extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel_tiendas)
+                        .addGap(140, 140, 140)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(193, 193, 193)
+                                .addGap(53, 53, 53)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(98, 98, 98)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
+                                .addComponent(jTextField1Tienda, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
                                 .addComponent(jButton1Buscar)))))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 79, Short.MAX_VALUE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(115, Short.MAX_VALUE))
         );
@@ -144,8 +140,8 @@ public class AdministradorPasillos extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1Buscar, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-                            .addComponent(jComboBox1))))
+                            .addComponent(jTextField1Tienda)
+                            .addComponent(jButton1Buscar, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -159,11 +155,12 @@ public class AdministradorPasillos extends javax.swing.JFrame {
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1BuscarActionPerformed
         // TODO add your handling code here:
+        if(!jTextField1Tienda.getText().equals(""))
+        {
             
             defaultTableModel = new DefaultTableModel();
             defaultTableModel.addColumn("Numero");
@@ -173,7 +170,7 @@ public class AdministradorPasillos extends javax.swing.JFrame {
             jTable1.getColumnModel().getColumn(1).setWidth(100);
             
             try{
-                ArrayList<String> pasillos = Controlador.ControladorPasillo.BuscarPasillos(jComboBox1.getSelectedItem().toString());
+                ArrayList<String> pasillos = Controlador.ControladorPasillo.BuscarPasillos(jTextField1Tienda.getText());
                 int i=0;
                 while (i<pasillos.size())
                 {
@@ -186,14 +183,17 @@ public class AdministradorPasillos extends javax.swing.JFrame {
             {
                 
             }
+        }
     }//GEN-LAST:event_jButton1BuscarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        if(!jTextField1Tienda.getText().equals(""))
+        {
             this.setVisible(false);
-            RegistrarPasillo registrarPasillo = new RegistrarPasillo(this, jComboBox1.getSelectedItem().toString());
+            RegistrarPasillo registrarPasillo = new RegistrarPasillo(this, jTextField1Tienda.getText());
             registrarPasillo.setVisible(true);
-        
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
@@ -204,7 +204,9 @@ public class AdministradorPasillos extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         try{
-                if(Controlador.ControladorPasillo.EliminarPasillo(Integer.parseInt((String)defaultTableModel.getValueAt(select, 0)), jComboBox1.getSelectedItem().toString()))
+            if(!jTextField1Tienda.getText().equals(""))
+            {
+                if(Controlador.ControladorPasillo.EliminarPasillo(Integer.parseInt((String)defaultTableModel.getValueAt(select, 0)), jTextField1Tienda.getText()))
                 {
                     JOptionPane.showMessageDialog(rootPane, "Pasillo Eliminado", "Pasillo", JOptionPane.INFORMATION_MESSAGE);
                 }
@@ -212,7 +214,7 @@ public class AdministradorPasillos extends javax.swing.JFrame {
                 {
                     JOptionPane.showMessageDialog(rootPane, "Error al Eliminar", "Pasillo", JOptionPane.ERROR_MESSAGE);
                 }
-            
+            }
         }
         catch(Exception e)
         {
@@ -222,10 +224,12 @@ public class AdministradorPasillos extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        if(!jTextField1Tienda.getText().equals(""))
+        {
             try
             {
                 this.setVisible(false);
-                ModificarPasillo modificarPasillo = new ModificarPasillo(this, (String)defaultTableModel.getValueAt(select, 0), jComboBox1.getSelectedItem().toString());
+                ModificarPasillo modificarPasillo = new ModificarPasillo(this, (String)defaultTableModel.getValueAt(select, 0), jTextField1Tienda.getText());
                 modificarPasillo.setVisible(true);
             }
             catch(Exception e)
@@ -233,7 +237,7 @@ public class AdministradorPasillos extends javax.swing.JFrame {
                 
             }
             
-        
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
@@ -276,10 +280,10 @@ public class AdministradorPasillos extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel_tiendas;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1Tienda;
     // End of variables declaration//GEN-END:variables
 }

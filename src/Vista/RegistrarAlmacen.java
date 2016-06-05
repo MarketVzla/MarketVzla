@@ -25,6 +25,7 @@ public class RegistrarAlmacen extends javax.swing.JFrame {
      */
     public RegistrarAlmacen() {
         initComponents();
+             getContentPane().setBackground(java.awt.Color.white);
         this.tienda="Market Venezuela CCS";
         listModel = new DefaultListModel();
       

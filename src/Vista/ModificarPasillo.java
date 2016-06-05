@@ -19,6 +19,7 @@ public class ModificarPasillo extends javax.swing.JFrame {
      */
     public ModificarPasillo() {
         initComponents();
+             getContentPane().setBackground(java.awt.Color.white);
     }
     
     private AdministradorPasillos administradorPasillos;

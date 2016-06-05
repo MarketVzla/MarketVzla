@@ -44,6 +44,7 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="jDateChooser_fechatienda" alignment="1" max="32767" attributes="0"/>
                           <Component id="jTextField_nombretienda" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jComboBox_lugarestado" min="-2" pref="100" max="-2" attributes="0"/>
@@ -53,7 +54,6 @@
                               <Component id="jComboBox_lugarparroquia" min="-2" pref="100" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jTextField_valorpuntostienda" alignment="1" min="-2" pref="320" max="-2" attributes="0"/>
-                          <Component id="jDateChooser_fechatienda" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -71,28 +71,28 @@
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jTextField_nombretienda" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabel3" alignment="0" min="-2" pref="26" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel4" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                          <Component id="jComboBox_lugarestado" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jComboBox_lugarmunicipio" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jComboBox_lugarparroquia" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jLabel5" min="-2" pref="26" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="jDateChooser_fechatienda" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jTextField_nombretienda" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jLabel3" alignment="0" min="-2" pref="26" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jTextField_valorpuntostienda" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jLabel2" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel4" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                  <Component id="jComboBox_lugarestado" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jComboBox_lugarmunicipio" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jComboBox_lugarparroquia" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jLabel5" min="-2" pref="26" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jTextField_valorpuntostienda" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jLabel2" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Component id="jDateChooser_fechatienda" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -172,6 +172,11 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox_lugarparroquiaActionPerformed"/>
       </Events>
     </Component>
+    <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser_fechatienda">
+      <Properties>
+        <Property name="dateFormatString" type="java.lang.String" value="yyyy/MM/dd"/>
+      </Properties>
+    </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="4"/>
@@ -204,8 +209,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser_fechatienda">
     </Component>
   </SubComponents>
 </Form>

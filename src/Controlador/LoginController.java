@@ -28,10 +28,8 @@ public class LoginController implements ActionListener{
     
 
     public LoginController(LoginVista vistaLogin) {
-        
-        
-       
         this.vistaLogin = vistaLogin;
+        LoginModel.Login();
     }
 
     @Override
@@ -41,14 +39,15 @@ public class LoginController implements ActionListener{
            
            
            if(!vistaLogin.textLoginUsuario.getText().isEmpty())
-           {/*
-               String nick=(String)vistaLogin.textLoginUsuario.getText().toUpperCase(),
-                       pass=(String)vistaLogin.textLoginPassword.getText().toUpperCase();
+           {
+               String nick=(String)vistaLogin.textLoginUsuario.getText(),
+                       pass=(String)vistaLogin.textLoginPassword.getText();
              
-               LoginModel.ValidarLogin(nick, pass);
-                   RolPermiso.mostrarSession();
+              int value= LoginModel.validarLog(nick, pass);
+                  
+              //RolPermiso.mostrarSession();
                
-             */
+             if(value == 1){
                AdminVista vistaAdmin = new AdminVista();
                PermisoDAO modelPermiso = new PermisoDAO();
                AdminController controllerAdmin = new  AdminController (vistaAdmin,vistaLogin ,modelPermiso);
@@ -56,6 +55,7 @@ public class LoginController implements ActionListener{
                vistaAdmin .getVistaAdmin();
                 
                 vistaLogin.setVisible(false);
+             }
            } 
                 
         }

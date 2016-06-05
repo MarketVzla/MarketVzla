@@ -185,8 +185,7 @@ public class ControladorPasillo {
         }
         return null;
     }
-    
-    public static ArrayList<String> ArregloPasillos (String tienda){
+        public static ArrayList<String> ArregloPasillos (String tienda){
         ArrayList<String> tiendas= new ArrayList();
         java.sql.Connection connection = null;
         ResultSet rs = null;
