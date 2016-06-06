@@ -25,6 +25,7 @@ import javax.swing.SpinnerDateModel;
 import javax.swing.table.DefaultTableModel;
 import Modelo.ExpresionesRegulares;
 import Modelo.Lugar;
+import static Modelo.Lugar.ConsultarEstados;
 import Modelo.PermisoDAO;
 import Modelo.emp_hor;
 import Vista.AdminVista;
@@ -39,17 +40,193 @@ public class AdminController implements ActionListener,KeyListener{
     AdminVista adminView = new AdminVista();
     PermisoDAO modelPermisoDAO = new PermisoDAO();
     LoginVista loginview ;
+    public ArrayList<String> estados;
+    public ArrayList<String> municipios;
+    public ArrayList<String> parroquias;
+    public ArrayList<String> estadosJuridicoFiscal;
+    public ArrayList<String> municipiosJuridicoFiscal;
+    public ArrayList<String> parroquiasJuridicoFiscal;
+    public ArrayList<String> estadosJuridicoFisica;
+    public ArrayList<String> municipiosJuridicoFisica;
+    public ArrayList<String> parroquiasJuridicoFisica;
+    
     
     private int codigo_permiso;
     private String cedula;
     
     
+    public void LlenarLugares(){
+        adminView.jComboBoxRegistroCLienteNaturalMunicipio.removeAllItems();
+            adminView.jComboBoxRegistroCLienteNaturalParroquia.removeAllItems();
+            
+            adminView.jComboBoxRegistroCLienteJuridicoMunicipioDireccionFiscal.removeAllItems();
+             adminView.jComboBoxRegistroCLienteJuridicoParroquiaDireccionFiscal.removeAllItems();
+             
+            adminView.jComboBoxRegistroCLienteJuridicoMunicipioDireccionFisica.removeAllItems();
+            adminView.jComboBoxRegistroCLienteJuridicoParroquiaDireccionFisica.removeAllItems();
+            
+        estados = Lugar.ConsultarEstados(1);
+        int i=1;
+        while(i<=estados.size())
+        {
+            adminView.jComboBoxRegistroCLienteNaturalEstado.addItem(estados.get(i));
+            
+            i=i+2;
+        }
+       
+        
+            int estado=0;
+            for(i=0;i<estados.size();i++)
+            {
+                if(estados.get(i).equals( adminView.jComboBoxRegistroCLienteNaturalEstado.getSelectedItem()))
+                {
+                    estado=Integer.parseInt(estados.get(i-1));
+                    break;
+                }
+            }
+            municipios = Lugar.ConsultarMunicipios(estado);
+
+             i=1;
+
+            while(i<municipios.size())
+            { 
+               adminView.jComboBoxRegistroCLienteNaturalMunicipio.addItem(municipios.get(i));
+                i=i+2;
+            }
+         
+        
+        
+           
+            int parroquia=0;
+            for( i=0;i<municipios.size();i++)
+            {
+                if(municipios.get(i).equals(adminView.jComboBoxRegistroCLienteNaturalMunicipio.getSelectedItem()))
+                {
+                    parroquia=Integer.parseInt(municipios.get(i-1));
+                    break;
+                }
+            }
+            parroquias = Lugar.ConsultarParroquias(parroquia);
+
+            i=1;
+
+            while(i<parroquias.size())
+            {
+                adminView.jComboBoxRegistroCLienteNaturalParroquia.addItem(parroquias.get(i));
+                i=i+2;
+            }
+       //DIRECCION FISCAL
+       estadosJuridicoFiscal = Lugar.ConsultarEstados(1);
+         i=1;
+        while(i<=estadosJuridicoFiscal.size())
+        {
+        
+            adminView.jComboBoxRegistroCLienteJuridicoEstadoDireccionFiscal.addItem(estadosJuridicoFiscal.get(i));
+            i=i+2;
+        }
+       
+        
+            estado=0;
+            for(i=0;i<estadosJuridicoFiscal.size();i++)
+            {
+                if(estadosJuridicoFiscal.get(i).equals( adminView.jComboBoxRegistroCLienteJuridicoEstadoDireccionFiscal.getSelectedItem()))
+                {
+                    estado=Integer.parseInt(estadosJuridicoFiscal.get(i-1));
+                    break;
+                }
+            }
+            municipiosJuridicoFiscal = Lugar.ConsultarMunicipios(estado);
+
+             i=1;
+
+            while(i<municipiosJuridicoFiscal.size())
+            { 
+                adminView.jComboBoxRegistroCLienteJuridicoMunicipioDireccionFiscal.addItem(municipiosJuridicoFiscal.get(i));
+                i=i+2;
+            }
+         
+        
+        
+           
+             parroquia=0;
+            for( i=0;i<municipiosJuridicoFiscal.size();i++)
+            {
+                if(municipiosJuridicoFiscal.get(i).equals(adminView.jComboBoxRegistroCLienteJuridicoMunicipioDireccionFiscal.getSelectedItem()))
+                {
+                    parroquia=Integer.parseInt(municipiosJuridicoFiscal.get(i-1));
+                    break;
+                }
+            }
+            parroquiasJuridicoFiscal = Lugar.ConsultarParroquias(parroquia);
+
+            i=1;
+
+            while(i<parroquiasJuridicoFiscal.size())
+            {
+                adminView.jComboBoxRegistroCLienteJuridicoParroquiaDireccionFiscal.addItem(parroquiasJuridicoFiscal.get(i));
+                 i=i+2;
+            }
+            //DIRECCION Fisica
+       estadosJuridicoFisica = Lugar.ConsultarEstados(1);
+         i=1;
+        while(i<=estadosJuridicoFisica.size())
+        {
+        
+            adminView.jComboBoxRegistroCLienteJuridicoEstadoDireccionFisica.addItem(estadosJuridicoFisica.get(i));
+            i=i+2;
+        }
+       
+        
+            estado=0;
+            for(i=0;i<estadosJuridicoFisica.size();i++)
+            {
+                if(estadosJuridicoFisica.get(i).equals( adminView.jComboBoxRegistroCLienteJuridicoEstadoDireccionFisica.getSelectedItem()))
+                {
+                    estado=Integer.parseInt(estadosJuridicoFisica.get(i-1));
+                    break;
+                }
+            }
+            municipiosJuridicoFisica = Lugar.ConsultarMunicipios(estado);
+
+             i=1;
+
+            while(i<municipiosJuridicoFisica.size())
+            { 
+                adminView.jComboBoxRegistroCLienteJuridicoMunicipioDireccionFisica.addItem(municipiosJuridicoFisica.get(i));
+                i=i+2;
+            }
+         
+        
+        
+           
+             parroquia=0;
+            for( i=0;i<municipiosJuridicoFisica.size();i++)
+            {
+                if(municipiosJuridicoFisica.get(i).equals(adminView.jComboBoxRegistroCLienteJuridicoMunicipioDireccionFisica.getSelectedItem()))
+                {
+                    parroquia=Integer.parseInt(municipiosJuridicoFisica.get(i-1));
+                    break;
+                }
+            }
+            parroquiasJuridicoFisica = Lugar.ConsultarParroquias(parroquia);
+
+            i=1;
+
+            while(i<parroquiasJuridicoFisica.size())
+            {
+                adminView.jComboBoxRegistroCLienteJuridicoParroquiaDireccionFisica.addItem(parroquiasJuridicoFisica.get(i));
+                 i=i+2;
+            }
     
+    }
     public AdminController( AdminVista adminView,LoginVista loginview,PermisoDAO modelPermisoDAO){
         this.adminView=adminView;
         this.modelPermisoDAO=modelPermisoDAO;
        this.loginview=loginview;
        // adminView.jTabbedPaneAdmin.remove(adminView.jPanelPrivilegios);
+        LlenarLugares();
+ 
+       
     }
     
     
@@ -744,10 +921,15 @@ public class AdminController implements ActionListener,KeyListener{
              String segundoNombre=(String) adminView.textAdminEmpleadosSegundoNombre.getText().toUpperCase();
              String primerApellido = (String)adminView.textAdminEmpleadosPrimerApellido.getText().toUpperCase();
              String segundoApellido= (String)adminView.textAdminEmpleadosSegundoApellido.getText().toUpperCase();
+           
              String salario= (String)adminView.textAdminEmpleadosSalario.getText().toUpperCase();
             String telefono =(String)adminView.textAdminEmpleadosTelefono.getText().toUpperCase();
-             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+             
+            
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
              String fechaNac = dateFormat.format(adminView.textAdminEmpleadosFechaNacimiento.getDate());
+             
+             
              String usuario = (String)adminView.textAdminEmpleadosUsuario.getText().toUpperCase();
              String pass = (String)adminView.textAdminEmpleadosContrasena.getText().toUpperCase();
              String pregunta = (String)adminView.textAdminEmpleadosPreguntaSecreta.getText().toUpperCase();
@@ -1102,6 +1284,24 @@ public class AdminController implements ActionListener,KeyListener{
                        
               String      web=     adminView.textRegistroCLienteJuridicoWeb.getText();
               
+              int parroquiaFisica=0;
+                            for(int i=0;i<parroquiasJuridicoFisica.size();i++)
+                            {
+                                if(parroquiasJuridicoFisica.get(i).equals( adminView.jComboBoxRegistroCLienteJuridicoParroquiaDireccionFisica.getSelectedItem()))
+                                {
+                                    parroquiaFisica=Integer.parseInt(parroquiasJuridicoFisica.get(i-1));
+                                    break;
+                                }
+                            }
+               int parroquiaFiscal=0;
+                            for(int i=0;i<parroquiasJuridicoFiscal.size();i++)
+                            {
+                                if(parroquiasJuridicoFiscal.get(i).equals( adminView.jComboBoxRegistroCLienteJuridicoParroquiaDireccionFiscal.getSelectedItem()))
+                                {
+                                    parroquiaFiscal=Integer.parseInt(parroquiasJuridicoFiscal.get(i-1));
+                                    break;
+                                }
+                            }
               if(ExpresionesRegulares.validarCorreo(email)){
                   if(ExpresionesRegulares.validarTelefono(telefono)){
                       if(ExpresionesRegulares.validarWeb(web)){
@@ -1110,7 +1310,7 @@ public class AdminController implements ActionListener,KeyListener{
                             if(filaActualizar>= 0 && numFilas ==1){
                                     
                                    int rta= modelPermisoDAO.insertJuridico(rif, denominacion,razon,web,capital, (String) adminView.tableAdminJuridicosTiendas1.getValueAt(filaActualizar, 0),
-                                   "1","1"
+                                   String.valueOf(parroquiaFisica),String.valueOf(parroquiaFiscal)
                                    /*Usuario*/
                                    ,user,pass, pregunta,respuesta,
                                            /*Mail*/
@@ -1143,6 +1343,16 @@ public class AdminController implements ActionListener,KeyListener{
           String telefono=   adminView.textRegistroCLienteNaturalTelefono.getText().toUpperCase();
           String user=       adminView.textRegistroCLienteNaturalUser.getText().toUpperCase();
           
+          int parroquia=0;
+                            for(int i=0;i<parroquias.size();i++)
+                            {
+                                if(parroquias.get(i).equals( adminView.jComboBoxRegistroCLienteNaturalParroquia.getSelectedItem()))
+                                {
+                                    parroquia=Integer.parseInt(parroquias.get(i-1));
+                                    break;
+                                }
+                            }
+          
           if(ExpresionesRegulares.validarCorreo(mail)){
                  if(ExpresionesRegulares.validarTelefono(telefono)){
                       
@@ -1152,14 +1362,14 @@ public class AdminController implements ActionListener,KeyListener{
                                     
                                    int rta= modelPermisoDAO.insertNatural(cedula ,rif,nombre
                                     ,nombre2,apellido,apellido2, (String) adminView.tableAdminNaturalesTiendas.getValueAt(filaActualizar, 0),
-                                   "1"
+                                   String.valueOf(parroquia)
                                    /*Usuario*/
                                    ,user,pass, pregunta,respuesta,
                                            /*Mail*/
                                            mail,
                                    /*Telefono*/
                                            "Telefono personal",telefono );
-                                   if(rta >0){ JOptionPane.showMessageDialog(null, "Registro Exitoso");
+                                   if(rta >0){ JOptionPane.showMessageDialog(null, "Registro Exitoso"); System.out.println("asdsadsadasd");
                                    }else JOptionPane.showMessageDialog(null, "Ocurrio un Error");
                             }else{
                                 JOptionPane.showMessageDialog(null, "Por favor seleccionar una Tienda");
@@ -1227,7 +1437,13 @@ public class AdminController implements ActionListener,KeyListener{
                            adminView.textRegistroCLienteJuridicoUsuario, 
                            adminView.textRegistroCLienteJuridicoPass, 
                            adminView.textRegistroCLienteJuridicoPreguntaSecreta, 
-                           adminView.textRegistroCLienteJuridicoRespuestaSecreta
+                           adminView.textRegistroCLienteJuridicoRespuestaSecreta,
+                           adminView.jComboBoxRegistroCLienteJuridicoEstadoDireccionFisica,
+                           adminView.jComboBoxRegistroCLienteJuridicoMunicipioDireccionFisica,
+                           adminView.jComboBoxRegistroCLienteJuridicoParroquiaDireccionFisica,
+                           adminView.jComboBoxRegistroCLienteJuridicoEstadoDireccionFiscal,
+                           adminView.jComboBoxRegistroCLienteJuridicoMunicipioDireccionFiscal,
+                           adminView.jComboBoxRegistroCLienteJuridicoParroquiaDireccionFiscal
                            );
                    
                    /*adminView.textAdminEmpleadosCedula.setText(cedula);
@@ -1274,13 +1490,32 @@ public class AdminController implements ActionListener,KeyListener{
                        
               String      web=     adminView.textRegistroCLienteJuridicoWeb.getText();
               
+              int parroquiaFisica=0;
+                            for(int i=0;i<parroquiasJuridicoFisica.size();i++)
+                            {
+                                if(parroquiasJuridicoFisica.get(i).equals( adminView.jComboBoxRegistroCLienteJuridicoParroquiaDireccionFisica.getSelectedItem()))
+                                {
+                                    parroquiaFisica=Integer.parseInt(parroquiasJuridicoFisica.get(i-1));
+                                    break;
+                                }
+                            }
+               int parroquiaFiscal=0;
+                            for(int i=0;i<parroquiasJuridicoFiscal.size();i++)
+                            {
+                                if(parroquiasJuridicoFiscal.get(i).equals( adminView.jComboBoxRegistroCLienteJuridicoParroquiaDireccionFiscal.getSelectedItem()))
+                                {
+                                    parroquiaFiscal=Integer.parseInt(parroquiasJuridicoFiscal.get(i-1));
+                                    break;
+                                }
+                            }
+              
               if(ExpresionesRegulares.validarCorreo(email)){
                   if(ExpresionesRegulares.validarTelefono(telefono)){
                       if(ExpresionesRegulares.validarWeb(web)){
                               
                                     
                                    int rta= modelPermisoDAO.actualizarJuridico(rif, denominacion,razon,web,capital,
-                                   "1","1"
+                                   String.valueOf(parroquiaFisica),String.valueOf(parroquiaFiscal)
                                    /*Usuario*/
                                    ,pass, pregunta,respuesta,
                                            /*Mail*/
@@ -1334,7 +1569,10 @@ public class AdminController implements ActionListener,KeyListener{
                            adminView.textRegistroCLienteNaturalUser, 
                            adminView.textRegistroCLienteNaturalPass, 
                            adminView.textRegistroCLienteNaturalPreguntaSecreta,
-                           adminView.textRegistroCLienteNaturalRespuestaSecreta
+                           adminView.textRegistroCLienteNaturalRespuestaSecreta,
+                           adminView.jComboBoxRegistroCLienteNaturalEstado,
+                           adminView.jComboBoxRegistroCLienteNaturalMunicipio,
+                           adminView.jComboBoxRegistroCLienteNaturalParroquia
                            );
                    
                     
@@ -1361,7 +1599,7 @@ public class AdminController implements ActionListener,KeyListener{
              }
          }
          if(e.getSource() == adminView.btnAdminClientesNaturalActuaizarOK2){
-             String apellido=   adminView.textRegistroCLienteNaturalApellido.getText().toUpperCase();;
+          String apellido=   adminView.textRegistroCLienteNaturalApellido.getText().toUpperCase();;
           String cedula = adminView.textRegistroCLienteNaturalCedula.getText().toUpperCase();
           String mail=    adminView.textRegistroCLienteNaturalEmail.getText();
           String nombre=   adminView.textRegistroCLienteNaturalNombre.getText().toUpperCase();
@@ -1374,12 +1612,21 @@ public class AdminController implements ActionListener,KeyListener{
           String telefono=   adminView.textRegistroCLienteNaturalTelefono.getText();
           String user=       adminView.textRegistroCLienteNaturalUser.getText().toUpperCase();
           
+           int parroquia=0;
+                            for(int i=0;i<parroquias.size();i++)
+                            {
+                                if(parroquias.get(i).equals( adminView.jComboBoxRegistroCLienteNaturalParroquia.getSelectedItem()))
+                                {
+                                    parroquia=Integer.parseInt(parroquias.get(i-1));
+                                    break;
+                                }
+                            }
           if(ExpresionesRegulares.validarCorreo(mail)){
                  if(ExpresionesRegulares.validarTelefono(telefono)){
                      
                               
                                     
-                                   int rta= modelPermisoDAO.actualizarNatural(cedula , "1"
+                                   int rta= modelPermisoDAO.actualizarNatural(cedula , String.valueOf(parroquia)
                                    /*Usuario*/
                                    ,pass, pregunta,respuesta,
                                            /*Mail*/
@@ -1413,6 +1660,148 @@ public class AdminController implements ActionListener,KeyListener{
                  }else JOptionPane.showMessageDialog(null, "Telefono Incorrecto");
               }else JOptionPane.showMessageDialog(null, "Correo Invalido");
          }
+         
+         ///*LLenar Lugares Cliente Juridico y  NAtrual*/
+        if(e.getSource() == adminView.jComboBoxRegistroCLienteNaturalEstado){
+            
+             adminView.jComboBoxRegistroCLienteNaturalMunicipio.removeAllItems();
+            adminView.jComboBoxRegistroCLienteNaturalParroquia.removeAllItems();
+            int estado=0;
+            for(int i=0;i<estados.size();i++)
+            {
+                if(estados.get(i).equals( adminView.jComboBoxRegistroCLienteNaturalEstado.getSelectedItem()))
+                {
+                    estado=Integer.parseInt(estados.get(i-1));
+                    break;
+                }
+            }
+            municipios = Lugar.ConsultarMunicipios(estado);
+
+            int i=1;
+
+            while(i<municipios.size())
+            { 
+               adminView.jComboBoxRegistroCLienteNaturalMunicipio.addItem(municipios.get(i));
+                i=i+2;
+            }
+         }
+        
+        if(e.getSource() == adminView.jComboBoxRegistroCLienteNaturalMunicipio){
+            adminView.jComboBoxRegistroCLienteNaturalParroquia.removeAllItems();
+            int parroquia=0;
+            for(int i=0;i<municipios.size();i++)
+            {
+                if(municipios.get(i).equals(adminView.jComboBoxRegistroCLienteNaturalMunicipio.getSelectedItem()))
+                {
+                    parroquia=Integer.parseInt(municipios.get(i-1));
+                    break;
+                }
+            }
+            parroquias = Lugar.ConsultarParroquias(parroquia);
+
+            int i=1;
+
+            while(i<parroquias.size())
+            {
+                adminView.jComboBoxRegistroCLienteNaturalParroquia.addItem(parroquias.get(i));
+                i=i+2;
+            }
+        }
+        //Direccon Fiscal
+        if(e.getSource() == adminView.jComboBoxRegistroCLienteJuridicoEstadoDireccionFiscal){
+            
+             adminView.jComboBoxRegistroCLienteJuridicoMunicipioDireccionFiscal.removeAllItems();
+            adminView.jComboBoxRegistroCLienteJuridicoParroquiaDireccionFiscal.removeAllItems();
+            int estado=0;
+            for(int i=0;i<estadosJuridicoFiscal.size();i++)
+            {
+                if(estadosJuridicoFiscal.get(i).equals( adminView.jComboBoxRegistroCLienteJuridicoEstadoDireccionFiscal.getSelectedItem()))
+                {
+                    estado=Integer.parseInt(estadosJuridicoFiscal.get(i-1));
+                    break;
+                }
+            }
+            municipiosJuridicoFiscal = Lugar.ConsultarMunicipios(estado);
+
+            int i=1;
+
+            while(i<municipiosJuridicoFiscal.size())
+            { 
+               adminView.jComboBoxRegistroCLienteJuridicoMunicipioDireccionFiscal.addItem(municipiosJuridicoFiscal.get(i));
+                i=i+2;
+            }
+         }
+        
+        if(e.getSource() == adminView.jComboBoxRegistroCLienteJuridicoMunicipioDireccionFiscal){
+            adminView.jComboBoxRegistroCLienteJuridicoParroquiaDireccionFiscal.removeAllItems();
+            int parroquia=0;
+            for(int i=0;i<municipiosJuridicoFiscal.size();i++)
+            {
+                if(municipiosJuridicoFiscal.get(i).equals(adminView.jComboBoxRegistroCLienteJuridicoMunicipioDireccionFiscal.getSelectedItem()))
+                {
+                    parroquia=Integer.parseInt(municipiosJuridicoFiscal.get(i-1));
+                    break;
+                }
+            }
+            parroquiasJuridicoFiscal = Lugar.ConsultarParroquias(parroquia);
+
+            int i=1;
+
+            while(i<parroquiasJuridicoFiscal.size())
+            {
+                adminView.jComboBoxRegistroCLienteJuridicoParroquiaDireccionFiscal.addItem(parroquiasJuridicoFiscal.get(i));
+                i=i+2;
+            }
+        }
+        //Direccion Fisica
+        if(e.getSource() == adminView.jComboBoxRegistroCLienteJuridicoEstadoDireccionFisica){
+            
+             adminView.jComboBoxRegistroCLienteJuridicoMunicipioDireccionFisica.removeAllItems();
+            adminView.jComboBoxRegistroCLienteJuridicoParroquiaDireccionFisica.removeAllItems();
+            int estado=0;
+            for(int i=0;i<estadosJuridicoFisica.size();i++)
+            {
+                if(estadosJuridicoFisica.get(i).equals( adminView.jComboBoxRegistroCLienteJuridicoEstadoDireccionFisica.getSelectedItem()))
+                {
+                    estado=Integer.parseInt(estadosJuridicoFisica.get(i-1));
+                    break;
+                }
+            }
+            municipiosJuridicoFisica = Lugar.ConsultarMunicipios(estado);
+
+            int i=1;
+
+            while(i<municipiosJuridicoFisica.size())
+            { 
+               adminView.jComboBoxRegistroCLienteJuridicoMunicipioDireccionFisica.addItem(municipiosJuridicoFisica.get(i));
+                i=i+2;
+            }
+         }
+        
+        if(e.getSource() == adminView.jComboBoxRegistroCLienteJuridicoMunicipioDireccionFisica){
+            adminView.jComboBoxRegistroCLienteJuridicoParroquiaDireccionFisica.removeAllItems();
+            int parroquia=0;
+            for(int i=0;i<municipiosJuridicoFisica.size();i++)
+            {
+                if(municipiosJuridicoFisica.get(i).equals(adminView.jComboBoxRegistroCLienteJuridicoMunicipioDireccionFisica.getSelectedItem()))
+                {
+                    parroquia=Integer.parseInt(municipiosJuridicoFisica.get(i-1));
+                    break;
+                }
+            }
+            parroquiasJuridicoFisica = Lugar.ConsultarParroquias(parroquia);
+
+            int i=1;
+
+            while(i<parroquiasJuridicoFisica.size())
+            {
+                adminView.jComboBoxRegistroCLienteJuridicoParroquiaDireccionFisica.addItem(parroquiasJuridicoFisica.get(i));
+                i=i+2;
+            }
+        }
+        
+         
+         
          //PERSONA CONTACO
          if(e.getSource() == adminView.btnAdminClientesJuridicoPersonaContactoAgisnar1){
              String cedula=   adminView.textRegistroCLienteJuridicoPersonaContactoCedula1.getText().toUpperCase();;

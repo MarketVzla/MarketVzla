@@ -29,6 +29,7 @@ import Modelo.Rol;
 import Modelo.Tienda;
 import Modelo.Tienda2;
 import Modelo.emp_hor;
+import javax.swing.JComboBox;
 
 /**
  *
@@ -1768,8 +1769,8 @@ public class PermisoDAO {
                             sql = "UPDATE juridico" +
 "   SET jur_denominacioncomercial='"+jur_denominacioncomercial+"', "
  + "jur_razonsocial= '"+jur_razonsocial+"', jur_paginaweb= '"+jur_paginaweb+"', " +
-"       jur_capitaldisponible= '"+jur_capitaldisponible+"' "
- + " WHERE jur_rif= '"+jur_rif+"' ;"; //Consulta
+"       jur_capitaldisponible= '"+jur_capitaldisponible+"' , cli_fk_lugar_fisica= "+cli_fk_lugar_fisica+",  "
+ + "jur_fk_lugar_fiscal="+jur_fk_lugar_fiscal+"  WHERE jur_rif= '"+jur_rif+"' ;"; //Consulta
                             
            value= PrincipalModel.getStm().executeUpdate(sql);
            
@@ -1821,7 +1822,9 @@ public class PermisoDAO {
     JTextField textRegistroCLienteJuridicoWeb,JTextField textRegistroCLienteJuridicoEmail,
     JTextField textRegistroCLienteJuridicoCapitalDisponible,JTextField textRegistroCLienteJuridicoUsuario
             ,JTextField textRegistroCLienteJuridicoPass,JTextField textRegistroCLienteJuridicoPreguntaSecreta
-               ,JTextField textRegistroCLienteJuridicoRespuestaSecreta)
+               ,JTextField textRegistroCLienteJuridicoRespuestaSecreta,
+               JComboBox EstadoFisica,JComboBox MunicipioFisica,JComboBox ParroquiaFisica,
+               JComboBox EstadoFiscal,JComboBox MunicipioFiscal,JComboBox ParroquiaFiscal)
        {
         
          try {
@@ -1832,7 +1835,7 @@ public class PermisoDAO {
             String sql;
                 sql = "select jur_denominacioncomercial ,jur_razonsocial,jur_rif ,tel_numero," +
 "jur_paginaweb ,cor_direccion, jur_capitaldisponible ,usu_nick ,usu_contraseña,"
-                        + "usu_preguntasecreta,usu_respuestasecreta" +
+                        + "usu_preguntasecreta,usu_respuestasecreta,cli_fk_lugar_fisica,jur_fk_lugar_fiscal" +
 " from juridico,usuario,telefono,correo where tel_fk_juridico="+cod+" and cli_codigo = "+cod+" and  "
                         + "cor_fk_juridico = "+cod+" and usu_fk_juridico="+cod+";"; //Consulta
                /* sql = "SELECT *"
@@ -1854,6 +1857,19 @@ public class PermisoDAO {
                         textRegistroCLienteJuridicoPreguntaSecreta.setText(rs.getString("usu_preguntasecreta"));
                         textRegistroCLienteJuridicoRespuestaSecreta.setText(rs.getString("usu_respuestasecreta"));
                         
+                        ArrayList<String> parroquiaFisica=Lugar.ConsultarParroquia(Integer.parseInt(rs.getString("cli_fk_lugar_fisica")));
+                        ArrayList<String> municipioFisica = Controlador.ControladorLugar.ConsultarMunicipio(Integer.parseInt(parroquiaFisica.get(1)));
+                        
+                        EstadoFisica.setSelectedItem(municipioFisica.get(1));
+                        MunicipioFisica.setSelectedItem(municipioFisica.get(0));
+                        ParroquiaFisica.setSelectedItem(parroquiaFisica.get(0));
+                        
+                        ArrayList<String> parroquiaFiscal=Lugar.ConsultarParroquia(Integer.parseInt(rs.getString("jur_fk_lugar_fiscal")));
+                        ArrayList<String> municipioFiscal = Controlador.ControladorLugar.ConsultarMunicipio(Integer.parseInt(parroquiaFiscal.get(1)));
+                        
+                        EstadoFiscal.setSelectedItem(municipioFiscal.get(1));
+                        MunicipioFiscal.setSelectedItem(municipioFiscal.get(0));
+                        ParroquiaFiscal.setSelectedItem(parroquiaFiscal.get(0));
                    }
             
             rs.close();
@@ -1878,15 +1894,17 @@ public class PermisoDAO {
             try {
             PrincipalModel.setStm(
                 PrincipalModel.getCon().createStatement());
-             /*  String sql;/*hor_dia,hor_horainicio,hot_horafin*/
-                    /*        sql = "UPDATE natural " +
+               String sql;/*hor_dia,hor_horainicio,hot_horafin*/
+                           sql ="UPDATE \"natural\" " +
+"   SET cli_fk_lugar='"+cli_fk_lugar+"' "+
+      "   WHERE nat_cedula= '"+nat_cedula+"' ;";/*"UPDATE natural " + 
 "   SET jur_denominacioncomercial='"+jur_denominacioncomercial+"', "
  + "jur_razonsocial= '"+jur_razonsocial+"', jur_paginaweb= '"+jur_paginaweb+"', " +
 "       jur_capitaldisponible= '"+jur_capitaldisponible+"' "
- + " WHERE jur_rif= '"+jur_rif+"' ;"; //Consulta
+ + " WHERE jur_rif= '"+jur_rif+"' ;"; //Consulta*/
                             
            value= PrincipalModel.getStm().executeUpdate(sql);
-           */
+           
             PrincipalModel.setStm(
                 PrincipalModel.getCon().createStatement());
                String sql01;
@@ -1935,7 +1953,8 @@ public class PermisoDAO {
     JTextField textRegistroCLienteNaturalTelefono,JTextField textRegistroCLienteNaturalCedula,
     JTextField textRegistroCLienteNaturalRif,JTextField textRegistroCLienteNaturalEmail
             ,JTextField textRegistroCLienteNaturalUser,JTextField textRegistroCLienteNaturalPass
-               ,JTextField textRegistroCLienteNaturalPreguntaSecreta,JTextField textRegistroCLienteNaturalRespuestaSecreta)
+               ,JTextField textRegistroCLienteNaturalPreguntaSecreta,JTextField textRegistroCLienteNaturalRespuestaSecreta,
+               JComboBox Estado,JComboBox Municipio,JComboBox Parroquia)
        {
         
          try {
@@ -1946,7 +1965,7 @@ public class PermisoDAO {
             String sql;
                 sql = "select nat_primernombre ,nat_segundonombre,nat_primerapellido,nat_segundoapellido," +
 " tel_numero, nat_cedula,nat_rif,cor_direccion,usu_nick ,usu_contraseña,"
-                        + "usu_preguntasecreta,usu_respuestasecreta" +
+                        + "usu_preguntasecreta,usu_respuestasecreta,cli_fk_lugar" +
 " from \"natural\",usuario,telefono,correo where tel_fk_natural="+cod+" and cli_codigo = "+cod+" and  "
                         + "cor_fk_natural = "+cod+" and usu_fk_natural ="+cod+";"; //Consulta
                /* sql = "SELECT *"
@@ -1966,7 +1985,12 @@ public class PermisoDAO {
                         textRegistroCLienteNaturalPreguntaSecreta.setText(rs.getString("usu_preguntasecreta"));
                         textRegistroCLienteNaturalRespuestaSecreta.setText(rs.getString("usu_respuestasecreta"));
                         
+                         ArrayList<String> parroquia=Lugar.ConsultarParroquia(Integer.parseInt(rs.getString("cli_fk_lugar")));
+                        ArrayList<String> municipio = Controlador.ControladorLugar.ConsultarMunicipio(Integer.parseInt(parroquia.get(1)));
                         
+                        Estado.setSelectedItem(municipio.get(1));
+                        Municipio.setSelectedItem(municipio.get(0));
+                        Parroquia.setSelectedItem(parroquia.get(0));
                        
                    }
             

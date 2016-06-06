@@ -62,13 +62,13 @@ public class LoginController implements ActionListener{
         
         if  (e.getSource() == vistaLogin.jbtnRegistrar){
             //Solo NAtural o Juridico
-            
+           /*
             RegistroCliente nuevoRegistro = new RegistroCliente ();
             RegistroClienteController nuevoRegistroController = new 
                     RegistroClienteController(nuevoRegistro, vistaLogin);
             nuevoRegistro.setRegistroClienteController(nuevoRegistroController);
             nuevoRegistro.MustraRegisroCliente();
-            vistaLogin.setVisible(false);
+            vistaLogin.setVisible(false);*/
         }
         if(e.getSource() == vistaLogin.jbtnRecuperarPass){
             
