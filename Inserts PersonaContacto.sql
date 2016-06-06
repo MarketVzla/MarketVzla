@@ -1,0 +1,5 @@
+﻿INSERT INTO personacontacto (per_ci,per_nombre,per_apellido,per_fk_juridico) VALUES (34199525,'Tyrone','Cross',(select cli_codigo from juridico where jur_rif='V133588834'));
+INSERT INTO personacontacto (per_ci,per_nombre,per_apellido,per_fk_juridico) VALUES (21982191,'Amelia','Hughes',(select cli_codigo from juridico where jur_rif='C379518182'));
+INSERT INTO personacontacto (per_ci,per_nombre,per_apellido,per_fk_juridico) VALUES (22194060,'Nicholas','Nash',(select cli_codigo from juridico where jur_rif='D417839298'));
+INSERT INTO personacontacto (per_ci,per_nombre,per_apellido,per_fk_juridico) VALUES (20274689,'Tatiana','Reese',(select cli_codigo from juridico where jur_rif='F561702353'));
+INSERT INTO personacontacto (per_ci,per_nombre,per_apellido,per_fk_juridico) VALUES (21910651,'Henry','Baker',(select cli_codigo from juridico where jur_rif='I300138565'));
