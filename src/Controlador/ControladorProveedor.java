@@ -202,5 +202,33 @@ public class ControladorProveedor {
         }
         return null;
     }
+    
+    public static ArrayList<String> ArregloProveedores (){
+        ArrayList<String> tiendas= new ArrayList();
+        java.sql.Connection connection = null;
+        ResultSet rs = null;
+        Statement s = null;
+        String url = "jdbc:postgresql://localhost:"+Etiquetas.puerto+"/"+Etiquetas.nombrebd+"";
+        
+        try {
+            Class.forName("org.postgresql.Driver");
+            
+            connection = DriverManager.getConnection(url, "postgres", Etiquetas.contraseña);
+            
+            s = connection.createStatement();
+            
+            rs = s.executeQuery("select pro_razonsocial from proveedor  ");
+            
+            while (rs.next()){
+                
+                tiendas.add(rs.getString(1));
+         
+            }
+            return tiendas;
+        }catch(Exception e){
+            System.err.println("Error de Conexion");
+        }
+        return null;
+    }
 }
     

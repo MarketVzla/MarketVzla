@@ -17,7 +17,7 @@ import java.util.ArrayList;
  */
 public class ControladorDespacho {
     
-    public static boolean RegistrarDespacho (String des_fechaporaprobar, String des_fechaaprobado, String des_fecharecibido, String des_estado, String tienda, String rif)
+    public static boolean RegistrarDespacho (String des_fechaporaprobar, String des_estado, String tienda, String proveedor)
     {
         java.sql.Connection connection = null;
         Statement s = null;
@@ -30,8 +30,9 @@ public class ControladorDespacho {
             connection = DriverManager.getConnection(url, "postgres", Etiquetas.contraseña);
             
             s = connection.createStatement();
-            
-            int z = s.executeUpdate("insert into despacho (des_fechaporaprobar,des_fechaaprobado,des_fecharecibido,des_estado, des_fk_tienda,des_fk_proveedor) values ('"+des_fechaporaprobar+"','"+des_fechaaprobado+"','"+des_fecharecibido+"','"+des_estado+"',(select tie_codigo form tienda where tie_nombre='"+tienda+"'),'"+rif+"')");
+                      //  int z = s.executeUpdate("insert into despacho (des_fechaporaprobar,des_fechaaprobado,des_fecharecibido,des_estado, des_fk_tienda,des_fk_proveedor) values ('"+des_fechaporaprobar+"','null','null','"+des_estado+"',(select tie_codigo from tienda where tie_nombre='"+tienda+"'),(select pro_rif from proveedor where pro_razonsocial='"+proveedor+"'))");
+
+          int z = s.executeUpdate("insert into despacho (des_fechaporaprobar,des_estado, des_fk_tienda,des_fk_proveedor) values ('"+des_fechaporaprobar+"','"+des_estado+"',(select tie_codigo from tienda where tie_nombre='"+tienda+"'),(select pro_rif from proveedor where pro_razonsocial='"+proveedor+"'))");
 
             
           //  int z = s.executeUpdate("insert into proveedor (pro_rif,pro_razonsocial,pro_denominacioncomercial,pro_paginaweb,pro_fk_lugar_fisica,pro_fk_lugar_fiscal,pro_fk_marca) values ('"+rif+"','"+razonSocial+"','"+denominacionComercial+"','"+paginaWeb+"',"+lugarFisico+","+lugarFiscal+","+marca+")");
@@ -94,7 +95,7 @@ public class ControladorDespacho {
      * @param lugar
      * @return 
      */
-    public static boolean ActualizarDespacho (int des_codigo,String des_fechaporaprobar,String des_fechaaprobado,String des_fecharecibido,String des_estado,String tienda, String rif){
+    public static boolean ActualizarDespacho (int des_codigo,String des_fechaporaprobar,String des_fechaaprobado,String des_fecharecibido,String tienda, String rif){
         java.sql.Connection connection = null;
         Statement s = null;
         
@@ -107,7 +108,7 @@ public class ControladorDespacho {
             
             s = connection.createStatement();
             
-            int z = s.executeUpdate("update despacho set des_fechaporaprobar='"+des_fechaporaprobar+"', des_fechaaprobado='"+des_fechaaprobado+"', des_fecharecibido='"+des_fecharecibido+"',des_estado='"+des_estado+"', des_fk_tienda=(select tie_codigo from tienda where tie_nombre='"+tienda+"'),'"+rif+"' where des_codigo="+des_codigo+"");
+            int z = s.executeUpdate("update despacho set des_fechaporaprobar='"+des_fechaporaprobar+"', des_fechaaprobado='"+des_fechaaprobado+"', des_fecharecibido='"+des_fecharecibido+"', des_fk_tienda=(select tie_codigo from tienda where tie_nombre='"+tienda+"'),des_fk_proveedor=(select pro_rif from proveedor where pro_razonsocial='"+rif+"') where des_codigo='"+des_codigo+"'");
             
             if (z==1){
                 System.out.println("Se actualizo el registro");

@@ -1625,6 +1625,11 @@ public class AdminVista extends javax.swing.JFrame {
         jLabel48.setText("Respuesta Secreta");
 
         btnAdminClientesNaturalRegistro.setText("Registrar");
+        btnAdminClientesNaturalRegistro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdminClientesNaturalRegistroActionPerformed(evt);
+            }
+        });
 
         jLabel52.setText("Estado:");
 
@@ -2540,6 +2545,10 @@ public class AdminVista extends javax.swing.JFrame {
     private void textEmpleadosBeneficiosBuscarNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textEmpleadosBeneficiosBuscarNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textEmpleadosBeneficiosBuscarNombreActionPerformed
+
+    private void btnAdminClientesNaturalRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminClientesNaturalRegistroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAdminClientesNaturalRegistroActionPerformed
 
   public void setController(AdminController c){
       jbtnAdminCerrarSession.addActionListener(c);
