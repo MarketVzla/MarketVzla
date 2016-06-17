@@ -197,6 +197,8 @@ public class AgregarOferta extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
             String fechainicio="";
+            Calendar fecha=jDateChooser1.getCalendar();
+            
             try {
             fechainicio = jDateChooser1.getCalendar().get(Calendar.YEAR)+"-"+(jDateChooser1.getCalendar().get(Calendar.MONTH)+1)+"-"+jDateChooser1.getCalendar().get(Calendar.DAY_OF_MONTH);
             } catch (Exception e) {
@@ -215,7 +217,12 @@ public class AgregarOferta extends javax.swing.JFrame {
         {
             for(int i=0;i<defaultTableModel.getRowCount();i++)
             {
-                Controlador.ControladorOferta.InsertarProductoEnOferta((String)defaultTableModel.getValueAt(i, 0), String.valueOf(defaultTableModel.getValueAt(i, 1)));
+                ArrayList<String> codigos = Controlador.ControladorOferta.ConsultarCodigoProductos(String.valueOf(defaultTableModel.getValueAt(i, 0)));
+                for (int j=0;j<codigos.size();j++)
+                {
+                    Controlador.ControladorOferta.InsertarProductoEnOferta(codigos.get(j), String.valueOf(defaultTableModel.getValueAt(i, 1)));
+                }
+                
             }
             AdministradorOfertas administradorOferta = new  AdministradorOfertas();
             administradorOferta.setVisible(true);

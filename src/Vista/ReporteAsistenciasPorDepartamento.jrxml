@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="81634a84-7314-4eab-b833-ecd407b053aa">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[select emp_ci, (emp_primernombre||' '||emp_segundonombre||' '||emp_primerapellido||' '||emp_segundoapellido)as nombre,dep_nombre, che_horaentrada,che_horasalida
+from empleado, emp_hor, "check",departamento,dep_emp
+where dep_codigo=de_fk_departamento and de_fk_empleado=emp_ci and emp_ci=eh_fk_empleado and eh_codigo=che_fk_emp_hor
+order by dep_nombre,nombre]]>
+	</queryString>
+	<field name="emp_ci" class="java.lang.String"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="dep_nombre" class="java.lang.String"/>
+	<field name="che_horaentrada" class="java.sql.Timestamp"/>
+	<field name="che_horasalida" class="java.sql.Timestamp"/>
+	<group name="dep_nombre">
+		<groupExpression><![CDATA[$F{dep_nombre}]]></groupExpression>
+		<groupHeader>
+			<band height="33">
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="0" width="100" height="32" forecolor="#666666" backcolor="#E6E6E6" uuid="97495797-08b3-45fa-9e85-3ba802a47f1d"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Departamento]]></text>
+				</staticText>
+				<textField>
+					<reportElement mode="Opaque" x="100" y="0" width="455" height="32" forecolor="#006699" backcolor="#E6E6E6" uuid="25dcea98-fbea-4483-93de-a533e0bb6d0b"/>
+					<textElement>
+						<font size="24" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{dep_nombre}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="-20" y="32" width="595" height="1" forecolor="#666666" uuid="a79a4ea5-94b0-49c8-ac5e-2f85b9557a62"/>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="emp_ci">
+		<groupExpression><![CDATA[$F{emp_ci}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<textField>
+					<reportElement x="100" y="0" width="455" height="32" forecolor="#006699" uuid="410bc57c-eea1-48c7-9d09-9c9c3c43d486"/>
+					<textElement>
+						<font size="22" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{emp_ci}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="20" forecolor="#666666" uuid="d73cf6be-6153-4e31-9178-4c6641d9e4b8"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Cedula]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="nombre">
+		<groupExpression><![CDATA[$F{nombre}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<textField>
+					<reportElement x="100" y="0" width="455" height="32" forecolor="#006699" uuid="41a574f1-8979-4c4b-98bb-f2cdd83e7b1a"/>
+					<textElement>
+						<font size="20" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="20" forecolor="#666666" uuid="d7baa238-58f0-4357-bc8d-edd4d7543499"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Nombre]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="a5482978-bbe7-427b-ab9d-c63ac246e169"/>
+				<staticText>
+					<reportElement x="20" y="13" width="277" height="72" forecolor="#FFFFFF" uuid="9809ba73-6111-4ca2-a93e-5274af48c26f"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="26" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Asistencias Por Departamento]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="e55b0bcd-4d71-4f57-94ed-64e9688253d1"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="a8745dbd-9244-478d-855f-d2d66ead9b54"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="111" y="0" width="166" height="20" uuid="dd1e9f99-bbf6-4fa7-88f3-bdcc26248136"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{che_horaentrada}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="398" y="0" width="156" height="20" uuid="67ae1f1a-5746-44ba-932c-75e91ca0fed1"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{che_horasalida}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="298" y="0" width="100" height="20" uuid="ccc6abc1-13d4-4724-aa04-cc5b301f4bb7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Hora Salida:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="0" width="100" height="20" uuid="11fbf597-4c28-4fdf-8d9a-9150c281259c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Hora Entrada:]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="adc77097-2312-4205-b21d-29bbd3c51849"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="bc434634-59e8-473f-9c1b-d09bd843bf68"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="ae06b807-f7e8-4b87-9c74-e3a703603f76"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
