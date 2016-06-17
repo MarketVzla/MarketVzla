@@ -118,3 +118,14 @@ INSERT INTO compra (com_fechaaprobado,com_fechadespacho,com_estado,com_monto,com
 INSERT INTO compra (com_fechaaprobado,com_fechadespacho,com_estado,com_monto,com_tienda,com_fk_dep_emp,com_fk_natural) VALUES ('19/04/2016','01/08/2016','Pagado',9205548.65,'true',120,84);
 INSERT INTO compra (com_fechaaprobado,com_fechadespacho,com_estado,com_monto,com_tienda,com_fk_dep_emp,com_fk_natural) VALUES ('05/06/2015','26/03/2016','Pagado',5908079.66,'true',120,10);
 INSERT INTO compra (com_fechaaprobado,com_fechadespacho,com_estado,com_monto,com_tienda,com_fk_dep_emp,com_fk_natural) VALUES ('13/03/2016','17/08/2016','Pagado',8699637.88,'true',120,1);
+
+insert into compra (com_fechaaprobado,com_fechadespacho,com_estado,com_monto,com_tienda,com_fk_dep_emp,com_fk_presupuesto) values ('11-12-2014','12-12-2014','Pagado',123545.20,true,81,1);
+insert into compra (com_fechaaprobado,com_fechadespacho,com_estado,com_monto,com_tienda,com_fk_dep_emp,com_fk_presupuesto) values ('11-12-2014','12-12-2014','Pagado',123545.20,true,8,2);
+insert into compra (com_fechaaprobado,com_fechadespacho,com_estado,com_monto,com_tienda,com_fk_dep_emp,com_fk_presupuesto) values ('11-12-2014','12-12-2014','Pagado',123545.20,true,81,3);
+insert into compra (com_fechaaprobado,com_fechadespacho,com_estado,com_monto,com_tienda,com_fk_dep_emp,com_fk_presupuesto) values ('11-12-2014','12-12-2014','Pagado',123545.20,true,81,4);
+insert into compra (com_fechaaprobado,com_fechadespacho,com_estado,com_monto,com_tienda,com_fk_dep_emp,com_fk_presupuesto) values ('11-12-2014','12-12-2014','Pagado',123545.20,true,81,5);
+INSERT INTO compra (com_fechaaprobado,com_fechadespacho,com_estado,com_monto,com_tienda,com_fk_dep_emp,com_fk_presupuesto) VALUES ('2016-03-10','2016-03-10','Pagado',1541.00,'true',115,6);
+INSERT INTO compra (com_fechaaprobado,com_fechadespacho,com_estado,com_monto,com_tienda,com_fk_dep_emp,com_fk_presupuesto) VALUES ('2015-03-21','2015-03-21','Pagado',15341.00,'true',117,7);
+INSERT INTO compra (com_fechaaprobado,com_fechadespacho,com_estado,com_monto,com_tienda,com_fk_dep_emp,com_fk_presupuesto) VALUES ('2016-05-15','2016-05-15','Pagado',1741.00,'true',120,8);
+INSERT INTO compra (com_fechaaprobado,com_fechadespacho,com_estado,com_monto,com_tienda,com_fk_dep_emp,com_fk_presupuesto) VALUES ('2016-04-17','2016-04-17','Pagado',156641.00,'true',119,9);
+INSERT INTO compra (com_fechaaprobado,com_fechadespacho,com_estado,com_monto,com_tienda,com_fk_dep_emp,com_fk_presupuesto) VALUES ('2016-02-28','2016-02-28','Pagado',14885.00,'true',85,10);
