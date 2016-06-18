@@ -3,38 +3,37 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<parameter name="codigoCompra" class="java.lang.Integer">
-		<defaultValueExpression><![CDATA[132]]></defaultValueExpression>
+	<parameter name="codigoDespacho" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
 	</parameter>
-	<parameter name="total" class="java.lang.Double">
-		<defaultValueExpression><![CDATA[5000]]></defaultValueExpression>
-	</parameter>
-	<parameter name="identificador" class="java.lang.String"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["C:\\Users\\Leonardo\\Documents\\NetBeansProjects\\MarketVzla-develop\\src\\Vista\\"]]></defaultValueExpression>
 	</parameter>
-	<parameter name="subtotal" class="java.lang.Double">
-		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	<parameter name="montotal" class="java.lang.Double">
+		<defaultValueExpression><![CDATA[5000]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[select tie_nombre, com_codigo, nat_cedula, (nat_primernombre||' '||nat_primerapellido)as nombre, (lug_nombre||' Venezuela')as direccion, tel_numero, com_fechaaprobado,(cli_fk_tienda||'-'||cli_codigo)as identificador, pro_codigo,pro_nombre,max(eje_precio)as precio,count(eje_codigo)as cantidad,(max(eje_precio)*count(eje_codigo))as total
-from tienda, compra, dep_emp, departamento, lugar, producto, ejemplar ,"natural" left join telefono on cli_codigo=tel_fk_natural
-where com_fk_dep_emp=de_codigo and de_fk_departamento=dep_codigo and dep_fk_tienda=tie_codigo and com_codigo=$P{codigoCompra} and com_fk_natural=cli_codigo and cli_fk_lugar=lug_codigo and com_codigo=eje_fk_compra and eje_fk_producto=pro_codigo
-group by tie_nombre, com_codigo, nat_cedula, nombre, direccion,tel_numero,com_fechaaprobado,identificador,pro_codigo,pro_nombre]]>
+		<![CDATA[select tie_nombre, des_codigo, pro_rif, pro_razonsocial, des_fechaaprobado,tel_numero, des_monto,(select distinct ((select lug_nombre from lugar where lug_tipo='parroquia' and lug_codigo=pro_fk_lugar_fiscal)||','||(select lug_nombre from lugar where lug_tipo='municipio' and lug_codigo=(select lug_fk_lugar from lugar where lug_tipo='parroquia' and lug_codigo=pro_fk_lugar_fiscal))||','||(select lug_nombre from lugar where lug_tipo='estado' and lug_codigo=(select lug_fk_lugar from lugar a where lug_tipo='municipio' and lug_codigo=(select lug_fk_lugar from lugar where lug_tipo='parroquia' and lug_codigo=pro_fk_lugar_fiscal))))as direccion
+from lugar),pro_codigo,pro_nombre,(count(eje_codigo))as cantidad, max(eje_precio)as precio,(max(eje_precio)*count(eje_codigo))as total
+from tienda,despacho,producto,ejemplar,proveedor left join telefono on pro_rif=tel_fk_proveedor
+where tie_codigo=des_fk_tienda and des_fk_proveedor=pro_rif and des_codigo=eje_fk_despacho and eje_fk_producto=pro_codigo 
+and des_codigo=$P{codigoDespacho}
+group by tie_nombre,des_codigo,pro_rif,tel_numero,pro_razonsocial,des_fechaaprobado,des_monto,pro_fk_lugar_fiscal,pro_codigo,pro_nombre]]>
 	</queryString>
 	<field name="tie_nombre" class="java.lang.String"/>
-	<field name="com_codigo" class="java.lang.Integer"/>
-	<field name="nat_cedula" class="java.lang.String"/>
-	<field name="nombre" class="java.lang.String"/>
-	<field name="direccion" class="java.lang.String"/>
+	<field name="des_codigo" class="java.lang.Integer"/>
+	<field name="pro_rif" class="java.lang.String"/>
+	<field name="pro_razonsocial" class="java.lang.String"/>
+	<field name="des_fechaaprobado" class="java.sql.Date"/>
 	<field name="tel_numero" class="java.math.BigDecimal"/>
-	<field name="com_fechaaprobado" class="java.sql.Date"/>
-	<field name="identificador" class="java.lang.String"/>
+	<field name="des_monto" class="java.math.BigDecimal"/>
+	<field name="direccion" class="java.lang.String"/>
 	<field name="pro_codigo" class="java.lang.Integer"/>
 	<field name="pro_nombre" class="java.lang.String"/>
-	<field name="precio" class="java.math.BigDecimal"/>
 	<field name="cantidad" class="java.lang.Long"/>
+	<field name="precio" class="java.math.BigDecimal"/>
 	<field name="total" class="java.math.BigDecimal"/>
+	<variable name="total" class="java.lang.String"/>
 	<group name="codigo">
 		<groupExpression><![CDATA[$F{pro_codigo}]]></groupExpression>
 		<groupHeader>
@@ -131,44 +130,22 @@ group by tie_nombre, com_codigo, nat_cedula, nombre, direccion,tel_numero,com_fe
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement x="155" y="22" width="401" height="1" uuid="1e510064-cb87-48b5-8dd7-89212dc3ac1e"/>
+				<reportElement x="373" y="0" width="1" height="92" uuid="9fb3379c-ba41-488a-b4a0-8864e05365ab"/>
 			</line>
-			<line>
-				<reportElement x="153" y="69" width="401" height="1" uuid="1322c6ef-779d-4b14-8b8f-0c0ac3c3a9c2"/>
-			</line>
-			<line>
-				<reportElement x="271" y="23" width="1" height="69" uuid="d9efaa19-bb13-42a3-a0db-3926696e1567"/>
-			</line>
-			<line>
-				<reportElement x="371" y="0" width="1" height="23" uuid="9fb3379c-ba41-488a-b4a0-8864e05365ab"/>
-			</line>
-			<staticText>
-				<reportElement x="162" y="37" width="100" height="20" uuid="055a8b51-32c2-47c1-9149-d1180359fefb"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="14"/>
-				</textElement>
-				<text><![CDATA[Direccion:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="162" y="71" width="100" height="20" uuid="c79a23a4-6c8f-42bb-952b-6a2e6a881c97"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="14"/>
-				</textElement>
-				<text><![CDATA[Telefono :]]></text>
-			</staticText>
 			<textField>
-				<reportElement x="190" y="1" width="157" height="20" uuid="e092509a-50ce-48eb-bee9-4d3fd3829871"/>
+				<reportElement x="186" y="33" width="157" height="20" uuid="e092509a-50ce-48eb-bee9-4d3fd3829871"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{tie_nombre}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="379" y="2" width="59" height="20" uuid="7e91425e-a9ef-4ae2-93d9-cabe0c5d01e6"/>
+				<reportElement x="382" y="33" width="59" height="20" uuid="7e91425e-a9ef-4ae2-93d9-cabe0c5d01e6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<text><![CDATA[Orden N°]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="446" y="3" width="100" height="20" uuid="43ba6ae5-4316-40f3-81cf-6f58d964bb13"/>
+				<reportElement x="446" y="33" width="100" height="20" uuid="43ba6ae5-4316-40f3-81cf-6f58d964bb13"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{com_codigo}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{des_codigo}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="1" y="148" width="553" height="1" uuid="4f83f5d7-1897-47dc-b9af-adc10e5a0a06"/>
@@ -184,14 +161,14 @@ group by tie_nombre, com_codigo, nat_cedula, nombre, direccion,tel_numero,com_fe
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="11" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Nombre: ]]></text>
+				<text><![CDATA[Razon Social: ]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="24" y="151" width="100" height="20" uuid="cb042e99-13ff-4603-a1c1-0ce1b91fa6cc"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="11" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Cedula:]]></text>
+				<text><![CDATA[Rif:]]></text>
 			</staticText>
 			<line>
 				<reportElement x="153" y="96" width="1" height="202" uuid="44dde0f1-e1c7-4097-b5c8-c18ded4c3c0c"/>
@@ -202,7 +179,7 @@ group by tie_nombre, com_codigo, nat_cedula, nombre, direccion,tel_numero,com_fe
 			<textField>
 				<reportElement x="174" y="111" width="144" height="20" uuid="abb9724d-d7a9-42ca-83c2-8c55c763c7f0"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{pro_razonsocial}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="339" y="96" width="1" height="79" uuid="a7292e88-ecaa-4d90-8530-53e066b87811"/>
@@ -228,23 +205,12 @@ group by tie_nombre, com_codigo, nat_cedula, nombre, direccion,tel_numero,com_fe
 			</staticText>
 			<textField>
 				<reportElement x="446" y="125" width="100" height="20" uuid="4cafba15-19d6-4655-9d3f-9832558b25f7"/>
-				<textFieldExpression><![CDATA[$F{com_fechaaprobado}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{des_fechaaprobado}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="174" y="152" width="144" height="20" uuid="3ef2ff00-c207-466a-a580-e86d6aba39e9"/>
 				<textElement textAlignment="Center"/>
-				<textFieldExpression><![CDATA[$F{nat_cedula}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="353" y="151" width="83" height="20" uuid="8506eee4-25b7-404f-b9a4-99aa1a74da64"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="11" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Identificador:]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="446" y="152" width="100" height="20" uuid="644c9c89-14c9-4e79-a5c6-6d4a10bfb32e"/>
-				<textFieldExpression><![CDATA[$P{identificador}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{pro_rif}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="338" y="121" width="216" height="1" uuid="79c34cba-70f2-424a-bf51-393623b7401c"/>
@@ -271,10 +237,12 @@ group by tie_nombre, com_codigo, nat_cedula, nombre, direccion,tel_numero,com_fe
 			</staticText>
 			<textField>
 				<reportElement x="186" y="195" width="336" height="20" uuid="c158e5c2-15b0-4e51-970f-bd7fef845956"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{direccion}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="186" y="232" width="336" height="20" uuid="860e6963-22d1-4a9f-aa7f-307249bd07e6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{tel_numero}]]></textFieldExpression>
 			</textField>
 			<staticText>
@@ -292,7 +260,7 @@ group by tie_nombre, com_codigo, nat_cedula, nombre, direccion,tel_numero,com_fe
 				<text><![CDATA[Producto]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="325" y="267" width="47" height="20" uuid="8b3234b0-ce3e-4927-8d02-a84746fbfcdb"/>
+				<reportElement x="319" y="267" width="54" height="20" uuid="8b3234b0-ce3e-4927-8d02-a84746fbfcdb"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="11" isBold="true"/>
 				</textElement>
@@ -350,7 +318,7 @@ group by tie_nombre, com_codigo, nat_cedula, nombre, direccion,tel_numero,com_fe
 			<textField>
 				<reportElement x="446" y="10" width="100" height="20" uuid="072fb84c-dff0-476d-8941-dd2a1be66113"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$P{subtotal}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{montotal}-($P{montotal}*0.12)]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="338" y="48" width="84" height="20" uuid="45ec06ba-04ea-43b9-a15d-e000f137bbbe"/>
@@ -369,12 +337,12 @@ group by tie_nombre, com_codigo, nat_cedula, nombre, direccion,tel_numero,com_fe
 			<textField>
 				<reportElement x="446" y="48" width="100" height="20" uuid="b9ba1cde-319f-4f98-9195-49b84eda0af1"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$P{total}*0.12]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{montotal}*0.12]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="446" y="84" width="100" height="20" uuid="ed28a79c-809b-49d5-9e8d-0d8b49ca6229"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$P{total}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{montotal}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="14" y="132" width="100" height="20" uuid="46488e26-c2ca-4fcb-b933-e1d510371491"/>

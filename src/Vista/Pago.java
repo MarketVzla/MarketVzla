@@ -405,7 +405,7 @@ public class Pago extends javax.swing.JFrame {
             
             
             //
-            Controlador.ControladorReporte.GenerarFactura(compra, montotal, identificador);
+            
             ElegirCliente elegirCliente = new ElegirCliente(elegirTiendav, tiendav);
             elegirCliente.setVisible(true);
             this.dispose();
