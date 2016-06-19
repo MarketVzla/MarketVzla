@@ -5,16 +5,13 @@
  */
 package Controlador;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import Modelo.LoginModel;
 import Modelo.PermisoDAO;
-import Modelo.PrincipalModel;
-import Modelo.RolPermiso;
 import Vista.AdminVista;
-
 import Vista.LoginVista;
 import Vista.RegistroCliente;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  *
@@ -28,6 +25,9 @@ public class LoginController implements ActionListener{
     
 
     public LoginController(LoginVista vistaLogin) {
+        
+        
+       
         this.vistaLogin = vistaLogin;
         LoginModel.Login();
     }
@@ -39,9 +39,7 @@ public class LoginController implements ActionListener{
            
            
            if(!vistaLogin.textLoginUsuario.getText().isEmpty())
-           { System.out.print("");
-                 System.out.print("");
-                 System.out.print("");System.out.print("");System.out.print("");
+           {
                String nick=(String)vistaLogin.textLoginUsuario.getText(),
                        pass=(String)vistaLogin.textLoginPassword.getText();
              
@@ -50,11 +48,6 @@ public class LoginController implements ActionListener{
               //RolPermiso.mostrarSession();
                
              if(value == 1){
-                 
-                 
-                 
-               
-                 //LoginModel.user.getPermisos();
                AdminVista vistaAdmin = new AdminVista();
                PermisoDAO modelPermiso = new PermisoDAO();
                AdminController controllerAdmin = new  AdminController (vistaAdmin,vistaLogin ,modelPermiso);
@@ -69,16 +62,22 @@ public class LoginController implements ActionListener{
         
         if  (e.getSource() == vistaLogin.jbtnRegistrar){
             //Solo NAtural o Juridico
-           /*
+            
             RegistroCliente nuevoRegistro = new RegistroCliente ();
             RegistroClienteController nuevoRegistroController = new 
                     RegistroClienteController(nuevoRegistro, vistaLogin);
             nuevoRegistro.setRegistroClienteController(nuevoRegistroController);
             nuevoRegistro.MustraRegisroCliente();
-            vistaLogin.setVisible(false);*/
+            vistaLogin.setVisible(false);
         }
         if(e.getSource() == vistaLogin.jbtnRecuperarPass){
             
+        }
+        if(e.getSource() == vistaLogin.jbtnSalir){
+            LoginModel.SalirLogin();
+                vistaLogin.dispose();
+		System.exit(0);
+
         }
     }
     

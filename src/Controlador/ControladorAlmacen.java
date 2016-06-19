@@ -184,6 +184,7 @@ public class ControladorAlmacen {
         }
         return null;
     }
+    
     public static ArrayList<String> ArregloAlmacenes (String tienda){
         ArrayList<String> tiendas= new ArrayList();
         java.sql.Connection connection = null;
@@ -209,5 +210,4 @@ public class ControladorAlmacen {
         }
         return null;
     }
-    
 }

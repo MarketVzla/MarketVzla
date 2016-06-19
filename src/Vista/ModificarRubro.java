@@ -24,7 +24,6 @@ public class ModificarRubro extends javax.swing.JFrame {
      */
     public ModificarRubro() {
         initComponents();
-             getContentPane().setBackground(java.awt.Color.white);
         this.rubro="Congelados";
         this.almacen="Refrigeracion";
         this.tienda="Market Venezuela CCS";

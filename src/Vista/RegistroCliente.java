@@ -7,7 +7,6 @@ package Vista;
 
 import javax.swing.JFrame;
 import Controlador.RegistroClienteController;
-import java.awt.event.ActionListener;
 
 /**
  *
@@ -851,50 +850,50 @@ public class RegistroCliente extends javax.swing.JFrame {
     
     public void setRegistroClienteController(RegistroClienteController c){
           //Botones  
-            jtbtnRegistroCLienteVolver.addActionListener((ActionListener)c);
-            jbtnRegistroCLienteNatural.addActionListener((ActionListener)c);
-            jbtnRegistroCLienteJuridico.addActionListener((ActionListener)c);
+            jtbtnRegistroCLienteVolver.addActionListener(c);
+            jbtnRegistroCLienteNatural.addActionListener(c);
+            jbtnRegistroCLienteJuridico.addActionListener(c);
             
             //Text Field
                        //Juridico
-                     textRegistroCLienteJuridicoCapitalDisponible.addActionListener((ActionListener)c);
-                     textRegistroCLienteJuridicoDenominacionComercial.addActionListener((ActionListener)c);
-                     textRegistroCLienteJuridicoEmail.addActionListener((ActionListener)c);
-                     textRegistroCLienteJuridicoPass.addActionListener((ActionListener)c);
-                     textRegistroCLienteJuridicoPreguntaSecreta.addActionListener((ActionListener)c);
-                     textRegistroCLienteJuridicoRazonSocial.addActionListener((ActionListener)c);
-                     textRegistroCLienteJuridicoRespuestaSecreta.addActionListener((ActionListener)c);
-                     textRegistroCLienteJuridicoRif.addActionListener((ActionListener)c);
-                     textRegistroCLienteJuridicoTelefono.addActionListener((ActionListener)c);
-                     textRegistroCLienteJuridicoUsuario.addActionListener((ActionListener)c);
-                     textRegistroCLienteJuridicoWeb.addActionListener((ActionListener)c);
+                     textRegistroCLienteJuridicoCapitalDisponible.addActionListener(c);
+                     textRegistroCLienteJuridicoDenominacionComercial.addActionListener(c);
+                     textRegistroCLienteJuridicoEmail.addActionListener(c);
+                     textRegistroCLienteJuridicoPass.addActionListener(c);
+                     textRegistroCLienteJuridicoPreguntaSecreta.addActionListener(c);
+                     textRegistroCLienteJuridicoRazonSocial.addActionListener(c);
+                     textRegistroCLienteJuridicoRespuestaSecreta.addActionListener(c);
+                     textRegistroCLienteJuridicoRif.addActionListener(c);
+                     textRegistroCLienteJuridicoTelefono.addActionListener(c);
+                     textRegistroCLienteJuridicoUsuario.addActionListener(c);
+                     textRegistroCLienteJuridicoWeb.addActionListener(c);
                      
                      //Natural
-                     textRegistroCLienteNaturalApellido.addActionListener((ActionListener)c);
-                     textRegistroCLienteNaturalCedula.addActionListener((ActionListener)c);
+                     textRegistroCLienteNaturalApellido.addActionListener(c);
+                     textRegistroCLienteNaturalCedula.addActionListener(c);
                      
-                     textRegistroCLienteNaturalEmail.addActionListener((ActionListener)c);
-                     textRegistroCLienteNaturalNombre.addActionListener((ActionListener)c);
-                     textRegistroCLienteNaturalPass.addActionListener((ActionListener)c);
-                     textRegistroCLienteNaturalPreguntaSecreta.addActionListener((ActionListener)c);
-                     textRegistroCLienteNaturalRespuestaSecreta.addActionListener((ActionListener)c);
-                     textRegistroCLienteNaturalRif.addActionListener((ActionListener)c);
-                     textRegistroCLienteNaturalSegundoApellido.addActionListener((ActionListener)c);
-                     textRegistroCLienteNaturalSegundoNombre.addActionListener((ActionListener)c);
-                     textRegistroCLienteNaturalTelefono.addActionListener((ActionListener)c);
-                     textRegistroCLienteNaturalUser.addActionListener((ActionListener)c);
+                     textRegistroCLienteNaturalEmail.addActionListener(c);
+                     textRegistroCLienteNaturalNombre.addActionListener(c);
+                     textRegistroCLienteNaturalPass.addActionListener(c);
+                     textRegistroCLienteNaturalPreguntaSecreta.addActionListener(c);
+                     textRegistroCLienteNaturalRespuestaSecreta.addActionListener(c);
+                     textRegistroCLienteNaturalRif.addActionListener(c);
+                     textRegistroCLienteNaturalSegundoApellido.addActionListener(c);
+                     textRegistroCLienteNaturalSegundoNombre.addActionListener(c);
+                     textRegistroCLienteNaturalTelefono.addActionListener(c);
+                     textRegistroCLienteNaturalUser.addActionListener(c);
                      
                      //Combobox
-                         jComboBoxRegistroCLienteJuridicoEstadoDireccionFiscal.addActionListener((ActionListener)c);
-                        jComboBoxRegistroCLienteJuridicoEstadoDireccionFisica.addActionListener((ActionListener)c);
-                        jComboBoxRegistroCLienteJuridicoMunicipioDireccionFiscal.addActionListener((ActionListener)c);
-                        jComboBoxRegistroCLienteJuridicoMunicipioDireccionFisica.addActionListener((ActionListener)c);
-                         jComboBoxRegistroCLienteJuridicoParroquiaDireccionFiscal.addActionListener((ActionListener)c);
-                          jComboBoxRegistroCLienteJuridicoParroquiaDireccionFisica.addActionListener((ActionListener)c);
+                         jComboBoxRegistroCLienteJuridicoEstadoDireccionFiscal.addActionListener(c);
+                        jComboBoxRegistroCLienteJuridicoEstadoDireccionFisica.addActionListener(c);
+                        jComboBoxRegistroCLienteJuridicoMunicipioDireccionFiscal.addActionListener(c);
+                        jComboBoxRegistroCLienteJuridicoMunicipioDireccionFisica.addActionListener(c);
+                         jComboBoxRegistroCLienteJuridicoParroquiaDireccionFiscal.addActionListener(c);
+                          jComboBoxRegistroCLienteJuridicoParroquiaDireccionFisica.addActionListener(c);
                         
-                          jComboBoxRegistroCLienteNaturalEstado.addActionListener((ActionListener)c);
-                          jComboBoxRegistroCLienteNaturalMunicipio.addActionListener((ActionListener)c);
-                          jComboBoxRegistroCLienteNaturalParroquia.addActionListener((ActionListener)c);
+                          jComboBoxRegistroCLienteNaturalEstado.addActionListener(c);
+                          jComboBoxRegistroCLienteNaturalMunicipio.addActionListener(c);
+                          jComboBoxRegistroCLienteNaturalParroquia.addActionListener(c);
                      
             
         

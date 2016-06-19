@@ -18,7 +18,7 @@ public class ControladorProducto {
  
     
     
-    public static boolean RegistrarProducto (String nombre, String descripcion ,String foto,String rubro,String almacen,String tienda, String marca)
+    public static boolean RegistrarProducto (String nombre, String descripcion,String rubro,String almacen,String tienda, String marca)
     {
         java.sql.Connection connection = null;
         Statement s = null;
@@ -33,8 +33,8 @@ public class ControladorProducto {
             s = connection.createStatement();
             
             
-            System.out.println("insert into producto (pro_nombre,pro_descripcion, pro_foto,pro_fk_rubro,pro_fk_marca) values ('"+nombre+"','"+descripcion+"','"+foto+"',(select rub_codigo FROM rubro where rub_nombre='"+rubro+"' and rub_fk_almacen=(select alm_codigo from almacen where alm_nombre= '"+almacen+"'and alm_fk_tienda=(SELECT tie_codigo FROM tienda where tie_nombre = '"+tienda+"'))),(select mar_codigo from marca where mar_nombre='"+marca+"'));");
-int z = s.executeUpdate("insert into producto (pro_nombre,pro_descripcion, pro_foto,pro_fk_rubro,pro_fk_marca) values ('"+nombre+"','"+descripcion+"','"+foto+"',(select rub_codigo FROM rubro where rub_nombre='"+rubro+"' and rub_fk_almacen=(select alm_codigo from almacen where alm_nombre= '"+almacen+"'and alm_fk_tienda=(SELECT tie_codigo FROM tienda where tie_nombre = '"+tienda+"'))),(select mar_codigo from marca where mar_nombre='"+marca+"'));");           // int z = s.executeUpdate("insert into tienda (tie_codigo,tie_nombre,tie_fecha,tie_valorpuntos,tie_fk_lugar) values (nextval('tienda_tie_codigo_seq'::regclass),'"+nombre+"','"+fecha+"',"+valorNro+","+lugar+")");
+            
+int z = s.executeUpdate("insert into producto (pro_nombre,pro_descripcion,pro_fk_rubro,pro_fk_marca) values ('"+nombre+"','"+descripcion+"',(select rub_codigo FROM rubro where rub_nombre='"+rubro+"' and rub_fk_almacen=(select alm_codigo from almacen where alm_nombre= '"+almacen+"'and alm_fk_tienda=(SELECT tie_codigo FROM tienda where tie_nombre = '"+tienda+"'))),(select mar_codigo from marca where mar_nombre='"+marca+"'))");           // int z = s.executeUpdate("insert into tienda (tie_codigo,tie_nombre,tie_fecha,tie_valorpuntos,tie_fk_lugar) values (nextval('tienda_tie_codigo_seq'::regclass),'"+nombre+"','"+fecha+"',"+valorNro+","+lugar+")");
             
             if (z==1){
                 System.out.println("Se agrego el registro");

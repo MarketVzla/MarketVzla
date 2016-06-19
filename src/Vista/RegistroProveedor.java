@@ -8,7 +8,6 @@ package Vista;
 import javax.swing.JFrame;
 import Controlador.ControladorProveedor;
 import Controlador.RegistroClienteController;
-import java.awt.event.ActionListener;
 
 /**
  *
@@ -21,7 +20,6 @@ public class RegistroProveedor extends javax.swing.JFrame {
      */
     public RegistroProveedor() {
         initComponents();
-             getContentPane().setBackground(java.awt.Color.white);
     }
 
         public static void main(String args[]) {
@@ -126,13 +124,8 @@ public class RegistroProveedor extends javax.swing.JFrame {
         jLabel29.setForeground(new java.awt.Color(255, 0, 0));
         jLabel29.setText("(*) Campos Obligatorios");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registrarse");
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
-            }
-        });
 
         jlblRegistroCLienteTitulo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jlblRegistroCLienteTitulo.setText("Registro Proveedor");
@@ -387,41 +380,33 @@ public class RegistroProveedor extends javax.swing.JFrame {
         jTabbedPaneRegistroCliente.getAccessibleContext().setAccessibleDescription("Valido para clientes ");
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        // TODO add your handling code here:
-        this.dispose();
-        Bienvenida bienvenida= new Bienvenida();
-        bienvenida.setVisible(true);
-    }//GEN-LAST:event_formWindowClosing
 
     
     public void setRegistroClienteController(RegistroClienteController c){
           //Botones  
-            jtbtnRegistroCLienteVolver.addActionListener((ActionListener)c);
-            jbtnRegistroCLienteJuridico.addActionListener((ActionListener)c);
+            jtbtnRegistroCLienteVolver.addActionListener(c);
+            jbtnRegistroCLienteJuridico.addActionListener(c);
             
             //Text Field
                        //Juridico
                     
-                     textRegistroCLienteJuridicoDenominacionComercial.addActionListener((ActionListener) c);
-                     textRegistroCLienteJuridicoRazonSocial.addActionListener((ActionListener) c);
+                     textRegistroCLienteJuridicoDenominacionComercial.addActionListener(c);
+                     textRegistroCLienteJuridicoRazonSocial.addActionListener(c);
                     
-                     textRegistroCLienteJuridicoRif.addActionListener((ActionListener)c);
-                     textRegistroCLienteJuridicoTelefono.addActionListener((ActionListener)c);
-                     textRegistroCLienteJuridicoUsuario.addActionListener((ActionListener)c);
+                     textRegistroCLienteJuridicoRif.addActionListener(c);
+                     textRegistroCLienteJuridicoTelefono.addActionListener(c);
+                     textRegistroCLienteJuridicoUsuario.addActionListener(c);
                      
                      //Natural
                    
                      //Combobox
-                         jComboBoxRegistroCLienteJuridicoEstadoDireccionFiscal.addActionListener((ActionListener)c);
-                        jComboBoxRegistroCLienteJuridicoEstadoDireccionFisica.addActionListener((ActionListener)c);
-                        jComboBoxRegistroCLienteJuridicoMunicipioDireccionFiscal.addActionListener((ActionListener)c);
-                        jComboBoxRegistroCLienteJuridicoMunicipioDireccionFisica.addActionListener((ActionListener)c);
-                         jComboBoxRegistroCLienteJuridicoParroquiaDireccionFiscal.addActionListener((ActionListener)c);
-                          jComboBoxRegistroCLienteJuridicoParroquiaDireccionFisica.addActionListener((ActionListener)c);
+                         jComboBoxRegistroCLienteJuridicoEstadoDireccionFiscal.addActionListener(c);
+                        jComboBoxRegistroCLienteJuridicoEstadoDireccionFisica.addActionListener(c);
+                        jComboBoxRegistroCLienteJuridicoMunicipioDireccionFiscal.addActionListener(c);
+                        jComboBoxRegistroCLienteJuridicoMunicipioDireccionFisica.addActionListener(c);
+                         jComboBoxRegistroCLienteJuridicoParroquiaDireccionFiscal.addActionListener(c);
+                          jComboBoxRegistroCLienteJuridicoParroquiaDireccionFisica.addActionListener(c);
                         
         
     }
@@ -445,13 +430,13 @@ public class RegistroProveedor extends javax.swing.JFrame {
 }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JPanel PanelPersonaJuridica;
-    public javax.swing.JComboBox jComboBoxRegistroCLienteJuridicoEstadoDireccionFiscal;
-    public javax.swing.JComboBox jComboBoxRegistroCLienteJuridicoEstadoDireccionFisica;
-    public javax.swing.JComboBox jComboBoxRegistroCLienteJuridicoMunicipioDireccionFiscal;
-    public javax.swing.JComboBox jComboBoxRegistroCLienteJuridicoMunicipioDireccionFisica;
-    public javax.swing.JComboBox jComboBoxRegistroCLienteJuridicoParroquiaDireccionFiscal;
-    public javax.swing.JComboBox jComboBoxRegistroCLienteJuridicoParroquiaDireccionFisica;
+    private javax.swing.JPanel PanelPersonaJuridica;
+    private javax.swing.JComboBox jComboBoxRegistroCLienteJuridicoEstadoDireccionFiscal;
+    private javax.swing.JComboBox jComboBoxRegistroCLienteJuridicoEstadoDireccionFisica;
+    private javax.swing.JComboBox jComboBoxRegistroCLienteJuridicoMunicipioDireccionFiscal;
+    private javax.swing.JComboBox jComboBoxRegistroCLienteJuridicoMunicipioDireccionFisica;
+    private javax.swing.JComboBox jComboBoxRegistroCLienteJuridicoParroquiaDireccionFiscal;
+    private javax.swing.JComboBox jComboBoxRegistroCLienteJuridicoParroquiaDireccionFisica;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -476,20 +461,20 @@ public class RegistroProveedor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     public javax.swing.JScrollPane jScrollPanePersonaJuridica;
     private javax.swing.JTabbedPane jTabbedPaneRegistroCliente;
-    public javax.swing.JButton jbtnRegistroCLienteJuridico;
+    private javax.swing.JButton jbtnRegistroCLienteJuridico;
     public javax.swing.JButton jbtnRegistroCLienteJuridico1;
     public javax.swing.JButton jbtnRegistroCLienteJuridico2;
     private javax.swing.JLabel jlblRegistroCLienteTitulo;
     public javax.swing.JButton jtbtnRegistroCLienteVolver;
-    public javax.swing.JLabel lblErrorRegistoClienteJuridicoDenominacionComercial;
-    public javax.swing.JLabel lblErrorRegistoClienteJuridicoRazonSocial;
-    public javax.swing.JLabel lblErrorRegistoClienteJuridicoRif;
-    public javax.swing.JLabel lblErrorRegistoClienteJuridicoTelefono;
-    public javax.swing.JLabel lblErrorRegistoClienteJuridicoWeb;
-    public javax.swing.JTextField textRegistroCLienteJuridicoDenominacionComercial;
-    public javax.swing.JTextField textRegistroCLienteJuridicoRazonSocial;
-    public javax.swing.JTextField textRegistroCLienteJuridicoRif;
-    public javax.swing.JTextField textRegistroCLienteJuridicoTelefono;
-    public javax.swing.JTextField textRegistroCLienteJuridicoUsuario;
+    private javax.swing.JLabel lblErrorRegistoClienteJuridicoDenominacionComercial;
+    private javax.swing.JLabel lblErrorRegistoClienteJuridicoRazonSocial;
+    private javax.swing.JLabel lblErrorRegistoClienteJuridicoRif;
+    private javax.swing.JLabel lblErrorRegistoClienteJuridicoTelefono;
+    private javax.swing.JLabel lblErrorRegistoClienteJuridicoWeb;
+    private javax.swing.JTextField textRegistroCLienteJuridicoDenominacionComercial;
+    private javax.swing.JTextField textRegistroCLienteJuridicoRazonSocial;
+    private javax.swing.JTextField textRegistroCLienteJuridicoRif;
+    private javax.swing.JTextField textRegistroCLienteJuridicoTelefono;
+    private javax.swing.JTextField textRegistroCLienteJuridicoUsuario;
     // End of variables declaration//GEN-END:variables
 }

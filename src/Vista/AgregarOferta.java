@@ -5,7 +5,6 @@
  */
 package Vista;
 
-import com.sun.org.apache.bcel.internal.generic.Select;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -29,7 +28,6 @@ public class AgregarOferta extends javax.swing.JFrame {
         ArrayList<String> productos = Controlador.ControladorOferta.ConsultarProductos();
         for(String producto:productos)
         {
-            System.out.println("Producto : "+producto);
             jComboBox1.addItem(producto);
         }
         
@@ -179,9 +177,10 @@ public class AgregarOferta extends javax.swing.JFrame {
         // TODO add your handling code here:
         try
         {
-        defaultTableModel.addRow(new Object[]{jComboBox1.getSelectedItem().toString(),0});
-        //jComboBox1.removeItem(jComboBox1.getSelectedItem().toString());
-        }catch(Exception e)
+            defaultTableModel.addRow(new Object[]{jComboBox1.getSelectedItem().toString(),0});
+            
+        }
+        catch(Exception e)
         {
             
         }
@@ -190,7 +189,7 @@ public class AgregarOferta extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        AdministradorOferta administradorOferta = new AdministradorOferta();
+        AdministradorOfertas administradorOferta = new AdministradorOfertas();
         administradorOferta.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -218,7 +217,7 @@ public class AgregarOferta extends javax.swing.JFrame {
             {
                 Controlador.ControladorOferta.InsertarProductoEnOferta((String)defaultTableModel.getValueAt(i, 0), String.valueOf(defaultTableModel.getValueAt(i, 1)));
             }
-            AdministradorOferta administradorOferta = new  AdministradorOferta();
+            AdministradorOfertas administradorOferta = new  AdministradorOfertas();
             administradorOferta.setVisible(true);
             this.dispose();
             JOptionPane.showMessageDialog(rootPane, "Oferta Registrada");
@@ -249,7 +248,7 @@ public class AgregarOferta extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
-        AdministradorOferta administradorOferta = new AdministradorOferta();
+        AdministradorOfertas administradorOferta = new AdministradorOfertas();
         administradorOferta.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_formWindowClosing

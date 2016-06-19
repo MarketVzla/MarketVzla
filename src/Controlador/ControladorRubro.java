@@ -130,31 +130,6 @@ public class ControladorRubro {
         }
         return false;
     }
-     public static ArrayList<String> ArregloRubro (){
-        ArrayList<String> tiendas= new ArrayList();
-        java.sql.Connection connection = null;
-        ResultSet rs = null;
-        Statement s = null;
-        String url = "jdbc:postgresql://localhost:"+Etiquetas.puerto+"/"+Etiquetas.nombrebd+"";
-        
-        try {
-            Class.forName("org.postgresql.Driver");
-            
-            connection = DriverManager.getConnection(url, "postgres", Etiquetas.contraseña);
-            
-            s = connection.createStatement();
-            
-            rs = s.executeQuery("select distinct rub_nombre from rubro");
-            
-            while (rs.next()){
-                tiendas.add(rs.getString(1));
-            }
-            return tiendas;
-        }catch(Exception e){
-            System.err.println("Error de Conexion");
-        }
-        return null;
-    }
            
     /**
      * Consultar datos de rubro, el formato es:

@@ -5,7 +5,6 @@
  */
 package Vista;
 
-import Modelo.LoginModel;
 import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -16,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Leonardo
  */
 public class AdministradorZona extends javax.swing.JFrame {
-    private static Bienvenida adminVista;
+
     private DefaultTableModel defaultTableModel = new DefaultTableModel();
     private int select;
     /**
@@ -24,7 +23,6 @@ public class AdministradorZona extends javax.swing.JFrame {
      */
     public AdministradorZona() {
         initComponents();
-             getContentPane().setBackground(java.awt.Color.white);
         defaultTableModel.addColumn("Nombre");
         defaultTableModel.addColumn("Descripcion");
         jTable1.setModel(defaultTableModel);
@@ -36,50 +34,8 @@ public class AdministradorZona extends javax.swing.JFrame {
         for(String tienda:tiendas){
             jComboBox1.addItem(tienda);
         }
-        jButton1.setEnabled(false);
-                jButton2.setEnabled(false);
-                jButton3.setEnabled(false);
-                        jButton4.setEnabled(false);
-          permisosZona(); 
     }
-    
-    public AdministradorZona(Bienvenida adminVista) {
-        initComponents();
-             getContentPane().setBackground(java.awt.Color.white);
-        defaultTableModel.addColumn("Nombre");
-        defaultTableModel.addColumn("Descripcion");
-        jTable1.setModel(defaultTableModel);
-        jTable1.getColumnModel().getColumn(0).setWidth(150);
-        jTable1.getColumnModel().getColumn(1).setWidth(100);
-        select=0;
-        
-        ArrayList<String> tiendas = Controlador.ControladorTienda.ArregloTiendas();
-        for(String tienda:tiendas){
-            jComboBox1.addItem(tienda);
-        }
-        this.adminVista=adminVista;
-        
-        jButton1.setEnabled(false);
-                jButton2.setEnabled(false);
-                jButton3.setEnabled(false);
-                        jButton4.setEnabled(false);
-          permisosZona();              
-    }
-    public void permisosZona(){
-         if( LoginModel.getPermisoXNOmbre("Agregar Zona")){
-                jButton2.setEnabled(true);
-            }
-            if( LoginModel.getPermisoXNOmbre("Actualizar Zona")){                 
-                jButton4.setEnabled(true);
 
-            }
-            if( LoginModel.getPermisoXNOmbre("Eliminar Zona")){                 
-                jButton3.setEnabled(true);
-            }         
-             if( LoginModel.getPermisoXNOmbre("Consultar Zona")){                 
-                 jButton1.setEnabled(true);
-             } 
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -103,12 +59,7 @@ public class AdministradorZona extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
-            }
-        });
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel_tiendas.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel_tiendas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -324,12 +275,6 @@ public class AdministradorZona extends javax.swing.JFrame {
             jComboBox2.addItem(pasillo);
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
-
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        // TODO add your handling code here:
-        this.dispose();
-        adminVista.setVisible(true);
-    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

@@ -18,7 +18,6 @@ public class ConsutarTienda extends javax.swing.JFrame {
      */
     public ConsutarTienda() {
         initComponents();
-             getContentPane().setBackground(java.awt.Color.white);
         this.tienda="Market Venezuela CCS";
         ArrayList<String> infotienda = Controlador.ControladorTienda.ConsultarTienda(tienda);
         jLabel_Nombre.setText(infotienda.get(1));

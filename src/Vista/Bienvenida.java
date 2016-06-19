@@ -438,7 +438,7 @@ public class Bienvenida extends javax.swing.JFrame {
 
     private void jMenuItem21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem21ActionPerformed
         // TODO add your handling code here:
-        AdministradorOferta administradorOferta = new AdministradorOferta();
+        AdministradorOfertas administradorOferta = new AdministradorOfertas();
         administradorOferta.setVisible(true);
         this.dispose();
         

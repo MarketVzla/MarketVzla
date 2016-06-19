@@ -16,20 +16,6 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import Modelo.Check;
-import Modelo.EmpleadoBeneficio;
-import Modelo.EmpleadoHorario;
-import Modelo.Empleados;
-import Modelo.Juridico;
-import Modelo.Natural;
-import Modelo.Permiso;
-import Modelo.PersonaContacto;
-import Modelo.PrincipalModel;
-import Modelo.Rol;
-import Modelo.Tienda;
-import Modelo.Tienda2;
-import Modelo.emp_hor;
-import javax.swing.JComboBox;
 
 /**
  *
@@ -906,7 +892,7 @@ public class PermisoDAO {
                 String preguntaSecretaRolPer,
                 String respuestaSecretaRolPer,
                 String rol,
-                ArrayList<String> permiso 
+                String permiso
               /*  String beneficio,
                 String horario*/){
          int value=0;
@@ -942,7 +928,7 @@ public class PermisoDAO {
 
 
 
-                //USUARIO
+                //ROL_PER 
                 PrincipalModel.setStm(
                 PrincipalModel.getCon().createStatement());
                String sqlRol_Per;
@@ -1007,22 +993,14 @@ public class PermisoDAO {
                 System.out.println("Inserted records into the table TEMP_EMP..");
                  
                 if(registroExitosoTeinda>0 && registroExitosoRolper>0){
-                    int registroRolper=-1;
-                    for (int i = 0; i < permiso .size() ; i++) {
-                      
-                        PrincipalModel.setStm(
+                    PrincipalModel.setStm(
                 PrincipalModel.getCon().createStatement());
                String Rol_Per;
-               
                             Rol_Per = "INSERT INTO rol_per( rp_fk_rol, rp_fk_permiso,rp_fk_usuario) "+
-                    " VALUES ("+rol+","+ permiso .get(i)+","
+                    " VALUES ("+rol+","+permiso+","
                                     + " '"+usurarioRolPer+"');"; //Consulta
-                   registroRolper =PrincipalModel.getStm().executeUpdate(Rol_Per);
-                     
-                      
-                    }
                            
-                
+                int registroRolper =PrincipalModel.getStm().executeUpdate(Rol_Per);
                     if(registroRolper >0){
 
 
@@ -1777,8 +1755,8 @@ public class PermisoDAO {
                             sql = "UPDATE juridico" +
 "   SET jur_denominacioncomercial='"+jur_denominacioncomercial+"', "
  + "jur_razonsocial= '"+jur_razonsocial+"', jur_paginaweb= '"+jur_paginaweb+"', " +
-"       jur_capitaldisponible= '"+jur_capitaldisponible+"' , cli_fk_lugar_fisica= "+cli_fk_lugar_fisica+",  "
- + "jur_fk_lugar_fiscal="+jur_fk_lugar_fiscal+"  WHERE jur_rif= '"+jur_rif+"' ;"; //Consulta
+"       jur_capitaldisponible= '"+jur_capitaldisponible+"' "
+ + " WHERE jur_rif= '"+jur_rif+"' ;"; //Consulta
                             
            value= PrincipalModel.getStm().executeUpdate(sql);
            
@@ -1830,9 +1808,7 @@ public class PermisoDAO {
     JTextField textRegistroCLienteJuridicoWeb,JTextField textRegistroCLienteJuridicoEmail,
     JTextField textRegistroCLienteJuridicoCapitalDisponible,JTextField textRegistroCLienteJuridicoUsuario
             ,JTextField textRegistroCLienteJuridicoPass,JTextField textRegistroCLienteJuridicoPreguntaSecreta
-               ,JTextField textRegistroCLienteJuridicoRespuestaSecreta,
-               JComboBox EstadoFisica,JComboBox MunicipioFisica,JComboBox ParroquiaFisica,
-               JComboBox EstadoFiscal,JComboBox MunicipioFiscal,JComboBox ParroquiaFiscal)
+               ,JTextField textRegistroCLienteJuridicoRespuestaSecreta)
        {
         
          try {
@@ -1843,7 +1819,7 @@ public class PermisoDAO {
             String sql;
                 sql = "select jur_denominacioncomercial ,jur_razonsocial,jur_rif ,tel_numero," +
 "jur_paginaweb ,cor_direccion, jur_capitaldisponible ,usu_nick ,usu_contraseña,"
-                        + "usu_preguntasecreta,usu_respuestasecreta,cli_fk_lugar_fisica,jur_fk_lugar_fiscal" +
+                        + "usu_preguntasecreta,usu_respuestasecreta" +
 " from juridico,usuario,telefono,correo where tel_fk_juridico="+cod+" and cli_codigo = "+cod+" and  "
                         + "cor_fk_juridico = "+cod+" and usu_fk_juridico="+cod+";"; //Consulta
                /* sql = "SELECT *"
@@ -1865,19 +1841,6 @@ public class PermisoDAO {
                         textRegistroCLienteJuridicoPreguntaSecreta.setText(rs.getString("usu_preguntasecreta"));
                         textRegistroCLienteJuridicoRespuestaSecreta.setText(rs.getString("usu_respuestasecreta"));
                         
-                        ArrayList<String> parroquiaFisica=Lugar.ConsultarParroquia(Integer.parseInt(rs.getString("cli_fk_lugar_fisica")));
-                        ArrayList<String> municipioFisica = Controlador.ControladorLugar.ConsultarMunicipio(Integer.parseInt(parroquiaFisica.get(1)));
-                        
-                        EstadoFisica.setSelectedItem(municipioFisica.get(1));
-                        MunicipioFisica.setSelectedItem(municipioFisica.get(0));
-                        ParroquiaFisica.setSelectedItem(parroquiaFisica.get(0));
-                        
-                        ArrayList<String> parroquiaFiscal=Lugar.ConsultarParroquia(Integer.parseInt(rs.getString("jur_fk_lugar_fiscal")));
-                        ArrayList<String> municipioFiscal = Controlador.ControladorLugar.ConsultarMunicipio(Integer.parseInt(parroquiaFiscal.get(1)));
-                        
-                        EstadoFiscal.setSelectedItem(municipioFiscal.get(1));
-                        MunicipioFiscal.setSelectedItem(municipioFiscal.get(0));
-                        ParroquiaFiscal.setSelectedItem(parroquiaFiscal.get(0));
                    }
             
             rs.close();
@@ -1902,17 +1865,15 @@ public class PermisoDAO {
             try {
             PrincipalModel.setStm(
                 PrincipalModel.getCon().createStatement());
-               String sql;/*hor_dia,hor_horainicio,hot_horafin*/
-                           sql ="UPDATE \"natural\" " +
-"   SET cli_fk_lugar='"+cli_fk_lugar+"' "+
-      "   WHERE nat_cedula= '"+nat_cedula+"' ;";/*"UPDATE natural " + 
+             /*  String sql;/*hor_dia,hor_horainicio,hot_horafin*/
+                    /*        sql = "UPDATE natural " +
 "   SET jur_denominacioncomercial='"+jur_denominacioncomercial+"', "
  + "jur_razonsocial= '"+jur_razonsocial+"', jur_paginaweb= '"+jur_paginaweb+"', " +
 "       jur_capitaldisponible= '"+jur_capitaldisponible+"' "
- + " WHERE jur_rif= '"+jur_rif+"' ;"; //Consulta*/
+ + " WHERE jur_rif= '"+jur_rif+"' ;"; //Consulta
                             
            value= PrincipalModel.getStm().executeUpdate(sql);
-           
+           */
             PrincipalModel.setStm(
                 PrincipalModel.getCon().createStatement());
                String sql01;
@@ -1961,8 +1922,7 @@ public class PermisoDAO {
     JTextField textRegistroCLienteNaturalTelefono,JTextField textRegistroCLienteNaturalCedula,
     JTextField textRegistroCLienteNaturalRif,JTextField textRegistroCLienteNaturalEmail
             ,JTextField textRegistroCLienteNaturalUser,JTextField textRegistroCLienteNaturalPass
-               ,JTextField textRegistroCLienteNaturalPreguntaSecreta,JTextField textRegistroCLienteNaturalRespuestaSecreta,
-               JComboBox Estado,JComboBox Municipio,JComboBox Parroquia)
+               ,JTextField textRegistroCLienteNaturalPreguntaSecreta,JTextField textRegistroCLienteNaturalRespuestaSecreta)
        {
         
          try {
@@ -1973,7 +1933,7 @@ public class PermisoDAO {
             String sql;
                 sql = "select nat_primernombre ,nat_segundonombre,nat_primerapellido,nat_segundoapellido," +
 " tel_numero, nat_cedula,nat_rif,cor_direccion,usu_nick ,usu_contraseña,"
-                        + "usu_preguntasecreta,usu_respuestasecreta,cli_fk_lugar" +
+                        + "usu_preguntasecreta,usu_respuestasecreta" +
 " from \"natural\",usuario,telefono,correo where tel_fk_natural="+cod+" and cli_codigo = "+cod+" and  "
                         + "cor_fk_natural = "+cod+" and usu_fk_natural ="+cod+";"; //Consulta
                /* sql = "SELECT *"
@@ -1993,12 +1953,7 @@ public class PermisoDAO {
                         textRegistroCLienteNaturalPreguntaSecreta.setText(rs.getString("usu_preguntasecreta"));
                         textRegistroCLienteNaturalRespuestaSecreta.setText(rs.getString("usu_respuestasecreta"));
                         
-                         ArrayList<String> parroquia=Lugar.ConsultarParroquia(Integer.parseInt(rs.getString("cli_fk_lugar")));
-                        ArrayList<String> municipio = Controlador.ControladorLugar.ConsultarMunicipio(Integer.parseInt(parroquia.get(1)));
                         
-                        Estado.setSelectedItem(municipio.get(1));
-                        Municipio.setSelectedItem(municipio.get(0));
-                        Parroquia.setSelectedItem(parroquia.get(0));
                        
                    }
             
@@ -2166,189 +2121,4 @@ public class PermisoDAO {
         }
        
     }
-     public int insertTipoDepagoDebito(String ct_fk_natural,String ct_fk_juridico,
-     /*J*/
-             /*tipoPago TABLA*/
-        String deb_nrotarjeta ,
-        String deb_cuenta
-        ){
-       int value =0;
-        try {
-            PrincipalModel.setStm(
-                PrincipalModel.getCon().createStatement());
-               String sql;
-                            sql = "INSERT INTO tipopago "
-              + " (deb_nrotarjeta ," +
-                " deb_cuenta,tip_tipo,cre_fechaexp) "+
-            " VALUES ('"+deb_nrotarjeta +"','"+deb_cuenta+"','Debito','1970/01/01');"; //Consulta
-                            
-            int x =PrincipalModel.getStm().executeUpdate(sql);
-            if(x ==1){
-               
-                PrincipalModel.setStm(
-                PrincipalModel.getCon().createStatement());
-               String sql1;
-                            sql1 = "INSERT INTO cli_tip "
-              + "(ct_fk_tipopago,  ct_fk_natural,ct_fk_juridico ) "+
-            " VALUES ((SELECT MAX (tip_codigo) FROM tipopago),"+ct_fk_natural+","+ct_fk_juridico+");"; //Consulta
-                   value=   PrincipalModel.getStm().executeUpdate(sql1);
-                
-               
-            }
-           
-            
-            PrincipalModel.getStm().close();
-             
-             
-             
-        }catch(SQLException ex){ 
-          JOptionPane.showMessageDialog(null, ex.getMessage());
-            System.out.println("He aqui el eror: "+ex.toString());
-           value =0;
-        } catch (Exception e) {
-        }
-        return value;
-     }
-      public int insertTipoDepagoCredito(String ct_fk_juridico,String  ct_fk_natural,
-     
-        String cre_nrotarjeta ,
-        String cre_tipotarjeta ,
-        String cre_fechaexp ){
-       int value =0;
-        try {
-            PrincipalModel.setStm(
-                PrincipalModel.getCon().createStatement());
-               String sql;
-                            sql = "INSERT INTO tipopago "
-              + " (cre_nrotarjeta ," +
-                " cre_tipotarjeta ," +
-                " cre_fechaexp,tip_tipo) "+
-            " VALUES ('"+cre_nrotarjeta+"','"+cre_tipotarjeta+"',"
-                                    + "'"+cre_fechaexp+"','Credito');"; //Consulta
-                            
-            int x =PrincipalModel.getStm().executeUpdate(sql);
-            if(x ==1){
-                
-                PrincipalModel.setStm(
-                PrincipalModel.getCon().createStatement());
-               String sql1;
-                            sql1 = "INSERT INTO cli_tip "
-              + "(ct_fk_tipopago,  ct_fk_juridico, ct_fk_natural ) "+
-            " VALUES ((SELECT MAX (tip_codigo) FROM tipopago),"+ct_fk_juridico+","+ct_fk_natural+");"; //Consulta
-                    value=  PrincipalModel.getStm().executeUpdate(sql1);
-                
-               
-            }
-           
-            
-            PrincipalModel.getStm().close();
-             
-             
-             
-        }catch(SQLException ex){ 
-          JOptionPane.showMessageDialog(null, ex.getMessage());
-            System.out.println("He aqui el eror: "+ex.toString());
-           value =0;
-        } catch (Exception e) {
-        }
-        return value;
-     }
-     
-     public int deleteTipoPAgo(String codigo){
-       int value =0;
-        try {
-            PrincipalModel.setStm(
-                PrincipalModel.getCon().createStatement());
-            String sql;
-            sql = "DELETE FROM tipopago " +
-                   " WHERE tip_codigo = '"+codigo+"' ;"; //Consulta
-              
-                
-                            
-            value =PrincipalModel.getStm().executeUpdate(sql);
-            
-          
-            
-            PrincipalModel.getStm().close();
-             
-             
-             
-        }catch(SQLException ex){ 
-          JOptionPane.showMessageDialog(null, ex.getMessage());
-            System.out.println("He aqui el eror: "+ex.toString());
-           value =0;
-        } catch (Exception e) {
-        }
-        return value;
-        }
-     
-     public ArrayList <TipoPago> listTipodeXCEDULANatural(String buscar){
-        ArrayList listaEmpleado = new ArrayList();
-        TipoPago emp;
-            try {
-
-            PrincipalModel.setStm(
-                    PrincipalModel.getCon().createStatement());
-
-            String sql;
-                sql = "SELECT distinct  tip_codigo,deb_nrotarjeta, deb_cuenta ,cre_nrotarjeta ,cre_tipotarjeta " +
-"FROM tipopago ,cli_tip " +
-"where ct_fk_natural =(Select cli_codigo from \"natural\" where nat_cedula='"+buscar+"') " +
-"and  tip_codigo =ct_fk_tipopago" +
-";"; //Consulta
-             ResultSet rs =PrincipalModel.getStm().executeQuery(sql);     
-                   while (rs.next()) {   
-                           emp= new  TipoPago();
-                        emp.setCodigo(rs.getString("tip_codigo"));
-                        emp.setDeb_cuenta(rs.getString("deb_cuenta"));
-                        emp.setDeb_nrotarjeta(rs.getString("deb_nrotarjeta"));
-                        emp.setCre_nrotarjeta(rs.getString("cre_nrotarjeta"));
-                        emp.setCre_tipotarjeta(rs.getString("cre_tipotarjeta"));
-                       
-                           listaEmpleado .add(emp);      
-                    } 
-            
-            rs.close();
-            PrincipalModel.getStm().close();
-       
-        } catch (Exception e) {
-        }
-        return listaEmpleado;
-    }
-     public ArrayList <TipoPago> listTipodeXCEDULAJuridico(String buscar){
-        ArrayList listaEmpleado = new ArrayList();
-        TipoPago emp;
-            try {
-
-            PrincipalModel.setStm(
-                    PrincipalModel.getCon().createStatement());
-
-            String sql;
-                sql = "SELECT distinct  tip_codigo,deb_nrotarjeta, deb_cuenta ,cre_nrotarjeta ,cre_tipotarjeta " +
-"FROM tipopago ,cli_tip " +
-"where ct_fk_juridico =(Select cli_codigo from juridico where jur_rif ='"+buscar+"') " +
-"and  tip_codigo =ct_fk_tipopago " +
-";"; //Consulta
-             ResultSet rs =PrincipalModel.getStm().executeQuery(sql);     
-                   while (rs.next()) {   
-                           emp= new  TipoPago();
-                        emp.setCodigo(rs.getString("tip_codigo"));
-                        emp.setDeb_cuenta(rs.getString("deb_cuenta"));
-                        emp.setDeb_nrotarjeta(rs.getString("deb_nrotarjeta"));
-                        emp.setCre_nrotarjeta(rs.getString("cre_nrotarjeta"));
-                        emp.setCre_tipotarjeta(rs.getString("cre_tipotarjeta"));
-                       
-                           listaEmpleado .add(emp);      
-                    } 
-            
-            rs.close();
-            PrincipalModel.getStm().close();
-       
-        } catch (Exception e) {
-        }
-        return listaEmpleado;
-    }
-
-    
-      
 }

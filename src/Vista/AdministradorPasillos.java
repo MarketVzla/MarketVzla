@@ -5,7 +5,6 @@
  */
 package Vista;
 
-import Modelo.LoginModel;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -15,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Leonardo
  */
 public class AdministradorPasillos extends javax.swing.JFrame {
-    private static Bienvenida adminVista;
+
     private DefaultTableModel defaultTableModel = new DefaultTableModel();
     private int select;
     
@@ -24,53 +23,19 @@ public class AdministradorPasillos extends javax.swing.JFrame {
      */
     public AdministradorPasillos() {
         initComponents();
-             getContentPane().setBackground(java.awt.Color.white);
         defaultTableModel.addColumn("Numero");
         defaultTableModel.addColumn("Descripcion");
         jTable1.setModel(defaultTableModel);
         jTable1.getColumnModel().getColumn(0).setWidth(150);
         jTable1.getColumnModel().getColumn(1).setWidth(100);
         select=0;
-        //this.adminVista=adminVista;
-        jButton1Buscar.setEnabled(false);
-                jButton2.setEnabled(false);
-                jButton3.setEnabled(false);
-                        jButton4.setEnabled(false);
-        permisosPasillos();
+        
+        ArrayList<String> tiendas = Controlador.ControladorTienda.ArregloTiendas();
+        for(String tienda:tiendas){
+            jComboBox1.addItem(tienda);
+        }
     }
-    
-    public AdministradorPasillos(Bienvenida adminVista) {
-        initComponents();
-             getContentPane().setBackground(java.awt.Color.white);
-        defaultTableModel.addColumn("Numero");
-        defaultTableModel.addColumn("Descripcion");
-        jTable1.setModel(defaultTableModel);
-        jTable1.getColumnModel().getColumn(0).setWidth(150);
-        jTable1.getColumnModel().getColumn(1).setWidth(100);
-        select=0;
-        this.adminVista=adminVista;
-        jButton1Buscar.setEnabled(false);
-                jButton2.setEnabled(false);
-                jButton3.setEnabled(false);
-                        jButton4.setEnabled(false);
-        permisosPasillos();
-    }
-    
-      public void permisosPasillos(){
-         if( LoginModel.getPermisoXNOmbre("Agregar Pasillo")){
-                jButton2.setEnabled(true);
-            }
-            if( LoginModel.getPermisoXNOmbre("Actualizar Pasillo")){                 
-                 jButton4.setEnabled(true);
 
-            }
-            if( LoginModel.getPermisoXNOmbre("Eliminar Pasillo")){                 
-               jButton3.setEnabled(true);
-            }         
-             if( LoginModel.getPermisoXNOmbre("Consultar Pasillo")){                 
-                jButton1Buscar.setEnabled(true);
-             } 
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -90,13 +55,7 @@ public class AdministradorPasillos extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("Pasillos");
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
-            }
-        });
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel_tiendas.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel_tiendas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -205,8 +164,6 @@ public class AdministradorPasillos extends javax.swing.JFrame {
 
     private void jButton1BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1BuscarActionPerformed
         // TODO add your handling code here:
-        if(!jComboBox1.getSelectedItem().toString().equals(""))
-        {
             
             defaultTableModel = new DefaultTableModel();
             defaultTableModel.addColumn("Numero");
@@ -229,17 +186,14 @@ public class AdministradorPasillos extends javax.swing.JFrame {
             {
                 
             }
-        }
     }//GEN-LAST:event_jButton1BuscarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        if(!jComboBox1.getSelectedItem().toString().equals(""))
-        {
             this.setVisible(false);
             RegistrarPasillo registrarPasillo = new RegistrarPasillo(this, jComboBox1.getSelectedItem().toString());
             registrarPasillo.setVisible(true);
-        }
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
@@ -250,8 +204,6 @@ public class AdministradorPasillos extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         try{
-            if(!jComboBox1.getSelectedItem().toString().equals(""))
-            {
                 if(Controlador.ControladorPasillo.EliminarPasillo(Integer.parseInt((String)defaultTableModel.getValueAt(select, 0)), jComboBox1.getSelectedItem().toString()))
                 {
                     JOptionPane.showMessageDialog(rootPane, "Pasillo Eliminado", "Pasillo", JOptionPane.INFORMATION_MESSAGE);
@@ -260,7 +212,7 @@ public class AdministradorPasillos extends javax.swing.JFrame {
                 {
                     JOptionPane.showMessageDialog(rootPane, "Error al Eliminar", "Pasillo", JOptionPane.ERROR_MESSAGE);
                 }
-            }
+            
         }
         catch(Exception e)
         {
@@ -270,8 +222,6 @@ public class AdministradorPasillos extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        if(!jComboBox1.getSelectedItem().toString().equals(""))
-        {
             try
             {
                 this.setVisible(false);
@@ -283,14 +233,8 @@ public class AdministradorPasillos extends javax.swing.JFrame {
                 
             }
             
-        }
+        
     }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        // TODO add your handling code here:
-        this.dispose();
-        adminVista.setVisible(true);
-    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

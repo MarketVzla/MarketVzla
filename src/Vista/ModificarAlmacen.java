@@ -21,7 +21,6 @@ public class ModificarAlmacen extends javax.swing.JFrame {
      */
     public ModificarAlmacen() {
         initComponents();
-             getContentPane().setBackground(java.awt.Color.white);
         this.tienda="Market Venezuela CCS";
         this.almacen="Refrigeracion";
         jTextFieldNombre.setText(almacen);

@@ -31,7 +31,7 @@ public class ControladorLugar {
         ResultSet rs = null;
         Statement s = null;
         String url = "jdbc:postgresql://localhost:"+Etiquetas.puerto+"/"+Etiquetas.nombrebd+"";
-        System.out.println("ENtro a Estados");
+        
         try {
             Class.forName("org.postgresql.Driver");
             

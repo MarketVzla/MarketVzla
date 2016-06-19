@@ -9,7 +9,7 @@ import com.sun.glass.events.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import Modelo.LoginModel;
+
 /**
  *
  * @author Leonardo
@@ -23,7 +23,6 @@ public class AdministracionDeTiendas extends javax.swing.JFrame {
      */
     public AdministracionDeTiendas() {
         initComponents();
-             getContentPane().setBackground(java.awt.Color.white);
         defaultTableModel.addColumn("Nombre");
         defaultTableModel.addColumn("Fecha");
         defaultTableModel.addColumn("Valor Puntos");
@@ -32,48 +31,7 @@ public class AdministracionDeTiendas extends javax.swing.JFrame {
         jTable1.getColumnModel().getColumn(1).setWidth(100);
         jTable1.getColumnModel().getColumn(2).setWidth(100);
         select=0;
-        /* jButton_NuevaTienda.setEnabled(false);
-        jButton1Eliminar.setEnabled(false);
-        jButton1Modificar.setEnabled(false);
-        jButton1Consultar.setEnabled(false);
-        permisosTienda();*/
         
-    }
-    private static Bienvenida adminVista;
-    public AdministracionDeTiendas(Bienvenida adminVista) {
-        initComponents();
-             getContentPane().setBackground(java.awt.Color.white);
-        defaultTableModel.addColumn("Nombre");
-        defaultTableModel.addColumn("Fecha");
-        defaultTableModel.addColumn("Valor Puntos");
-        jTable1.setModel(defaultTableModel);
-        jTable1.getColumnModel().getColumn(0).setWidth(150);
-        jTable1.getColumnModel().getColumn(1).setWidth(100);
-        jTable1.getColumnModel().getColumn(2).setWidth(100);
-        select=0;
-        this.adminVista = adminVista;
-        
-        jButton_NuevaTienda.setEnabled(false);
-        jButton1Eliminar.setEnabled(false);
-        jButton1Modificar.setEnabled(false);
-        jButton1Consultar.setEnabled(false);
-        permisosTienda();
-    }
-    
-    public void permisosTienda(){
-         if( LoginModel.getPermisoXNOmbre("Agregar Tienda")){
-                jButton_NuevaTienda.setEnabled(true);
-            }
-            if( LoginModel.getPermisoXNOmbre("Actualizar Tienda")){                 
-                 jButton1Modificar.setEnabled(true);
-
-            }
-            if( LoginModel.getPermisoXNOmbre("Eliminar Tienda")){                 
-                jButton1Eliminar.setEnabled(true);
-            }         
-             if( LoginModel.getPermisoXNOmbre("Consultar Tienda")){                 
-                jButton1Consultar.setEnabled(true);
-             } 
     }
 
     /**
@@ -94,14 +52,7 @@ public class AdministracionDeTiendas extends javax.swing.JFrame {
         jButton1Modificar = new javax.swing.JButton();
         jButton1Consultar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("Tiendas");
-        setBackground(new java.awt.Color(255, 255, 255));
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
-            }
-        });
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel_tiendas.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel_tiendas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -170,16 +121,16 @@ public class AdministracionDeTiendas extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                             .addGap(34, 34, 34)
                             .addComponent(jLabel_tiendas, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(472, 472, 472)
-                            .addComponent(jButton_NuevaTienda)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTextField_NombreTienda, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(154, 154, 154)
+                            .addComponent(jTextField_NombreTienda, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jButton_NuevaTienda))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton1Eliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -193,8 +144,8 @@ public class AdministracionDeTiendas extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addComponent(jLabel_tiendas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton_NuevaTienda)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton_NuevaTienda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jTextField_NombreTienda))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,7 +156,7 @@ public class AdministracionDeTiendas extends javax.swing.JFrame {
                         .addComponent(jButton1Modificar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton1Consultar)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
 
         pack();
@@ -319,12 +270,6 @@ public class AdministracionDeTiendas extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jButton1ConsultarActionPerformed
-
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        // TODO add your handling code here:
-        this.dispose();
-        adminVista.setVisible(true);
-    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
