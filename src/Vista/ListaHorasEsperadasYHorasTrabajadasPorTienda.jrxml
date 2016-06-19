@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8b03ae2b-84b3-4316-8933-dd5add9e3e61">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[select  tie_nombre,
+	emp_ci,
+	emp_primernombre || ' , ' ||emp_primerapellido as nombre_y_apellido,
+	sum(date_part('hours', hot_horafin - hor_horainicio ) ) as horas_esperadas,
+	sum(date_part('hours', che_horasalida - che_horaentrada ) ) as horas_trabajadas
+	
+	
+from empleado,horario,"check",emp_hor,departamento,dep_emp,tienda
+where 	emp_ci=eh_fk_empleado and 
+	hor_codigo = eh_fk_horario and 
+	eh_codigo =che_fk_emp_hor and 
+	de_fk_empleado=emp_ci and 
+	de_fk_departamento = dep_codigo and
+	dep_fk_tienda = tie_codigo
+group by tie_nombre,emp_ci,nombre_y_apellido
+order by tie_nombre,emp_ci asc ;]]>
+	</queryString>
+	<field name="tie_nombre" class="java.lang.String"/>
+	<field name="emp_ci" class="java.lang.String"/>
+	<field name="nombre_y_apellido" class="java.lang.String"/>
+	<field name="horas_esperadas" class="java.lang.Double"/>
+	<field name="horas_trabajadas" class="java.lang.Double"/>
+	<group name="tie_nombre">
+		<groupExpression><![CDATA[$F{tie_nombre}]]></groupExpression>
+		<groupHeader>
+			<band height="33">
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="0" width="100" height="32" forecolor="#666666" backcolor="#E6E6E6" uuid="b8524f12-642f-4943-a65d-4fd69b07588c"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Tienda]]></text>
+				</staticText>
+				<textField>
+					<reportElement mode="Opaque" x="100" y="0" width="455" height="32" forecolor="#006699" backcolor="#E6E6E6" uuid="de284257-44f6-49e8-8350-ef18bd868e98"/>
+					<textElement>
+						<font size="24" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tie_nombre}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="-20" y="32" width="595" height="1" forecolor="#666666" uuid="bea2aab6-4318-434e-bbb2-c0fb1e06cd64"/>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="emp_ci">
+		<groupExpression><![CDATA[$F{emp_ci}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<textField>
+					<reportElement x="100" y="0" width="455" height="32" forecolor="#006699" uuid="023cfee1-3bf0-4766-a26e-03d72770fc94"/>
+					<textElement>
+						<font size="22" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{emp_ci}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="20" forecolor="#666666" uuid="10a3f666-c38d-45be-9a37-d87276513666"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Cedula]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="nombre_y_apellido">
+		<groupExpression><![CDATA[$F{nombre_y_apellido}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<textField>
+					<reportElement x="100" y="0" width="455" height="32" forecolor="#006699" uuid="9a0b192f-0214-4f08-a1fa-ba6c80da5fb0"/>
+					<textElement>
+						<font size="20" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nombre_y_apellido}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="20" forecolor="#666666" uuid="db0969e3-80c9-4841-94f5-283ab3cc3994"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Nombre]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="horas_esperadas">
+		<groupExpression><![CDATA[$F{horas_esperadas}]]></groupExpression>
+		<groupHeader>
+			<band height="53">
+				<textField>
+					<reportElement x="100" y="0" width="455" height="32" forecolor="#006699" uuid="f9512af6-f3b5-479b-8dae-44d00c7fbfdb"/>
+					<textElement>
+						<font size="16" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{horas_esperadas}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="20" forecolor="#666666" uuid="ef21caa7-158a-4b79-8b6f-3bf08290cc82"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Horas Esperadas]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="100" y="33" width="455" height="20" forecolor="#006699" uuid="be80001f-c498-4414-93cb-f34f55e88805"/>
+					<textElement>
+						<font size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{horas_trabajadas}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="33" width="100" height="20" forecolor="#666666" uuid="51232899-2454-484b-8a18-969b0bc4a776"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Horas Trabajadas]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="b30bebe0-2098-49df-a828-f9a553077fdd"/>
+				<staticText>
+					<reportElement x="20" y="20" width="266" height="58" forecolor="#FFFFFF" uuid="43fff74b-169c-4b9e-a067-050be9c8d157"/>
+					<textElement textAlignment="Center">
+						<font size="22" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Lista de Empleados y sus horas]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="354" y="10" width="221" height="53" forecolor="#FFFFFF" uuid="264abeb7-58fd-4ef7-b6f2-cdfc73cdb3d6"/>
+					<textElement textAlignment="Center">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Lista de horas esperadas y horas trabajadas pro empleado por tienda]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="15c2d869-b199-44ae-bc52-9564d8970a73"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="9ac71165-8665-48a2-b6ea-d385eb0de60a"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[horas_trabajadas]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="8af379d6-31c0-43d6-ad7d-011f02c149c3"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="3ce4eb87-4cd5-4054-aaf8-f24a6d44cae7"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="67773904-d26e-4601-8d11-0a936fb4e1d0"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="ffbae62a-824a-4562-a7be-6767e83987fe"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

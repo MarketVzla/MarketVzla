@@ -20,6 +20,7 @@ public class ConsultarAlmacen extends javax.swing.JFrame {
      */
     public ConsultarAlmacen() {
         initComponents();
+             getContentPane().setBackground(java.awt.Color.white);
         this.tienda="Market Venezuela CCS";
         this.almacen="Refrigeracion";
         ArrayList<String> infoalmacen = Controlador.ControladorAlmacen.ConsultarAlmacen(almacen, tienda);

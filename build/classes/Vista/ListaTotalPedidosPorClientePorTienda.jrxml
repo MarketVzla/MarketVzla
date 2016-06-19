@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d9689752-834c-4ebd-b40c-afac445d4307">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[select count(pre_codigo)as nroPedidos,jur_razonsocial, tie_nombre
+from presupuesto, juridico, tienda, dep_emp, departamento
+where pre_fk_juridico=cli_codigo and pre_fk_dep_emp=de_codigo and de_fk_departamento=dep_codigo and dep_fk_tienda=tie_codigo
+group by jur_razonsocial, tie_nombre
+order by tie_nombre,jur_razonsocial]]>
+	</queryString>
+	<field name="nropedidos" class="java.lang.Long"/>
+	<field name="jur_razonsocial" class="java.lang.String"/>
+	<field name="tie_nombre" class="java.lang.String"/>
+	<group name="tie_nombre">
+		<groupExpression><![CDATA[$F{tie_nombre}]]></groupExpression>
+		<groupHeader>
+			<band height="33">
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="0" width="100" height="32" forecolor="#666666" backcolor="#E6E6E6" uuid="8db9f116-cd5f-42ac-ae61-ab2f8c672e5f"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Tienda]]></text>
+				</staticText>
+				<textField>
+					<reportElement mode="Opaque" x="100" y="0" width="455" height="32" forecolor="#006699" backcolor="#E6E6E6" uuid="c195ef49-ab48-4dee-89f0-25d822a3753f"/>
+					<textElement>
+						<font size="24" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tie_nombre}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="-20" y="32" width="595" height="1" forecolor="#666666" uuid="2608efd3-3d7f-4c93-86fb-ffbf86ee4aa8"/>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="jur_razonsocial">
+		<groupExpression><![CDATA[$F{jur_razonsocial}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<textField>
+					<reportElement x="100" y="0" width="455" height="32" forecolor="#006699" uuid="0d9ff906-5a43-4e42-b30c-28ab768e592d"/>
+					<textElement>
+						<font size="22" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{jur_razonsocial}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="20" forecolor="#666666" uuid="dc33ddb1-185c-40e2-8fd0-e8a0a5210e3e"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Cliente]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="nropedidos">
+		<groupExpression><![CDATA[$F{nropedidos}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<textField>
+					<reportElement x="100" y="0" width="455" height="32" forecolor="#006699" uuid="43fb595f-db52-427b-b6a8-712a747515d3"/>
+					<textElement>
+						<font size="20" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nropedidos}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="20" forecolor="#666666" uuid="4b18fc79-bb55-4582-9620-357a1b274e21"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Nro Pedidos]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="dfb2b33e-8f87-4c58-bbf2-776614d10884"/>
+				<staticText>
+					<reportElement x="20" y="10" width="251" height="72" forecolor="#FFFFFF" uuid="aeab162f-2606-4742-94a2-58ea3404595c"/>
+					<textElement>
+						<font size="26" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Total Pedidos Por Cliente Por Tienda]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="347" y="20" width="228" height="43" forecolor="#FFFFFF" uuid="f4b410dd-7f82-4c5e-9a7f-02e60ad55d12"/>
+					<textElement textAlignment="Center">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Lista Total de Pedidos Por Cliente Por Tienda]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="3545a5e8-5216-4bec-9edc-c4a8df742270"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="e5c90172-07e6-4049-a333-bf26ef6cd7d9"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="5da4b34c-6f4a-4621-867e-7dff13f9871a"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="c3f10426-3ba8-4f3a-af49-50ac43d6c716"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="66466e8d-3119-4b89-9807-dbf128cc5c1b"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

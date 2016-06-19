@@ -18,6 +18,7 @@ public class RegistrarZona extends javax.swing.JFrame {
      */
     public RegistrarZona() {
         initComponents();
+             getContentPane().setBackground(java.awt.Color.white);
     }
     
     private AdministradorZona administradorZona;

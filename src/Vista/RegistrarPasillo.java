@@ -18,6 +18,7 @@ public class RegistrarPasillo extends javax.swing.JFrame {
      */
     public RegistrarPasillo() {
         initComponents();
+             getContentPane().setBackground(java.awt.Color.white);
     }
     private AdministradorPasillos administradorPasillos;
     private String tienda;

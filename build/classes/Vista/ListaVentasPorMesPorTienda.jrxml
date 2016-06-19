@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1ca55fd6-a98f-464c-9b2c-b85a2c68e844">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select count(com_codigo)as nroVentas, to_char(com_fechadespacho,'Month')as mes,tie_nombre 
+from compra, tienda,dep_emp,departamento
+where tie_codigo=dep_fk_tienda and dep_codigo=de_fk_departamento and de_codigo=com_fk_dep_emp
+group by mes,tie_nombre
+order by tie_nombre, mes]]>
+	</queryString>
+	<field name="nroventas" class="java.lang.Long"/>
+	<field name="mes" class="java.lang.String"/>
+	<field name="tie_nombre" class="java.lang.String"/>
+	<group name="tie_nombre">
+		<groupExpression><![CDATA[$F{tie_nombre}]]></groupExpression>
+		<groupHeader>
+			<band height="33">
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="0" width="100" height="32" forecolor="#666666" backcolor="#E6E6E6" uuid="3d6514a8-cfbe-4e40-9de5-fdc4cb9379d9"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Tienda]]></text>
+				</staticText>
+				<textField>
+					<reportElement mode="Opaque" x="100" y="0" width="455" height="32" forecolor="#006699" backcolor="#E6E6E6" uuid="4b63d780-d663-4a9d-8f83-acbe0d3cb000"/>
+					<textElement>
+						<font size="24" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tie_nombre}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="-20" y="32" width="595" height="1" forecolor="#666666" uuid="59a642a7-93ce-454f-8413-1be21598fc49"/>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="mes">
+		<groupExpression><![CDATA[$F{mes}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<textField>
+					<reportElement x="100" y="0" width="455" height="32" forecolor="#006699" uuid="df136a73-5cce-4162-bfe6-3e235274a46c"/>
+					<textElement>
+						<font size="22" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{mes}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="20" forecolor="#666666" uuid="d9f1b1b0-382f-4bde-91bc-4ca571a2279a"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Mes]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="nroventas">
+		<groupExpression><![CDATA[$F{nroventas}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<textField>
+					<reportElement x="100" y="0" width="455" height="32" forecolor="#006699" uuid="8c79c191-3c2e-4f90-abfe-4a6e788c7653"/>
+					<textElement>
+						<font size="20" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nroventas}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="20" forecolor="#666666" uuid="f7a618d3-c1bc-43f2-8b76-2d81a7cb2466"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Nro. Ventas]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="afb6ce08-3117-4c33-9fe5-4565dfed55b6"/>
+				<staticText>
+					<reportElement x="19" y="13" width="261" height="72" forecolor="#FFFFFF" uuid="c8c665bc-aa78-43d4-ab35-35fd0be586ce"/>
+					<textElement textAlignment="Center">
+						<font size="26" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Ventas Por Mes Por Tienda]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="346" y="38" width="229" height="25" forecolor="#FFFFFF" uuid="3cb81628-584d-48b9-b415-e36a87194796"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Lista de Ventas Por Mes Por Tienda]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="d01354b7-c68d-4173-9861-fd67e24f109c"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="a98d29cf-83b7-4145-ab7c-4ae37390b63e"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="476de11a-87ef-4700-917d-a763aab496a6"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="17addd24-13ba-4255-839e-f9def830e4b2"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="8dd82e27-75a7-4e05-86a8-f6143c4ef7b6"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

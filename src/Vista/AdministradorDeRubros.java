@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import Modelo.LoginModel;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -21,6 +22,7 @@ public class AdministradorDeRubros extends javax.swing.JFrame {
      */
     public AdministradorDeRubros() {
         initComponents();
+             getContentPane().setBackground(java.awt.Color.white);
         defaultTableModel.addColumn("Nombre");
         defaultTableModel.addColumn("Descripcion");
         jTable1.setModel(defaultTableModel);
@@ -33,6 +35,54 @@ public class AdministradorDeRubros extends javax.swing.JFrame {
         for(String tienda:tiendas){
             jComboBox1.addItem(tienda);
         }
+        this.adminVista=adminVista;
+        jButton1.setEnabled(false);
+         jButton2.setEnabled(false);
+          jButton3.setEnabled(false);
+           jButton4.setEnabled(false);
+            jButton5.setEnabled(false);
+            permisosRubro();
+    }
+    private static Bienvenida adminVista;
+    public AdministradorDeRubros(Bienvenida adminVista) {
+        initComponents();
+             getContentPane().setBackground(java.awt.Color.white);
+        defaultTableModel.addColumn("Nombre");
+        defaultTableModel.addColumn("Descripcion");
+        jTable1.setModel(defaultTableModel);
+        jTable1.getColumnModel().getColumn(0).setWidth(150);
+        jTable1.getColumnModel().getColumn(1).setWidth(100);
+        select=0;
+        
+        ArrayList<String> tiendas = Controlador.ControladorTienda.ArregloTiendas();
+        
+        for(String tienda:tiendas){
+            jComboBox1.addItem(tienda);
+        }
+        this.adminVista=adminVista;
+        jButton1.setEnabled(false);
+         jButton2.setEnabled(false);
+          jButton3.setEnabled(false);
+           jButton4.setEnabled(false);
+            jButton5.setEnabled(false);
+            permisosRubro();
+    }
+    
+    public void permisosRubro(){
+         if( LoginModel.getPermisoXNOmbre("Agregar Rubro")){
+               jButton2.setEnabled(true);
+            }
+            if( LoginModel.getPermisoXNOmbre("Actualizar Rubro")){                 
+                 jButton4.setEnabled(true);
+
+            }
+            if( LoginModel.getPermisoXNOmbre("Eliminar Rubro")){                 
+                jButton3.setEnabled(true);
+            }         
+             if( LoginModel.getPermisoXNOmbre("Consultar Rubro")){                 
+                jButton5.setEnabled(true);
+                jButton1.setEnabled(true);
+             } 
     }
 
     /**
@@ -59,7 +109,13 @@ public class AdministradorDeRubros extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle("Rubros");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jLabel_tiendas.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel_tiendas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -291,6 +347,12 @@ public class AdministradorDeRubros extends javax.swing.JFrame {
             jComboBox2.addItem(almacen);
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        adminVista.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

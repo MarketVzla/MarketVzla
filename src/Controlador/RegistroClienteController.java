@@ -5,22 +5,20 @@
  */
 package Controlador;
 
-import Modelo.ExpresionesRegulares;
-import Modelo.Lugar;
-import Modelo.RegistroModel;
 import Vista.LoginVista;
-import Vista.RegistroCliente;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
-
-
+import Modelo.ExpresionesRegulares;
+import Modelo.Lugar;
+import Modelo.RegistroModel;
+import Vista.RegistroCliente;
 
 /**
  *
  * @author migue
  */
-public class RegistroClienteController implements ActionListener/*,KeyListener*/{
+public class RegistroClienteController /*implements ActionListener/*,KeyListener*/{
 private RegistroCliente user;
 private LoginVista login;
 private static boolean value;
@@ -29,17 +27,17 @@ private static int cod_nuevo_user ;
     public  RegistroClienteController(RegistroCliente user, LoginVista login){
         this.user=user;
         this.login=login;
-      llenarComboBox();
+      //llenarComboBox();
     }
     
-    public void llenarComboBox(){
+   /* public void llenarComboBox(){
            Lugar.getLugarTipo("estado", user.jComboBoxRegistroCLienteJuridicoEstadoDireccionFisica);
          Lugar.getLugarTipo("estado", user.jComboBoxRegistroCLienteJuridicoEstadoDireccionFiscal);
          Lugar.getLugarTipo("estado", user.jComboBoxRegistroCLienteNaturalEstado);
-    }
+    }*/
     
-    @Override
-    public void actionPerformed(ActionEvent e) {
+//    @Override
+   /* public void actionPerformed(ActionEvent e) {
       
         
         if(e.getSource() == user.jtbtnRegistroCLienteVolver){
@@ -138,7 +136,7 @@ private static int cod_nuevo_user ;
                                                                    String fecha = dateFotmat.format(user.jdateRegistroCLienteNaturalFechaNacimiento.getDate());
                                                                   System.out.println("Entro ");*/
                                                                     //System.out.println("F echa elegida: "+fecha);
-                                                                
+                            /*                                    
                                                                     String nombreMunicipioNatural =(String) user.jComboBoxRegistroCLienteNaturalMunicipio.getItemAt(user.jComboBoxRegistroCLienteNaturalMunicipio.getSelectedIndex());
                                                                     Lugar parroquiaNatural = Lugar.getLugarNombre(nombreMunicipioNatural);
                                                                     
@@ -189,7 +187,7 @@ private static int cod_nuevo_user ;
                     (user.jComboBoxRegistroCLienteJuridicoEstadoDireccionFisica.getSelectedIndex()));
             */
             
-            
+           /* 
             String nombreEstadoJuridico=(String) user.jComboBoxRegistroCLienteJuridicoEstadoDireccionFisica.getItemAt(user.jComboBoxRegistroCLienteJuridicoEstadoDireccionFisica.getSelectedIndex());
             Lugar estadolugarJuridico = Lugar.getLugarNombre(nombreEstadoJuridico);
           

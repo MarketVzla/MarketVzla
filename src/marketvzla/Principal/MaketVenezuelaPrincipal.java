@@ -1,12 +1,15 @@
-package marketvzla.Principal;
-
-
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package marketvzla.principal;
 
 import Controlador.LoginController;
 import Modelo.Lugar;
 import Modelo.PrincipalModel;
 import Vista.LoginVista;
+
 
 /**
  *
@@ -28,7 +31,7 @@ public class MaketVenezuelaPrincipal {
             }
             
             PrincipalModel.InicirarPrincipalModel("postgres","1234","marketvenezuela","localhost:5432");
-           Lugar.llenarLugares();
+          // Lugar.llenarLugares();
             
             loginVista = new LoginVista();
             loginController = new LoginController(loginVista);

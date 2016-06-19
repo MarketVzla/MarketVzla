@@ -19,6 +19,7 @@ public class ModificarZona extends javax.swing.JFrame {
      */
     public ModificarZona() {
         initComponents();
+             getContentPane().setBackground(java.awt.Color.white);
     }
     
     private AdministradorZona administradorZona;

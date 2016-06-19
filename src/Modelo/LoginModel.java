@@ -22,10 +22,10 @@ import javax.swing.JOptionPane;
 public class LoginModel {
 
  public static ArrayList<RolPermiso> usuarios = new ArrayList<RolPermiso>();
-
-    
+ public static RolPermiso user = new RolPermiso();;
    
     public static void  Login (){ //Busca por nick y pass
+        usuarios = new ArrayList<RolPermiso>();
      RolPermiso user ;
         try {
         PrincipalModel.setStm(
@@ -44,9 +44,9 @@ public class LoginModel {
                     
                      String rp_nick = rs.getString("usu_nick");
                      String rp_contraseña = rs.getString("usu_contraseña");
-                    /* String rp_preguntasecreta = rs.getString("rp_preguntasecreta");
-                     String rp_respuestasecreta = rs.getString("rp_respuestasecreta");
-                     int rp_fk_rol= rs.getInt("rp_fk_rol");
+                     String rp_preguntasecreta = rs.getString("usu_preguntasecreta");
+                     String rp_respuestasecreta = rs.getString("usu_respuestasecreta");
+                   /*  int rp_fk_rol= rs.getInt("rp_fk_rol");
                      int rp_fk_permiso = rs.getInt("rp_fk_permiso");
                     int rp_fk_empleado= (rs.getInt("rp_fk_empleado"));
                      int rp_fk_juridico= (rs.getInt("rp_fk_juridico"));
@@ -56,9 +56,9 @@ public class LoginModel {
 
                                            
                          
-                                               user.setRp_nick(rp_nick);
-                                           user.setRp_contraseña(rp_contraseña);
-                       
+                                            user.setRp_nick(rp_nick);
+                                            user.setRp_contraseña(rp_contraseña);
+                                            user.setPermisos(rp_nick, rp_contraseña );
                        usuarios.add(user);
                        
                                            
@@ -94,7 +94,11 @@ public class LoginModel {
                 
                      if( usuarios.get(i).getRp_nick().equals(nick) && 
                              usuarios.get(i).getRp_contraseña().equals(pass)){
-                        value=1;
+                           
+                            user= new RolPermiso();
+                            user=usuarios.get(i);
+                          
+                         value=1;
                      }
                
 
@@ -105,6 +109,22 @@ public class LoginModel {
         return value;
     }
     
+    public static  boolean getPermisoXNOmbre(String nombrePer) {
+         
+         for (int i = 0; i <  user.getPermisos()  .size(); i++) {
+           
+            if(! user.getPermisos()  .isEmpty()){
+                
+                  if( user.getPermisos() .get(i).getNombrePermiso().equals(nombrePer)){
+                           
+                          System.out.println("Si lo tineen");
+                         return true;
+                     }
+                
+            }else {System.out.println("Lista Vacia get LugarFK");}
+        }
+         return false;
+    }
     
     public static void SalirLogin(){
         try {

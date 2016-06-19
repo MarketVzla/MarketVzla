@@ -11,6 +11,8 @@ import javax.swing.JFrame;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
 import Controlador.AdminController;
+import Modelo.LoginModel;
+import java.util.ArrayList;
 
 /**
  *
@@ -18,11 +20,16 @@ import Controlador.AdminController;
  */
 public class AdminVista extends javax.swing.JFrame {
 
+    /*ArrayList<String> estados;
+    ArrayList<String> municipios;
+    ArrayList<String> parroquias;*/
     /**
      * Creates new form AdminVista
      */
     public AdminVista() {
         initComponents();
+        
+       
     }
 
     /**
@@ -37,20 +44,6 @@ public class AdminVista extends javax.swing.JFrame {
         jInternalFrame1 = new javax.swing.JInternalFrame();
         jTabbedPaneAdmin = new javax.swing.JTabbedPane();
         jPanelPrivilegios = new javax.swing.JPanel();
-        jPanelAdminPermisos = new javax.swing.JPanel();
-        jblAdminPermisoNombre = new javax.swing.JLabel();
-        jlblAdminPermisoDescripcion = new javax.swing.JLabel();
-        textAdminPermisoNombre = new javax.swing.JTextField();
-        textAdminPermisoDescripcion = new javax.swing.JTextField();
-        btnAdminPermisoRegistrar = new javax.swing.JButton();
-        btnAdminPermisoActualizar = new javax.swing.JButton();
-        btnAdminPermisoEliminar = new javax.swing.JButton();
-        btnAdminPermisoListar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tableAdminPermiso = new javax.swing.JTable();
-        textAdminPermisoBuscar = new javax.swing.JTextField();
-        jblAdminPErmisoBuscar = new javax.swing.JLabel();
-        jbtnAdminPErmisoActualizarOK = new javax.swing.JButton();
         jPanelAdminRol = new javax.swing.JPanel();
         jblAdminRolNombre1 = new javax.swing.JLabel();
         jlblAdminRolDescripcion1 = new javax.swing.JLabel();
@@ -65,6 +58,20 @@ public class AdminVista extends javax.swing.JFrame {
         textAdminRolBuscar1 = new javax.swing.JTextField();
         jblAdminRolBuscar1 = new javax.swing.JLabel();
         jbtnAdminRolActualizarOK1 = new javax.swing.JButton();
+        jPanelAdminPermisos = new javax.swing.JPanel();
+        jblAdminPermisoNombre = new javax.swing.JLabel();
+        jlblAdminPermisoDescripcion = new javax.swing.JLabel();
+        textAdminPermisoNombre = new javax.swing.JTextField();
+        textAdminPermisoDescripcion = new javax.swing.JTextField();
+        btnAdminPermisoRegistrar = new javax.swing.JButton();
+        btnAdminPermisoActualizar = new javax.swing.JButton();
+        btnAdminPermisoEliminar = new javax.swing.JButton();
+        btnAdminPermisoListar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableAdminPermiso = new javax.swing.JTable();
+        textAdminPermisoBuscar = new javax.swing.JTextField();
+        jblAdminPErmisoBuscar = new javax.swing.JLabel();
+        jbtnAdminPErmisoActualizarOK = new javax.swing.JButton();
         jPanelAdminEmpleados = new javax.swing.JPanel();
         jTabbedPanelAdminEmpleados = new javax.swing.JTabbedPane();
         jScrollPaneAdminEmpleadoRegistro = new javax.swing.JScrollPane();
@@ -121,25 +128,6 @@ public class AdminVista extends javax.swing.JFrame {
         btnAdminEmpleadosListarPermiso = new javax.swing.JButton();
         lblAdminEmpleadosUsuarios1 = new javax.swing.JLabel();
         textAdminEmpleadosTelefono = new javax.swing.JTextField();
-        jScrollPane12 = new javax.swing.JScrollPane();
-        jPanelAdminEmpleadosVacaciones1 = new javax.swing.JPanel();
-        jblAdminRolNombre2 = new javax.swing.JLabel();
-        jlblAdminRolDescripcion2 = new javax.swing.JLabel();
-        btnAdminVacacionesRegistrar2 = new javax.swing.JButton();
-        btnAdminVacacionesActualizar2 = new javax.swing.JButton();
-        btnAdminVacacionesEliminar2 = new javax.swing.JButton();
-        textAdminVacacionesEmpleadosBuscarTiendaNombre = new javax.swing.JTextField();
-        jblAdminRolBuscar2 = new javax.swing.JLabel();
-        btnAdminVacacionesActualizarOK2 = new javax.swing.JButton();
-        textAdminVacacionesFechaInicial = new com.toedter.calendar.JDateChooser();
-        textAdminVacacionesFechaFinal = new com.toedter.calendar.JDateChooser();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tableAdminVacacionesuscarTienda = new javax.swing.JTable();
-        jPanel4 = new javax.swing.JPanel();
-        lblAdminEmpleadosHorariosBuscarHorarioCodigo5 = new javax.swing.JLabel();
-        textAdminEmpleadosHorariosBuscarEmpleado2 = new javax.swing.JTextField();
-        jScrollPane15 = new javax.swing.JScrollPane();
-        tableAdminEmpleadosHorariosBuscarEmpleados3 = new javax.swing.JTable();
         jScrollPaneAdminEmpleadosBeneficios = new javax.swing.JScrollPane();
         jPanelAdminEmpleadosBeneficios = new javax.swing.JPanel();
         jblEmpleadosBeneficiosNombre = new javax.swing.JLabel();
@@ -213,6 +201,25 @@ public class AdminVista extends javax.swing.JFrame {
         textAdminEmpleadosHorariosBuscarEmpleado1 = new javax.swing.JTextField();
         jScrollPane14 = new javax.swing.JScrollPane();
         tableAdminEmpleadosHorariosBuscarEmpleados2 = new javax.swing.JTable();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        jPanelAdminEmpleadosVacaciones1 = new javax.swing.JPanel();
+        jblAdminRolNombre2 = new javax.swing.JLabel();
+        jlblAdminRolDescripcion2 = new javax.swing.JLabel();
+        btnAdminVacacionesRegistrar2 = new javax.swing.JButton();
+        btnAdminVacacionesActualizar2 = new javax.swing.JButton();
+        btnAdminVacacionesEliminar2 = new javax.swing.JButton();
+        textAdminVacacionesEmpleadosBuscarTiendaNombre = new javax.swing.JTextField();
+        jblAdminRolBuscar2 = new javax.swing.JLabel();
+        btnAdminVacacionesActualizarOK2 = new javax.swing.JButton();
+        textAdminVacacionesFechaInicial = new com.toedter.calendar.JDateChooser();
+        textAdminVacacionesFechaFinal = new com.toedter.calendar.JDateChooser();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tableAdminVacacionesuscarTienda = new javax.swing.JTable();
+        jPanel4 = new javax.swing.JPanel();
+        lblAdminEmpleadosHorariosBuscarHorarioCodigo5 = new javax.swing.JLabel();
+        textAdminEmpleadosHorariosBuscarEmpleado2 = new javax.swing.JTextField();
+        jScrollPane15 = new javax.swing.JScrollPane();
+        tableAdminEmpleadosHorariosBuscarEmpleados3 = new javax.swing.JTable();
         jScrollPane17 = new javax.swing.JScrollPane();
         PanelPersonaNatural = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
@@ -342,8 +349,100 @@ public class AdminVista extends javax.swing.JFrame {
         textAdminClientesJuridiosPErsonaContactoBuscarPErsona2 = new javax.swing.JTextField();
         jScrollPane28 = new javax.swing.JScrollPane();
         tableAdminPersonaContactoJuridicosBuscarClientsPersonaCOntacto = new javax.swing.JTable();
+        jTabbedPane2 = new javax.swing.JTabbedPane();
+        jScrollPaneAfiliarTarjetaDebito = new javax.swing.JScrollPane();
+        jScrollPane20 = new javax.swing.JScrollPane();
+        jPanel12 = new javax.swing.JPanel();
+        textAfiliarNumeroTarjetaDebito = new javax.swing.JTextField();
+        jLabel41 = new javax.swing.JLabel();
+        jComboBoxAfiliarTarjetaDebitoTipoCuenta = new javax.swing.JComboBox<>();
+        jLabel21 = new javax.swing.JLabel();
+        jPanel14 = new javax.swing.JPanel();
+        jTabbedPane3 = new javax.swing.JTabbedPane();
+        jScrollPane24 = new javax.swing.JScrollPane();
+        jPanel15 = new javax.swing.JPanel();
+        lblAdminEmpleadosHorariosBuscarHorarioCodigo13 = new javax.swing.JLabel();
+        textTarjetaDebitoNaturalesBuscarCleintesNaturales = new javax.swing.JTextField();
+        jScrollPane31 = new javax.swing.JScrollPane();
+        tableTarjetaDebitoNaturalesBuscarCleintesNaturales1 = new javax.swing.JTable();
+        btnTarjetaDebitoNaturalesAsignar = new javax.swing.JButton();
+        jScrollPane30 = new javax.swing.JScrollPane();
+        jPanel16 = new javax.swing.JPanel();
+        lblAdminEmpleadosHorariosBuscarHorarioCodigo14 = new javax.swing.JLabel();
+        textTarjetaDebitoJuridicosBuscarClientsJuridicos = new javax.swing.JTextField();
+        jScrollPane32 = new javax.swing.JScrollPane();
+        tableTarjetaDebitoJuridicosBuscarClientsJuridicos = new javax.swing.JTable();
+        btnTarjetaDebitoJuridicosAsignar = new javax.swing.JButton();
+        jPanel18 = new javax.swing.JPanel();
+        jTabbedPane6 = new javax.swing.JTabbedPane();
+        jScrollPane33 = new javax.swing.JScrollPane();
+        jPanel25 = new javax.swing.JPanel();
+        lblAdminEmpleadosHorariosBuscarHorarioCodigo15 = new javax.swing.JLabel();
+        textTarjetaDebitoNaturalesListar = new javax.swing.JTextField();
+        jScrollPane42 = new javax.swing.JScrollPane();
+        tableTarjetaDebitoNaturalesBuscarCleintesNaturales2 = new javax.swing.JTable();
+        btnAfiliarNumeroTarjetaDebitoEliminar = new javax.swing.JButton();
+        jScrollPane43 = new javax.swing.JScrollPane();
+        jPanel26 = new javax.swing.JPanel();
+        lblAdminEmpleadosHorariosBuscarHorarioCodigo20 = new javax.swing.JLabel();
+        textTarjetaDebitoJuridicosListar = new javax.swing.JTextField();
+        jScrollPane44 = new javax.swing.JScrollPane();
+        tableTarjetaDebitoJuridicosBuscarClientsJuridicos1 = new javax.swing.JTable();
+        btnAfiliarNumeroTarjetaDebitoEliminar1 = new javax.swing.JButton();
+        jScrollPaneAfiliarTarjetaCredito = new javax.swing.JScrollPane();
+        jPanel17 = new javax.swing.JPanel();
+        textAfiliarNumeroTarjetaCredito = new javax.swing.JTextField();
+        jLabel50 = new javax.swing.JLabel();
+        jComboBoxAfiliarTarjetaCreditoTipo = new javax.swing.JComboBox<>();
+        jLabel22 = new javax.swing.JLabel();
+        jPanel19 = new javax.swing.JPanel();
+        jTabbedPane4 = new javax.swing.JTabbedPane();
+        jScrollPane34 = new javax.swing.JScrollPane();
+        jPanel20 = new javax.swing.JPanel();
+        lblAdminEmpleadosHorariosBuscarHorarioCodigo16 = new javax.swing.JLabel();
+        textTarjetaCReditoNaturalesBuscarCleintesNaturales1 = new javax.swing.JTextField();
+        jScrollPane35 = new javax.swing.JScrollPane();
+        tableTarjetaCreditoNaturalesBuscarCleintesNaturales2 = new javax.swing.JTable();
+        btnTarjetaCreditoNaturalesAsignar1 = new javax.swing.JButton();
+        jScrollPane36 = new javax.swing.JScrollPane();
+        jPanel21 = new javax.swing.JPanel();
+        lblAdminEmpleadosHorariosBuscarHorarioCodigo17 = new javax.swing.JLabel();
+        textTarjetaCreditoJuridicosBuscarClientsJuridicos1 = new javax.swing.JTextField();
+        jScrollPane37 = new javax.swing.JScrollPane();
+        tableTarjetaCreditoJuridicosBuscarClientsJuridicos1 = new javax.swing.JTable();
+        btnTarjetaCreditoJuridicosAsignar1 = new javax.swing.JButton();
+        jblAdminRolNombre3 = new javax.swing.JLabel();
+        textAfiliarNumeroTarjetaCreditoFEchaVencimiento = new com.toedter.calendar.JDateChooser();
+        jPanel22 = new javax.swing.JPanel();
+        jTabbedPane5 = new javax.swing.JTabbedPane();
+        jScrollPane38 = new javax.swing.JScrollPane();
+        jPanel23 = new javax.swing.JPanel();
+        lblAdminEmpleadosHorariosBuscarHorarioCodigo18 = new javax.swing.JLabel();
+        textTarjetaCReditoNaturalesListar = new javax.swing.JTextField();
+        jScrollPane39 = new javax.swing.JScrollPane();
+        tableTarjetaCreditoNaturalesBuscarCleintesNaturales3 = new javax.swing.JTable();
+        btnAfiliarNumeroTarjetaCreditoEliminar = new javax.swing.JButton();
+        jScrollPane40 = new javax.swing.JScrollPane();
+        jPanel24 = new javax.swing.JPanel();
+        lblAdminEmpleadosHorariosBuscarHorarioCodigo19 = new javax.swing.JLabel();
+        textTarjetaCreditoJuridicosListar = new javax.swing.JTextField();
+        jScrollPane41 = new javax.swing.JScrollPane();
+        tableTarjetaCreditoJuridicosBuscarClientsJuridicos2 = new javax.swing.JTable();
+        btnAfiliarNumeroTarjetaCreditoEliminar1 = new javax.swing.JButton();
         jLabelAdminTitulo = new javax.swing.JLabel();
         jbtnAdminCerrarSession = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem7 = new javax.swing.JMenuItem();
 
         jInternalFrame1.setVisible(true);
 
@@ -358,9 +457,43 @@ public class AdminVista extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle("Administrador");
 
         jTabbedPaneAdmin.setTabPlacement(javax.swing.JTabbedPane.LEFT);
+
+        jPanelAdminRol.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Roles", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
+
+        jblAdminRolNombre1.setText("Nombre");
+
+        jlblAdminRolDescripcion1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jlblAdminRolDescripcion1.setText("Descripcion");
+
+        btnAdminRolRegistrar1.setText("Registrar");
+
+        btnAdminRolActualizar1.setText("Actualizar");
+
+        btnAdminRolEliminar1.setText("Eliminar");
+
+        btnAdminRolListar1.setText("Listar");
+
+        tableAdminRol.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane2.setViewportView(tableAdminRol);
+
+        jblAdminRolBuscar1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jblAdminRolBuscar1.setText("Buscar Nombre");
+
+        jbtnAdminRolActualizarOK1.setText("OK");
 
         jPanelAdminPermisos.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Permisos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
 
@@ -402,27 +535,23 @@ public class AdminVista extends javax.swing.JFrame {
             .addGroup(jPanelAdminPermisosLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(jPanelAdminPermisosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 683, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 784, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAdminPermisosLayout.createSequentialGroup()
-                        .addGroup(jPanelAdminPermisosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanelAdminPermisosLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btnAdminPermisoListar, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanelAdminPermisosLayout.createSequentialGroup()
-                                .addGroup(jPanelAdminPermisosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jlblAdminPermisoDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jblAdminPermisoNombre)
-                                    .addComponent(jblAdminPErmisoBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanelAdminPermisosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(textAdminPermisoBuscar)
-                                    .addComponent(textAdminPermisoNombre)
-                                    .addComponent(textAdminPermisoDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanelAdminPermisosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnAdminPermisoActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnAdminPermisoRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnAdminPermisoEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(jPanelAdminPermisosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jlblAdminPermisoDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jblAdminPermisoNombre)
+                            .addComponent(jblAdminPErmisoBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanelAdminPermisosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(textAdminPermisoBuscar)
+                            .addComponent(textAdminPermisoNombre)
+                            .addComponent(textAdminPermisoDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanelAdminPermisosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnAdminPermisoListar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAdminPermisoActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAdminPermisoRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAdminPermisoEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jbtnAdminPErmisoActualizarOK, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -442,50 +571,17 @@ public class AdminVista extends javax.swing.JFrame {
                     .addComponent(btnAdminPermisoActualizar)
                     .addComponent(jbtnAdminPErmisoActualizarOK))
                 .addGap(18, 18, 18)
+                .addComponent(btnAdminPermisoEliminar)
+                .addGap(18, 18, 18)
                 .addGroup(jPanelAdminPermisosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAdminPermisoEliminar)
                     .addGroup(jPanelAdminPermisosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(textAdminPermisoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jblAdminPErmisoBuscar)))
-                .addGap(18, 18, 18)
-                .addComponent(btnAdminPermisoListar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
-                .addContainerGap())
+                        .addComponent(jblAdminPErmisoBuscar))
+                    .addComponent(btnAdminPermisoListar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                .addGap(12, 12, 12))
         );
-
-        jPanelAdminRol.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Roles", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
-
-        jblAdminRolNombre1.setText("Nombre");
-
-        jlblAdminRolDescripcion1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jlblAdminRolDescripcion1.setText("Descripcion");
-
-        btnAdminRolRegistrar1.setText("Registrar");
-
-        btnAdminRolActualizar1.setText("Actualizar");
-
-        btnAdminRolEliminar1.setText("Eliminar");
-
-        btnAdminRolListar1.setText("Listar");
-
-        tableAdminRol.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane2.setViewportView(tableAdminRol);
-
-        jblAdminRolBuscar1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jblAdminRolBuscar1.setText("Buscar Nombre");
-
-        jbtnAdminRolActualizarOK1.setText("OK");
 
         javax.swing.GroupLayout jPanelAdminRolLayout = new javax.swing.GroupLayout(jPanelAdminRol);
         jPanelAdminRol.setLayout(jPanelAdminRolLayout);
@@ -494,30 +590,27 @@ public class AdminVista extends javax.swing.JFrame {
             .addGroup(jPanelAdminRolLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(jPanelAdminRolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 683, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 794, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAdminRolLayout.createSequentialGroup()
-                        .addGroup(jPanelAdminRolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanelAdminRolLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btnAdminRolListar1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanelAdminRolLayout.createSequentialGroup()
-                                .addGroup(jPanelAdminRolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jlblAdminRolDescripcion1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jblAdminRolNombre1)
-                                    .addComponent(jblAdminRolBuscar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanelAdminRolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(textAdminRolBuscar1)
-                                    .addComponent(textAdminRolNombre1)
-                                    .addComponent(textAdminRolDescripcion1, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanelAdminRolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnAdminRolActualizar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnAdminRolRegistrar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnAdminRolEliminar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(jPanelAdminRolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jlblAdminRolDescripcion1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jblAdminRolNombre1)
+                            .addComponent(jblAdminRolBuscar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanelAdminRolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(textAdminRolBuscar1)
+                            .addComponent(textAdminRolNombre1)
+                            .addComponent(textAdminRolDescripcion1, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanelAdminRolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnAdminRolListar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAdminRolActualizar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAdminRolRegistrar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAdminRolEliminar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jbtnAdminRolActualizarOK1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
+            .addComponent(jPanelAdminPermisos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanelAdminRolLayout.setVerticalGroup(
             jPanelAdminRolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -526,54 +619,50 @@ public class AdminVista extends javax.swing.JFrame {
                 .addGroup(jPanelAdminRolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jblAdminRolNombre1)
                     .addComponent(textAdminRolNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAdminRolRegistrar1))
-                .addGap(18, 18, 18)
-                .addGroup(jPanelAdminRolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jlblAdminRolDescripcion1)
-                    .addComponent(textAdminRolDescripcion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAdminRolActualizar1)
+                    .addComponent(btnAdminRolRegistrar1)
                     .addComponent(jbtnAdminRolActualizarOK1))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelAdminRolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAdminRolEliminar1)
                     .addGroup(jPanelAdminRolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(textAdminRolBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jblAdminRolBuscar1)))
-                .addGap(18, 18, 18)
-                .addComponent(btnAdminRolListar1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                        .addComponent(jlblAdminRolDescripcion1)
+                        .addComponent(textAdminRolDescripcion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelAdminRolLayout.createSequentialGroup()
+                        .addComponent(btnAdminRolActualizar1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnAdminRolEliminar1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelAdminRolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelAdminRolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(textAdminRolBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jblAdminRolBuscar1))
+                            .addComponent(btnAdminRolListar1))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanelAdminPermisos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7))
         );
 
         javax.swing.GroupLayout jPanelPrivilegiosLayout = new javax.swing.GroupLayout(jPanelPrivilegios);
         jPanelPrivilegios.setLayout(jPanelPrivilegiosLayout);
         jPanelPrivilegiosLayout.setHorizontalGroup(
             jPanelPrivilegiosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelPrivilegiosLayout.createSequentialGroup()
+            .addGroup(jPanelPrivilegiosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanelAdminPermisos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanelAdminRol, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(jPanelPrivilegiosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelPrivilegiosLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jPanelAdminRol, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
         );
         jPanelPrivilegiosLayout.setVerticalGroup(
             jPanelPrivilegiosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelPrivilegiosLayout.createSequentialGroup()
-                .addContainerGap(353, Short.MAX_VALUE)
-                .addComponent(jPanelAdminPermisos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(100, 100, 100))
-            .addGroup(jPanelPrivilegiosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelPrivilegiosLayout.createSequentialGroup()
-                    .addGap(21, 21, 21)
-                    .addComponent(jPanelAdminRol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(466, Short.MAX_VALUE)))
+            .addGroup(jPanelPrivilegiosLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jPanelAdminRol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPaneAdmin.addTab("Privilegios", jPanelPrivilegios);
+
+        jPanelAdminEmpleados.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblAdminEmpleadosCedula.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblAdminEmpleadosCedula.setText("Cedula");
@@ -638,7 +727,7 @@ public class AdminVista extends javax.swing.JFrame {
         jScrollPane6.setViewportView(TableAdminEmpleadosBuscarTiendas);
 
         lblAdminEmpleadosBuscarCedula1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblAdminEmpleadosBuscarCedula1.setText("Ingresar Nombre Tienda");
+        lblAdminEmpleadosBuscarCedula1.setText("Ingresar Nombre Departamento");
 
         btnAdminEmpleadosListarTiendas.setText("Ver Todos");
 
@@ -667,7 +756,7 @@ public class AdminVista extends javax.swing.JFrame {
                     .addComponent(textAdminEmpleadosBuscarTiendaNOmbre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAdminEmpleadosListarTiendas))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -696,15 +785,17 @@ public class AdminVista extends javax.swing.JFrame {
         jPanelAdminEmpleadosBuscar2Layout.setHorizontalGroup(
             jPanelAdminEmpleadosBuscar2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelAdminEmpleadosBuscar2Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanelAdminEmpleadosBuscar2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane8)
                     .addGroup(jPanelAdminEmpleadosBuscar2Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(lblAdminEmpleadosBuscarCedula2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(textAdminEmpleadosBuscarCedula2, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnAdminEmpleadosListarEmpleados1)))
+                        .addComponent(btnAdminEmpleadosListarEmpleados1))
+                    .addGroup(jPanelAdminEmpleadosBuscar2Layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanelAdminEmpleadosBuscar2Layout.setVerticalGroup(
@@ -716,8 +807,8 @@ public class AdminVista extends javax.swing.JFrame {
                     .addComponent(textAdminEmpleadosBuscarCedula2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAdminEmpleadosListarEmpleados1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanelAdminEmpleadosRoles.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Buscar Rol", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
@@ -751,7 +842,7 @@ public class AdminVista extends javax.swing.JFrame {
                         .addComponent(lblAdminEmpleadosBuscarCedula3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(textAdminEmpleadosBuscarNombreRol, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                         .addComponent(btnAdminEmpleadosListarROL))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAdminEmpleadosRolesLayout.createSequentialGroup()
                         .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -801,7 +892,7 @@ public class AdminVista extends javax.swing.JFrame {
                         .addComponent(lblAdminEmpleadosBuscarCedula4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(textAdminEmpleadosBuscarNombrePermiso, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
                         .addComponent(btnAdminEmpleadosListarPermiso))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAdminEmpleadosPermisosLayout.createSequentialGroup()
                         .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -831,21 +922,20 @@ public class AdminVista extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanelAdminEmpleadosRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelAdminEmpleadosRegistroLayout.createSequentialGroup()
-                        .addGroup(jPanelAdminEmpleadosRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelAdminEmpleadosRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(lblAdminEmpleadosFechaNacimiento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblAdminEmpleadosSalario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblAdminEmpleadosSegundoApellido, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblAdminEmpleadosPrimerApellido, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblAdminEmpleadosSegundoNOmbre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblAdminEmpleadosPrimerNOmbre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblAdminEmpleadosCedula, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblAdminEmpleadosUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblAdminEmpleadosPass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblAdminEmpleadosPreguntaSecreta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblAdminEmpleadosRespuestaSecreta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(lblAdminEmpleadosUsuarios1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelAdminEmpleadosRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(lblAdminEmpleadosFechaNacimiento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblAdminEmpleadosSalario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblAdminEmpleadosSegundoApellido, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblAdminEmpleadosPrimerApellido, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblAdminEmpleadosSegundoNOmbre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblAdminEmpleadosPrimerNOmbre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblAdminEmpleadosCedula, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblAdminEmpleadosUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblAdminEmpleadosPass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblAdminEmpleadosPreguntaSecreta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblAdminEmpleadosRespuestaSecreta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblAdminEmpleadosUsuarios1, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                         .addGroup(jPanelAdminEmpleadosRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelAdminEmpleadosRegistroLayout.createSequentialGroup()
                                 .addGroup(jPanelAdminEmpleadosRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -876,13 +966,15 @@ public class AdminVista extends javax.swing.JFrame {
                                         .addComponent(jPanelAdminEmpleadosBuscar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                             .addGroup(jPanelAdminEmpleadosRegistroLayout.createSequentialGroup()
                                 .addComponent(btnAdminEmpleadosRegistrar)
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addComponent(jPanelAdminEmpleadosBuscarTiendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(0, 533, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAdminEmpleadosRegistroLayout.createSequentialGroup()
-                        .addComponent(jPanelAdminEmpleadosRoles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanelAdminEmpleadosPermisos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                        .addGroup(jPanelAdminEmpleadosRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jPanelAdminEmpleadosBuscarTiendas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanelAdminEmpleadosRegistroLayout.createSequentialGroup()
+                                .addComponent(jPanelAdminEmpleadosRoles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jPanelAdminEmpleadosPermisos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(12, 12, 12))))
         );
         jPanelAdminEmpleadosRegistroLayout.setVerticalGroup(
             jPanelAdminEmpleadosRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -943,169 +1035,20 @@ public class AdminVista extends javax.swing.JFrame {
                         .addGroup(jPanelAdminEmpleadosRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(textAdminEmpleadosRespuestaSecreta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblAdminEmpleadosRespuestaSecreta))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAdminEmpleadosRegistrar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanelAdminEmpleadosBuscarTiendas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanelAdminEmpleadosBuscarTiendas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanelAdminEmpleadosRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanelAdminEmpleadosRoles, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanelAdminEmpleadosPermisos, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanelAdminEmpleadosPermisos, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
         jScrollPaneAdminEmpleadoRegistro.setViewportView(jPanelAdminEmpleadosRegistro);
 
         jTabbedPanelAdminEmpleados.addTab("Gestor Empleados", jScrollPaneAdminEmpleadoRegistro);
-
-        jPanelAdminEmpleadosVacaciones1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Vacaciones", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
-
-        jblAdminRolNombre2.setText("Fecha Inicial");
-
-        jlblAdminRolDescripcion2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jlblAdminRolDescripcion2.setText("Fecha Final");
-
-        btnAdminVacacionesRegistrar2.setText("Registrar");
-
-        btnAdminVacacionesActualizar2.setText("Actualizar");
-
-        btnAdminVacacionesEliminar2.setText("Eliminar");
-
-        jblAdminRolBuscar2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jblAdminRolBuscar2.setText("Buscar Nombre");
-
-        btnAdminVacacionesActualizarOK2.setText("OK");
-
-        tableAdminVacacionesuscarTienda.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane3.setViewportView(tableAdminVacacionesuscarTienda);
-
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Gestor de Vacaciones - Empleados", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
-
-        lblAdminEmpleadosHorariosBuscarHorarioCodigo5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblAdminEmpleadosHorariosBuscarHorarioCodigo5.setText("Buscar Cdula");
-
-        tableAdminEmpleadosHorariosBuscarEmpleados3.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane15.setViewportView(tableAdminEmpleadosHorariosBuscarEmpleados3);
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jScrollPane15)
-                        .addContainerGap())
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(lblAdminEmpleadosHorariosBuscarHorarioCodigo5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(textAdminEmpleadosHorariosBuscarEmpleado2, javax.swing.GroupLayout.DEFAULT_SIZE, 1067, Short.MAX_VALUE)
-                        .addGap(448, 448, 448))))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAdminEmpleadosHorariosBuscarHorarioCodigo5)
-                    .addComponent(textAdminEmpleadosHorariosBuscarEmpleado2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane15, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        javax.swing.GroupLayout jPanelAdminEmpleadosVacaciones1Layout = new javax.swing.GroupLayout(jPanelAdminEmpleadosVacaciones1);
-        jPanelAdminEmpleadosVacaciones1.setLayout(jPanelAdminEmpleadosVacaciones1Layout);
-        jPanelAdminEmpleadosVacaciones1Layout.setHorizontalGroup(
-            jPanelAdminEmpleadosVacaciones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelAdminEmpleadosVacaciones1Layout.createSequentialGroup()
-                .addGroup(jPanelAdminEmpleadosVacaciones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelAdminEmpleadosVacaciones1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanelAdminEmpleadosVacaciones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanelAdminEmpleadosVacaciones1Layout.createSequentialGroup()
-                                .addComponent(jblAdminRolBuscar2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(textAdminVacacionesEmpleadosBuscarTiendaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanelAdminEmpleadosVacaciones1Layout.createSequentialGroup()
-                                .addGroup(jPanelAdminEmpleadosVacaciones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jlblAdminRolDescripcion2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jblAdminRolNombre2))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanelAdminEmpleadosVacaciones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(textAdminVacacionesFechaInicial, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
-                                    .addComponent(textAdminVacacionesFechaFinal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1216, Short.MAX_VALUE)
-                        .addGroup(jPanelAdminEmpleadosVacaciones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnAdminVacacionesActualizar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnAdminVacacionesRegistrar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnAdminVacacionesEliminar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAdminVacacionesActualizarOK2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelAdminEmpleadosVacaciones1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanelAdminEmpleadosVacaciones1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanelAdminEmpleadosVacaciones1Layout.setVerticalGroup(
-            jPanelAdminEmpleadosVacaciones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelAdminEmpleadosVacaciones1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanelAdminEmpleadosVacaciones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanelAdminEmpleadosVacaciones1Layout.createSequentialGroup()
-                        .addGroup(jPanelAdminEmpleadosVacaciones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanelAdminEmpleadosVacaciones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jblAdminRolNombre2)
-                                .addComponent(btnAdminVacacionesRegistrar2))
-                            .addComponent(textAdminVacacionesFechaInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanelAdminEmpleadosVacaciones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jlblAdminRolDescripcion2)
-                            .addComponent(btnAdminVacacionesActualizar2)
-                            .addComponent(btnAdminVacacionesActualizarOK2)))
-                    .addComponent(textAdminVacacionesFechaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnAdminVacacionesEliminar2)
-                .addGap(18, 18, 18)
-                .addGroup(jPanelAdminEmpleadosVacaciones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textAdminVacacionesEmpleadosBuscarTiendaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jblAdminRolBuscar2))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        jScrollPane12.setViewportView(jPanelAdminEmpleadosVacaciones1);
-        jPanelAdminEmpleadosVacaciones1.getAccessibleContext().setAccessibleName("vacaciones");
-
-        jTabbedPanelAdminEmpleados.addTab("Gestor de Vacaciones", jScrollPane12);
 
         jPanelAdminEmpleadosBeneficios.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Beneficios", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
 
@@ -1135,6 +1078,12 @@ public class AdminVista extends javax.swing.JFrame {
         ));
         jScrollPane5.setViewportView(tablebtnEmpleadosBeneficios);
 
+        textEmpleadosBeneficiosBuscarNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textEmpleadosBeneficiosBuscarNombreActionPerformed(evt);
+            }
+        });
+
         lblEmpleadosBeneficiosBuscarNombre.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblEmpleadosBeneficiosBuscarNombre.setText("Buscar Nombre");
 
@@ -1147,6 +1096,12 @@ public class AdminVista extends javax.swing.JFrame {
 
         lblAdminEmpleadosHorariosBuscarHorarioCodigo2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblAdminEmpleadosHorariosBuscarHorarioCodigo2.setText("Buscar Cedula");
+
+        textAdminEmpleadosBeneficiosBuscarEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textAdminEmpleadosBeneficiosBuscarEmpleadoActionPerformed(evt);
+            }
+        });
 
         btnAdminEmpleadosBeneficiosEmpleadosAgisnar.setText("Asignar");
 
@@ -1167,19 +1122,17 @@ public class AdminVista extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane11)
-                        .addContainerGap())
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(lblAdminEmpleadosHorariosBuscarHorarioCodigo2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(textAdminEmpleadosBeneficiosBuscarEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, 1061, Short.MAX_VALUE)
-                        .addGap(335, 335, 335)
-                        .addComponent(btnAdminEmpleadosBeneficiosEmpleadosAgisnar)
-                        .addGap(44, 44, 44))))
+                .addComponent(lblAdminEmpleadosHorariosBuscarHorarioCodigo2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(textAdminEmpleadosBeneficiosBuscarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAdminEmpleadosBeneficiosEmpleadosAgisnar)
+                .addGap(44, 44, 44))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 607, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1189,9 +1142,9 @@ public class AdminVista extends javax.swing.JFrame {
                     .addComponent(lblAdminEmpleadosHorariosBuscarHorarioCodigo2)
                     .addComponent(textAdminEmpleadosBeneficiosBuscarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAdminEmpleadosBeneficiosEmpleadosAgisnar))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                .addGap(18, 18, 18))
         );
 
         javax.swing.GroupLayout jPanelAdminEmpleadosBeneficiosLayout = new javax.swing.GroupLayout(jPanelAdminEmpleadosBeneficios);
@@ -1199,41 +1152,38 @@ public class AdminVista extends javax.swing.JFrame {
         jPanelAdminEmpleadosBeneficiosLayout.setHorizontalGroup(
             jPanelAdminEmpleadosBeneficiosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelAdminEmpleadosBeneficiosLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
                 .addGroup(jPanelAdminEmpleadosBeneficiosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAdminEmpleadosBeneficiosLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                    .addGroup(jPanelAdminEmpleadosBeneficiosLayout.createSequentialGroup()
                         .addGroup(jPanelAdminEmpleadosBeneficiosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelAdminEmpleadosBeneficiosLayout.createSequentialGroup()
+                            .addGroup(jPanelAdminEmpleadosBeneficiosLayout.createSequentialGroup()
+                                .addComponent(lblEmpleadosBeneficiosBuscarNombre)
+                                .addGap(18, 18, 18)
+                                .addComponent(textEmpleadosBeneficiosBuscarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelAdminEmpleadosBeneficiosLayout.createSequentialGroup()
                                 .addGroup(jPanelAdminEmpleadosBeneficiosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanelAdminEmpleadosBeneficiosLayout.createSequentialGroup()
-                                        .addComponent(lblEmpleadosBeneficiosBuscarNombre)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(textEmpleadosBeneficiosBuscarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1216, Short.MAX_VALUE)
-                                        .addComponent(btnEmpleadosBeneficiosListar, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanelAdminEmpleadosBeneficiosLayout.createSequentialGroup()
-                                        .addGroup(jPanelAdminEmpleadosBeneficiosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jlblEmpleadosBeneficiosDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jblEmpleadosBeneficiosNombre)
-                                            .addComponent(lblEmpleadosBeneficiosPorcentaje, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(jPanelAdminEmpleadosBeneficiosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(textEmpleadosBeneficiosNombre)
-                                            .addComponent(textEmpleadosBeneficiosDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-                                            .addComponent(textEmpleadosBeneficiosPorcentaje, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(jPanelAdminEmpleadosBeneficiosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(btnEmpleadosBeneficiosActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(btnEmpleadosBeneficiosRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(btnEmpleadosBeneficiosEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnEmpleadosBeneficiosActualizarOK, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelAdminEmpleadosBeneficiosLayout.createSequentialGroup()
-                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 691, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAdminEmpleadosBeneficiosLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(jlblEmpleadosBeneficiosDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jblEmpleadosBeneficiosNombre)
+                                    .addComponent(lblEmpleadosBeneficiosPorcentaje, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanelAdminEmpleadosBeneficiosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(textEmpleadosBeneficiosNombre)
+                                    .addComponent(textEmpleadosBeneficiosDescripcion)
+                                    .addComponent(textEmpleadosBeneficiosPorcentaje, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanelAdminEmpleadosBeneficiosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnEmpleadosBeneficiosListar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAdminEmpleadosBeneficiosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnEmpleadosBeneficiosActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnEmpleadosBeneficiosRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnEmpleadosBeneficiosEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnEmpleadosBeneficiosActualizarOK, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelAdminEmpleadosBeneficiosLayout.createSequentialGroup()
+                        .addGroup(jPanelAdminEmpleadosBeneficiosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane5)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 148, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanelAdminEmpleadosBeneficiosLayout.setVerticalGroup(
@@ -1262,10 +1212,9 @@ public class AdminVista extends javax.swing.JFrame {
                     .addComponent(lblEmpleadosBeneficiosBuscarNombre)
                     .addComponent(textEmpleadosBeneficiosBuscarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(27, 27, 27))
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jScrollPaneAdminEmpleadosBeneficios.setViewportView(jPanelAdminEmpleadosBeneficios);
@@ -1348,17 +1297,13 @@ public class AdminVista extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane10)
-                        .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblAdminEmpleadosHorariosBuscarHorarioCodigo1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(textAdminEmpleadosHorariosBuscarEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, 1059, Short.MAX_VALUE)
-                        .addGap(335, 335, 335)
-                        .addComponent(btnAdminEmpleadosHorariosEmpleadosAsignar)
-                        .addGap(44, 44, 44))))
+                .addComponent(lblAdminEmpleadosHorariosBuscarHorarioCodigo1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(textAdminEmpleadosHorariosBuscarEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                .addGap(335, 335, 335)
+                .addComponent(btnAdminEmpleadosHorariosEmpleadosAsignar)
+                .addGap(44, 44, 44))
+            .addComponent(jScrollPane10)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1368,9 +1313,9 @@ public class AdminVista extends javax.swing.JFrame {
                     .addComponent(lblAdminEmpleadosHorariosBuscarHorarioCodigo1)
                     .addComponent(textAdminEmpleadosHorariosBuscarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAdminEmpleadosHorariosEmpleadosAsignar))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(145, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanelAdminEmpleadosHorariosLayout = new javax.swing.GroupLayout(jPanelAdminEmpleadosHorarios);
@@ -1381,7 +1326,7 @@ public class AdminVista extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanelAdminEmpleadosHorariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1599, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelAdminEmpleadosHorariosLayout.createSequentialGroup()
                         .addGroup(jPanelAdminEmpleadosHorariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lblAdminEmpleadosHorariosFechaFin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1394,7 +1339,7 @@ public class AdminVista extends javax.swing.JFrame {
                             .addComponent(textAdminEmpleadosHorariosBuscarDia)
                             .addComponent(SpinnerAdminEmpleadosHorariosHoraInicial)
                             .addComponent(SpinnerAdminEmpleadosHorariosHoraFinal))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 345, Short.MAX_VALUE)
                         .addGroup(jPanelAdminEmpleadosHorariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnAdminEmpleadosHorariosListar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAdminEmpleadosHorariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1507,15 +1452,11 @@ public class AdminVista extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jScrollPane14)
-                        .addContainerGap())
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(lblAdminEmpleadosHorariosBuscarHorarioCodigo4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(textAdminEmpleadosHorariosBuscarEmpleado1, javax.swing.GroupLayout.DEFAULT_SIZE, 1076, Short.MAX_VALUE)
-                        .addGap(448, 448, 448))))
+                .addComponent(lblAdminEmpleadosHorariosBuscarHorarioCodigo4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(textAdminEmpleadosHorariosBuscarEmpleado1, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+                .addGap(448, 448, 448))
+            .addComponent(jScrollPane14)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1524,9 +1465,9 @@ public class AdminVista extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAdminEmpleadosHorariosBuscarHorarioCodigo4)
                     .addComponent(textAdminEmpleadosHorariosBuscarEmpleado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane14, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanelAdminEmpleadosHorarios1Layout = new javax.swing.GroupLayout(jPanelAdminEmpleadosHorarios1);
@@ -1537,7 +1478,7 @@ public class AdminVista extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanelAdminEmpleadosHorarios1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1616, Short.MAX_VALUE)
+                    .addComponent(jScrollPane13, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelAdminEmpleadosHorarios1Layout.createSequentialGroup()
                         .addGroup(jPanelAdminEmpleadosHorarios1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lblAdminEmpleadosHorariosFechaFin1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1548,7 +1489,7 @@ public class AdminVista extends javax.swing.JFrame {
                             .addComponent(textAdminEmpleadosHorariosBuscarDia1)
                             .addComponent(SpinnerAdminEmpleadosControlHorariosHoraInicial1, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
                             .addComponent(SpinnerAdminEmpleadosHorariosHoraFinal1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 326, Short.MAX_VALUE)
                         .addGroup(jPanelAdminEmpleadosHorarios1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnAdminEmpleadosHorariosActualizar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnAdminEmpleadosHorariosRegistrar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1593,21 +1534,155 @@ public class AdminVista extends javax.swing.JFrame {
 
         jTabbedPanelAdminEmpleados.addTab("Contol de Entradas", jScrollPaneAdminEmpleadosCOntroldeEntradas);
 
-        javax.swing.GroupLayout jPanelAdminEmpleadosLayout = new javax.swing.GroupLayout(jPanelAdminEmpleados);
-        jPanelAdminEmpleados.setLayout(jPanelAdminEmpleadosLayout);
-        jPanelAdminEmpleadosLayout.setHorizontalGroup(
-            jPanelAdminEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAdminEmpleadosLayout.createSequentialGroup()
+        jPanelAdminEmpleadosVacaciones1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Vacaciones", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
+
+        jblAdminRolNombre2.setText("Fecha Inicial");
+
+        jlblAdminRolDescripcion2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jlblAdminRolDescripcion2.setText("Fecha Final");
+
+        btnAdminVacacionesRegistrar2.setText("Registrar");
+
+        btnAdminVacacionesActualizar2.setText("Actualizar");
+
+        btnAdminVacacionesEliminar2.setText("Eliminar");
+
+        jblAdminRolBuscar2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jblAdminRolBuscar2.setText("Buscar Nombre");
+
+        btnAdminVacacionesActualizarOK2.setText("OK");
+
+        tableAdminVacacionesuscarTienda.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane3.setViewportView(tableAdminVacacionesuscarTienda);
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Gestor de Vacaciones - Empleados", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
+
+        lblAdminEmpleadosHorariosBuscarHorarioCodigo5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblAdminEmpleadosHorariosBuscarHorarioCodigo5.setText("Buscar Cdula");
+
+        tableAdminEmpleadosHorariosBuscarEmpleados3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane15.setViewportView(tableAdminEmpleadosHorariosBuscarEmpleados3);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPanelAdminEmpleados, javax.swing.GroupLayout.DEFAULT_SIZE, 721, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane15)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(lblAdminEmpleadosHorariosBuscarHorarioCodigo5)
+                        .addGap(18, 18, 18)
+                        .addComponent(textAdminEmpleadosHorariosBuscarEmpleado2, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        jPanelAdminEmpleadosLayout.setVerticalGroup(
-            jPanelAdminEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelAdminEmpleadosLayout.createSequentialGroup()
-                .addComponent(jTabbedPanelAdminEmpleados)
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAdminEmpleadosHorariosBuscarHorarioCodigo5)
+                    .addComponent(textAdminEmpleadosHorariosBuscarEmpleado2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane15, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
+                .addGap(12, 12, 12))
+        );
+
+        javax.swing.GroupLayout jPanelAdminEmpleadosVacaciones1Layout = new javax.swing.GroupLayout(jPanelAdminEmpleadosVacaciones1);
+        jPanelAdminEmpleadosVacaciones1.setLayout(jPanelAdminEmpleadosVacaciones1Layout);
+        jPanelAdminEmpleadosVacaciones1Layout.setHorizontalGroup(
+            jPanelAdminEmpleadosVacaciones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelAdminEmpleadosVacaciones1Layout.createSequentialGroup()
+                .addGroup(jPanelAdminEmpleadosVacaciones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelAdminEmpleadosVacaciones1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanelAdminEmpleadosVacaciones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanelAdminEmpleadosVacaciones1Layout.createSequentialGroup()
+                                .addComponent(jblAdminRolBuscar2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(textAdminVacacionesEmpleadosBuscarTiendaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 369, Short.MAX_VALUE))
+                            .addGroup(jPanelAdminEmpleadosVacaciones1Layout.createSequentialGroup()
+                                .addGroup(jPanelAdminEmpleadosVacaciones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jlblAdminRolDescripcion2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jblAdminRolNombre2))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanelAdminEmpleadosVacaciones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(textAdminVacacionesFechaInicial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(textAdminVacacionesFechaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(276, 276, 276)))
+                        .addGroup(jPanelAdminEmpleadosVacaciones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnAdminVacacionesActualizar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAdminVacacionesRegistrar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAdminVacacionesEliminar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnAdminVacacionesActualizarOK2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanelAdminEmpleadosVacaciones1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 685, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
+        jPanelAdminEmpleadosVacaciones1Layout.setVerticalGroup(
+            jPanelAdminEmpleadosVacaciones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelAdminEmpleadosVacaciones1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelAdminEmpleadosVacaciones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelAdminEmpleadosVacaciones1Layout.createSequentialGroup()
+                        .addGroup(jPanelAdminEmpleadosVacaciones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jblAdminRolNombre2)
+                            .addComponent(btnAdminVacacionesRegistrar2))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanelAdminEmpleadosVacaciones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jlblAdminRolDescripcion2)
+                            .addComponent(btnAdminVacacionesActualizar2)
+                            .addComponent(btnAdminVacacionesActualizarOK2)))
+                    .addGroup(jPanelAdminEmpleadosVacaciones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanelAdminEmpleadosVacaciones1Layout.createSequentialGroup()
+                            .addComponent(textAdminVacacionesFechaInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(50, 50, 50))
+                        .addComponent(textAdminVacacionesFechaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelAdminEmpleadosVacaciones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAdminVacacionesEliminar2)
+                    .addGroup(jPanelAdminEmpleadosVacaciones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(textAdminVacacionesEmpleadosBuscarTiendaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jblAdminRolBuscar2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jScrollPane12.setViewportView(jPanelAdminEmpleadosVacaciones1);
+        jPanelAdminEmpleadosVacaciones1.getAccessibleContext().setAccessibleName("vacaciones");
+
+        jTabbedPanelAdminEmpleados.addTab("Gestor de Vacaciones", jScrollPane12);
+
+        jPanelAdminEmpleados.add(jTabbedPanelAdminEmpleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, 810, 680));
 
         jTabbedPaneAdmin.addTab("Empleados", jPanelAdminEmpleados);
 
@@ -1638,12 +1713,35 @@ public class AdminVista extends javax.swing.JFrame {
         jLabel48.setText("Respuesta Secreta");
 
         btnAdminClientesNaturalRegistro.setText("Registrar");
+        btnAdminClientesNaturalRegistro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdminClientesNaturalRegistroActionPerformed(evt);
+            }
+        });
 
         jLabel52.setText("Estado:");
 
+        jComboBoxRegistroCLienteNaturalEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxRegistroCLienteNaturalEstadoActionPerformed(evt);
+            }
+        });
+
         jLabel53.setText("Municipio:");
 
+        jComboBoxRegistroCLienteNaturalMunicipio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxRegistroCLienteNaturalMunicipioActionPerformed(evt);
+            }
+        });
+
         jLabel54.setText("Parroquia:");
+
+        jComboBoxRegistroCLienteNaturalParroquia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxRegistroCLienteNaturalParroquiaActionPerformed(evt);
+            }
+        });
 
         jLabel65.setForeground(new java.awt.Color(0, 0, 255));
         jLabel65.setText("(2222)222-2222");
@@ -2000,7 +2098,7 @@ public class AdminVista extends javax.swing.JFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAdminEmpleadosHorariosBuscarHorarioCodigo7)
                     .addComponent(textAdminClientesJuridicosBuscarTiendas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(205, Short.MAX_VALUE))
+                .addContainerGap(206, Short.MAX_VALUE))
             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel7Layout.createSequentialGroup()
                     .addGap(42, 42, 42)
@@ -2386,7 +2484,7 @@ public class AdminVista extends javax.swing.JFrame {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(1004, Short.MAX_VALUE))
+                .addContainerGap(1049, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2420,7 +2518,7 @@ public class AdminVista extends javax.swing.JFrame {
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(288, Short.MAX_VALUE))
+                .addContainerGap(328, Short.MAX_VALUE))
         );
 
         jScrollPane19.setViewportView(jPanel6);
@@ -2432,23 +2530,734 @@ public class AdminVista extends javax.swing.JFrame {
 
         jTabbedPaneAdmin.addTab("Clientes Juridicos", jScrollPane16);
 
+        jLabel41.setText("Nº Tarjeta");
+
+        jComboBoxAfiliarTarjetaDebitoTipoCuenta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Corriente", "Ahorro" }));
+        jComboBoxAfiliarTarjetaDebitoTipoCuenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxAfiliarTarjetaDebitoTipoCuentaActionPerformed(evt);
+            }
+        });
+
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel21.setText("Tipo de Cuenta");
+
+        jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Asignar Cuenta a Clientes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
+
+        jPanel15.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Buscar Clientes Naturales", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
+
+        lblAdminEmpleadosHorariosBuscarHorarioCodigo13.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblAdminEmpleadosHorariosBuscarHorarioCodigo13.setText("Buscar Cedula");
+
+        tableTarjetaDebitoNaturalesBuscarCleintesNaturales1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane31.setViewportView(tableTarjetaDebitoNaturalesBuscarCleintesNaturales1);
+
+        btnTarjetaDebitoNaturalesAsignar.setText("Asignar");
+
+        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
+        jPanel15.setLayout(jPanel15Layout);
+        jPanel15Layout.setHorizontalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel15Layout.createSequentialGroup()
+                        .addComponent(jScrollPane31, javax.swing.GroupLayout.PREFERRED_SIZE, 669, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel15Layout.createSequentialGroup()
+                        .addComponent(lblAdminEmpleadosHorariosBuscarHorarioCodigo13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(textTarjetaDebitoNaturalesBuscarCleintesNaturales, javax.swing.GroupLayout.DEFAULT_SIZE, 354, Short.MAX_VALUE)
+                        .addGap(199, 199, 199)
+                        .addComponent(btnTarjetaDebitoNaturalesAsignar, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(170, 170, 170))))
+        );
+        jPanel15Layout.setVerticalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAdminEmpleadosHorariosBuscarHorarioCodigo13)
+                    .addComponent(textTarjetaDebitoNaturalesBuscarCleintesNaturales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnTarjetaDebitoNaturalesAsignar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane31, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(115, Short.MAX_VALUE))
+        );
+
+        jScrollPane24.setViewportView(jPanel15);
+
+        jTabbedPane3.addTab("Clientes Naturales", jScrollPane24);
+
+        jPanel16.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), " Buscar Clientes Juridicos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
+
+        lblAdminEmpleadosHorariosBuscarHorarioCodigo14.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblAdminEmpleadosHorariosBuscarHorarioCodigo14.setText("Buscar RIF");
+
+        tableTarjetaDebitoJuridicosBuscarClientsJuridicos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane32.setViewportView(tableTarjetaDebitoJuridicosBuscarClientsJuridicos);
+
+        btnTarjetaDebitoJuridicosAsignar.setText("Asignar");
+
+        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
+        jPanel16.setLayout(jPanel16Layout);
+        jPanel16Layout.setHorizontalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addComponent(jScrollPane32, javax.swing.GroupLayout.PREFERRED_SIZE, 656, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addComponent(lblAdminEmpleadosHorariosBuscarHorarioCodigo14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(textTarjetaDebitoJuridicosBuscarClientsJuridicos, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
+                        .addGap(129, 129, 129)
+                        .addComponent(btnTarjetaDebitoJuridicosAsignar, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(240, 240, 240))))
+        );
+        jPanel16Layout.setVerticalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAdminEmpleadosHorariosBuscarHorarioCodigo14)
+                    .addComponent(textTarjetaDebitoJuridicosBuscarClientsJuridicos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnTarjetaDebitoJuridicosAsignar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane32, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(68, Short.MAX_VALUE))
+        );
+
+        jScrollPane30.setViewportView(jPanel16);
+
+        jTabbedPane3.addTab("Clientes Juridicos", jScrollPane30);
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        jPanel18.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "ListaAfiliacion", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
+
+        jPanel25.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Buscar Clientes Naturales", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
+
+        lblAdminEmpleadosHorariosBuscarHorarioCodigo15.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblAdminEmpleadosHorariosBuscarHorarioCodigo15.setText("Buscar Cedula");
+
+        tableTarjetaDebitoNaturalesBuscarCleintesNaturales2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane42.setViewportView(tableTarjetaDebitoNaturalesBuscarCleintesNaturales2);
+
+        btnAfiliarNumeroTarjetaDebitoEliminar.setText("Eliminar");
+
+        javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
+        jPanel25.setLayout(jPanel25Layout);
+        jPanel25Layout.setHorizontalGroup(
+            jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel25Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel25Layout.createSequentialGroup()
+                        .addComponent(lblAdminEmpleadosHorariosBuscarHorarioCodigo15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(textTarjetaDebitoNaturalesListar)
+                        .addGap(45, 45, 45)
+                        .addComponent(btnAfiliarNumeroTarjetaDebitoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane42, javax.swing.GroupLayout.PREFERRED_SIZE, 669, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(211, Short.MAX_VALUE))
+        );
+        jPanel25Layout.setVerticalGroup(
+            jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel25Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAdminEmpleadosHorariosBuscarHorarioCodigo15)
+                    .addComponent(textTarjetaDebitoNaturalesListar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAfiliarNumeroTarjetaDebitoEliminar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane42, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(115, Short.MAX_VALUE))
+        );
+
+        jScrollPane33.setViewportView(jPanel25);
+
+        jTabbedPane6.addTab("Clientes Naturales", jScrollPane33);
+
+        jPanel26.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), " Buscar Clientes Juridicos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
+
+        lblAdminEmpleadosHorariosBuscarHorarioCodigo20.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblAdminEmpleadosHorariosBuscarHorarioCodigo20.setText("Buscar RIF");
+
+        tableTarjetaDebitoJuridicosBuscarClientsJuridicos1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane44.setViewportView(tableTarjetaDebitoJuridicosBuscarClientsJuridicos1);
+
+        btnAfiliarNumeroTarjetaDebitoEliminar1.setText("Eliminar");
+
+        javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
+        jPanel26.setLayout(jPanel26Layout);
+        jPanel26Layout.setHorizontalGroup(
+            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel26Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel26Layout.createSequentialGroup()
+                        .addComponent(lblAdminEmpleadosHorariosBuscarHorarioCodigo20)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(textTarjetaDebitoJuridicosListar)
+                        .addGap(129, 129, 129)
+                        .addComponent(btnAfiliarNumeroTarjetaDebitoEliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane44, javax.swing.GroupLayout.PREFERRED_SIZE, 656, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(40, Short.MAX_VALUE))
+        );
+        jPanel26Layout.setVerticalGroup(
+            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel26Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAdminEmpleadosHorariosBuscarHorarioCodigo20)
+                    .addComponent(textTarjetaDebitoJuridicosListar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAfiliarNumeroTarjetaDebitoEliminar1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane44, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(68, Short.MAX_VALUE))
+        );
+
+        jScrollPane43.setViewportView(jPanel26);
+
+        jTabbedPane6.addTab("Clientes Juridicos", jScrollPane43);
+
+        javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
+        jPanel18.setLayout(jPanel18Layout);
+        jPanel18Layout.setHorizontalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel18Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 732, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel18Layout.setVerticalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel18Layout.createSequentialGroup()
+                .addComponent(jTabbedPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 12, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel41)
+                            .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(textAfiliarNumeroTarjetaDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBoxAfiliarTarjetaDebitoTipoCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jPanel14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel18, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(182, Short.MAX_VALUE))))
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel41)
+                    .addComponent(textAfiliarNumeroTarjetaDebito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(jComboBoxAfiliarTarjetaDebitoTipoCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(563, Short.MAX_VALUE))
+        );
+
+        jScrollPane20.setViewportView(jPanel12);
+
+        jScrollPaneAfiliarTarjetaDebito.setViewportView(jScrollPane20);
+
+        jTabbedPane2.addTab("Tarjeta Debito", jScrollPaneAfiliarTarjetaDebito);
+
+        jLabel50.setText("Nº Tarjeta");
+
+        jComboBoxAfiliarTarjetaCreditoTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Visa", "MasterCard", "American Express" }));
+        jComboBoxAfiliarTarjetaCreditoTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxAfiliarTarjetaCreditoTipoActionPerformed(evt);
+            }
+        });
+
+        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel22.setText("Tipo");
+
+        jPanel19.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Asignar Cuenta a Clientes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
+
+        jPanel20.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Buscar Clientes Naturales", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
+
+        lblAdminEmpleadosHorariosBuscarHorarioCodigo16.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblAdminEmpleadosHorariosBuscarHorarioCodigo16.setText("Buscar Cedula");
+
+        tableTarjetaCreditoNaturalesBuscarCleintesNaturales2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane35.setViewportView(tableTarjetaCreditoNaturalesBuscarCleintesNaturales2);
+
+        btnTarjetaCreditoNaturalesAsignar1.setText("Asignar");
+
+        javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
+        jPanel20.setLayout(jPanel20Layout);
+        jPanel20Layout.setHorizontalGroup(
+            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel20Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel20Layout.createSequentialGroup()
+                        .addComponent(jScrollPane35, javax.swing.GroupLayout.PREFERRED_SIZE, 669, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel20Layout.createSequentialGroup()
+                        .addComponent(lblAdminEmpleadosHorariosBuscarHorarioCodigo16)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(textTarjetaCReditoNaturalesBuscarCleintesNaturales1, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                        .addGap(199, 199, 199)
+                        .addComponent(btnTarjetaCreditoNaturalesAsignar1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(170, 170, 170))))
+        );
+        jPanel20Layout.setVerticalGroup(
+            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel20Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAdminEmpleadosHorariosBuscarHorarioCodigo16)
+                    .addComponent(textTarjetaCReditoNaturalesBuscarCleintesNaturales1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnTarjetaCreditoNaturalesAsignar1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane35, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(115, Short.MAX_VALUE))
+        );
+
+        jScrollPane34.setViewportView(jPanel20);
+
+        jTabbedPane4.addTab("Clientes Naturales", jScrollPane34);
+
+        jPanel21.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), " Buscar Clientes Juridicos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
+
+        lblAdminEmpleadosHorariosBuscarHorarioCodigo17.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblAdminEmpleadosHorariosBuscarHorarioCodigo17.setText("Buscar RIF");
+
+        tableTarjetaCreditoJuridicosBuscarClientsJuridicos1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane37.setViewportView(tableTarjetaCreditoJuridicosBuscarClientsJuridicos1);
+
+        btnTarjetaCreditoJuridicosAsignar1.setText("Asignar");
+
+        javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
+        jPanel21.setLayout(jPanel21Layout);
+        jPanel21Layout.setHorizontalGroup(
+            jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel21Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel21Layout.createSequentialGroup()
+                        .addComponent(jScrollPane37, javax.swing.GroupLayout.PREFERRED_SIZE, 656, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel21Layout.createSequentialGroup()
+                        .addComponent(lblAdminEmpleadosHorariosBuscarHorarioCodigo17)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(textTarjetaCreditoJuridicosBuscarClientsJuridicos1, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
+                        .addGap(129, 129, 129)
+                        .addComponent(btnTarjetaCreditoJuridicosAsignar1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(240, 240, 240))))
+        );
+        jPanel21Layout.setVerticalGroup(
+            jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel21Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAdminEmpleadosHorariosBuscarHorarioCodigo17)
+                    .addComponent(textTarjetaCreditoJuridicosBuscarClientsJuridicos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnTarjetaCreditoJuridicosAsignar1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane37, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(68, Short.MAX_VALUE))
+        );
+
+        jScrollPane36.setViewportView(jPanel21);
+
+        jTabbedPane4.addTab("Clientes Juridicos", jScrollPane36);
+
+        javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
+        jPanel19.setLayout(jPanel19Layout);
+        jPanel19Layout.setHorizontalGroup(
+            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel19Layout.createSequentialGroup()
+                .addComponent(jTabbedPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 706, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel19Layout.setVerticalGroup(
+            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel19Layout.createSequentialGroup()
+                .addComponent(jTabbedPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 24, Short.MAX_VALUE))
+        );
+
+        jblAdminRolNombre3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jblAdminRolNombre3.setText("Fecha Vencimiento");
+
+        jPanel22.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Listar Afilizaion", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
+
+        jPanel23.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Buscar Clientes Naturales", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
+
+        lblAdminEmpleadosHorariosBuscarHorarioCodigo18.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblAdminEmpleadosHorariosBuscarHorarioCodigo18.setText("Buscar Cedula");
+
+        tableTarjetaCreditoNaturalesBuscarCleintesNaturales3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane39.setViewportView(tableTarjetaCreditoNaturalesBuscarCleintesNaturales3);
+
+        btnAfiliarNumeroTarjetaCreditoEliminar.setText("Eliminar");
+
+        javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
+        jPanel23.setLayout(jPanel23Layout);
+        jPanel23Layout.setHorizontalGroup(
+            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel23Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel23Layout.createSequentialGroup()
+                        .addComponent(jScrollPane39, javax.swing.GroupLayout.PREFERRED_SIZE, 669, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel23Layout.createSequentialGroup()
+                        .addComponent(lblAdminEmpleadosHorariosBuscarHorarioCodigo18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(textTarjetaCReditoNaturalesListar, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
+                        .addGap(124, 124, 124)
+                        .addComponent(btnAfiliarNumeroTarjetaCreditoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(245, 245, 245))))
+        );
+        jPanel23Layout.setVerticalGroup(
+            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel23Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAdminEmpleadosHorariosBuscarHorarioCodigo18)
+                    .addComponent(textTarjetaCReditoNaturalesListar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAfiliarNumeroTarjetaCreditoEliminar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane39, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(115, Short.MAX_VALUE))
+        );
+
+        jScrollPane38.setViewportView(jPanel23);
+
+        jTabbedPane5.addTab("Clientes Naturales", jScrollPane38);
+
+        jPanel24.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), " Buscar Clientes Juridicos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
+
+        lblAdminEmpleadosHorariosBuscarHorarioCodigo19.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblAdminEmpleadosHorariosBuscarHorarioCodigo19.setText("Buscar RIF");
+
+        tableTarjetaCreditoJuridicosBuscarClientsJuridicos2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane41.setViewportView(tableTarjetaCreditoJuridicosBuscarClientsJuridicos2);
+
+        btnAfiliarNumeroTarjetaCreditoEliminar1.setText("Eliminar");
+
+        javax.swing.GroupLayout jPanel24Layout = new javax.swing.GroupLayout(jPanel24);
+        jPanel24.setLayout(jPanel24Layout);
+        jPanel24Layout.setHorizontalGroup(
+            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel24Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel24Layout.createSequentialGroup()
+                        .addComponent(jScrollPane41, javax.swing.GroupLayout.PREFERRED_SIZE, 656, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel24Layout.createSequentialGroup()
+                        .addComponent(lblAdminEmpleadosHorariosBuscarHorarioCodigo19)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(textTarjetaCreditoJuridicosListar, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
+                        .addGap(164, 164, 164)
+                        .addComponent(btnAfiliarNumeroTarjetaCreditoEliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(205, 205, 205))))
+        );
+        jPanel24Layout.setVerticalGroup(
+            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel24Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAdminEmpleadosHorariosBuscarHorarioCodigo19)
+                    .addComponent(textTarjetaCreditoJuridicosListar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAfiliarNumeroTarjetaCreditoEliminar1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane41, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(68, Short.MAX_VALUE))
+        );
+
+        jScrollPane40.setViewportView(jPanel24);
+
+        jTabbedPane5.addTab("Clientes Juridicos", jScrollPane40);
+
+        javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
+        jPanel22.setLayout(jPanel22Layout);
+        jPanel22Layout.setHorizontalGroup(
+            jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel22Layout.createSequentialGroup()
+                .addComponent(jTabbedPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel22Layout.setVerticalGroup(
+            jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel22Layout.createSequentialGroup()
+                .addComponent(jTabbedPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 24, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
+        jPanel17.setLayout(jPanel17Layout);
+        jPanel17Layout.setHorizontalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel17Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel17Layout.createSequentialGroup()
+                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel17Layout.createSequentialGroup()
+                                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel50)
+                                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jComboBoxAfiliarTarjetaCreditoTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(textAfiliarNumeroTarjetaCredito, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel17Layout.createSequentialGroup()
+                                .addComponent(jblAdminRolNombre3, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(textAfiliarNumeroTarjetaCreditoFEchaVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap(220, Short.MAX_VALUE))
+        );
+        jPanel17Layout.setVerticalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel17Layout.createSequentialGroup()
+                .addGap(9, 9, 9)
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel50)
+                    .addComponent(textAfiliarNumeroTarjetaCredito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22)
+                    .addComponent(jComboBoxAfiliarTarjetaCreditoTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jblAdminRolNombre3)
+                    .addComponent(textAfiliarNumeroTarjetaCreditoFEchaVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(476, Short.MAX_VALUE))
+        );
+
+        jScrollPaneAfiliarTarjetaCredito.setViewportView(jPanel17);
+
+        jTabbedPane2.addTab("Tarjeta de Credito", jScrollPaneAfiliarTarjetaCredito);
+
+        jTabbedPaneAdmin.addTab("Afiliar Tarjeta", jTabbedPane2);
+
         jLabelAdminTitulo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabelAdminTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelAdminTitulo.setText("Admin v1.0");
+        jLabelAdminTitulo.setText("Admin");
 
         jbtnAdminCerrarSession.setText("Cerrar Sesion");
+        jbtnAdminCerrarSession.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnAdminCerrarSessionActionPerformed(evt);
+            }
+        });
+
+        jMenu1.setText("Super Admin");
+
+        jMenuItem1.setText("Administrar Tienda");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("Administrar Almacen");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
+        jMenuItem3.setText("Administrar Pasillo");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem3);
+
+        jMenuItem4.setText("Administrar Zona");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem4);
+
+        jMenuItem8.setText("Administrar Rubro");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem8);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Inventario");
+
+        jMenuItem5.setText("Administrador Marca");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem5);
+
+        jMenuItem6.setText("Administrador Productos");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem6);
+
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Compras");
+
+        jMenuItem7.setText("Registrar Compra");
+        jMenu3.add(jMenuItem7);
+
+        jMenuBar1.add(jMenu3);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPaneAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, 849, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jTabbedPaneAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabelAdminTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 644, Short.MAX_VALUE)
                         .addComponent(jbtnAdminCerrarSession)))
                 .addContainerGap())
         );
@@ -2460,20 +3269,146 @@ public class AdminVista extends javax.swing.JFrame {
                     .addComponent(jLabelAdminTitulo)
                     .addComponent(jbtnAdminCerrarSession))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPaneAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 817, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(266, Short.MAX_VALUE))
+                .addComponent(jTabbedPaneAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 678, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jComboBoxRegistroCLienteNaturalMunicipioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxRegistroCLienteNaturalMunicipioActionPerformed
+        // TODO add your handling code here:
+     /*   jComboBoxRegistroCLienteNaturalParroquia.removeAllItems();
+        int parroquia=0;
+        for(int i=0;i<municipios.size();i++)
+        {
+            if(municipios.get(i).equals(jComboBoxRegistroCLienteNaturalParroquia.getSelectedItem()))
+            {
+                parroquia=Integer.parseInt(municipios.get(i-1));
+                break;
+            }
+        }
+        parroquias = Controlador.ControladorLugar.ConsultarParroquias(parroquia);
+        
+        int i=1;
+        
+        while(i<parroquias.size())
+        {
+            jComboBoxRegistroCLienteNaturalParroquia.addItem(parroquias.get(i));
+            i=i+2;
+        }*/
+       
+    }//GEN-LAST:event_jComboBoxRegistroCLienteNaturalMunicipioActionPerformed
+
+    private void jComboBoxRegistroCLienteNaturalEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxRegistroCLienteNaturalEstadoActionPerformed
+        // TODO add your handling code here:
+      /*  jComboBoxRegistroCLienteNaturalMunicipio.removeAllItems();
+        jComboBoxRegistroCLienteNaturalEstado.removeAllItems();
+        int estado=0;
+        for(int i=0;i<estados.size();i++)
+        {
+            if(estados.get(i).equals(jComboBoxRegistroCLienteNaturalEstado.getSelectedItem()))
+            {
+                estado=Integer.parseInt(estados.get(i-1));
+                break;
+            }
+        }
+        municipios = Controlador.ControladorLugar.ConsultarMunicipios(estado);
+        
+        int i=1;
+        
+        while(i<municipios.size())
+        {
+            jComboBoxRegistroCLienteNaturalMunicipio.addItem(municipios.get(i));
+            i=i+2;
+        }*/
+    }//GEN-LAST:event_jComboBoxRegistroCLienteNaturalEstadoActionPerformed
+
+    private void jComboBoxRegistroCLienteNaturalParroquiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxRegistroCLienteNaturalParroquiaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxRegistroCLienteNaturalParroquiaActionPerformed
+
+    private void textAdminEmpleadosPreguntaSecretaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textAdminEmpleadosPreguntaSecretaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textAdminEmpleadosPreguntaSecretaActionPerformed
 
     private void jComboBoxAdminEmpleadosHorariosDiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxAdminEmpleadosHorariosDiasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxAdminEmpleadosHorariosDiasActionPerformed
 
-    private void textAdminEmpleadosPreguntaSecretaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textAdminEmpleadosPreguntaSecretaActionPerformed
+    private void textAdminEmpleadosBeneficiosBuscarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textAdminEmpleadosBeneficiosBuscarEmpleadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textAdminEmpleadosPreguntaSecretaActionPerformed
+    }//GEN-LAST:event_textAdminEmpleadosBeneficiosBuscarEmpleadoActionPerformed
+
+    private void textEmpleadosBeneficiosBuscarNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textEmpleadosBeneficiosBuscarNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textEmpleadosBeneficiosBuscarNombreActionPerformed
+
+    private void btnAdminClientesNaturalRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminClientesNaturalRegistroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAdminClientesNaturalRegistroActionPerformed
+
+    private void jbtnAdminCerrarSessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnAdminCerrarSessionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbtnAdminCerrarSessionActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        /* AdministracionDeTiendas administracionDeTiendas = new AdministracionDeTiendas(this);
+        administracionDeTiendas.setVisible(true);
+        this.setVisible(false);*/
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        /* AdministracionDeAlmacenes administracionDeAlmacenes = new AdministracionDeAlmacenes(this);
+        administracionDeAlmacenes.setVisible(true);
+        this.setVisible(false);*/
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+         /*AdministradorPasillos administradorPasillos = new AdministradorPasillos(this);
+        this.setVisible(false);
+        administradorPasillos.setVisible(true);*/
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        /* AdministradorZona administradorZona = new AdministradorZona(this);
+        administradorZona.setVisible(true);
+        this.setVisible(false);*/
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // TODO add your handling code here:
+         /*AdministracionMarca administracionMarca = new AdministracionMarca();
+        administracionMarca.setVisible(true);
+        this.setVisible(false);*/
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+         /*AdministradorProductos administradorProductos = new AdministradorProductos();
+        this.setVisible(false);
+        administradorProductos.setVisible(true);*/
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        // TODO add your handling code here:
+         /*AdministradorDeRubros administradorDeRubros = new AdministradorDeRubros();
+        administradorDeRubros.setVisible(true);
+        this.setVisible(false);*/
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jComboBoxAfiliarTarjetaDebitoTipoCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxAfiliarTarjetaDebitoTipoCuentaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxAfiliarTarjetaDebitoTipoCuentaActionPerformed
+
+    private void jComboBoxAfiliarTarjetaCreditoTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxAfiliarTarjetaCreditoTipoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxAfiliarTarjetaCreditoTipoActionPerformed
 
   public void setController(AdminController c){
       jbtnAdminCerrarSession.addActionListener(c);
@@ -2603,6 +3538,17 @@ public class AdminVista extends javax.swing.JFrame {
                          btnAdminClientesJuridicosEliminar1.addActionListener(c);;
                          btnAdminClientesJuridicosRegistrar.addActionListener(c);
                          
+                         
+                             jComboBoxRegistroCLienteJuridicoEstadoDireccionFiscal.addActionListener(c);;
+                            jComboBoxRegistroCLienteJuridicoEstadoDireccionFisica.addActionListener(c);;
+                             jComboBoxRegistroCLienteJuridicoMunicipioDireccionFiscal.addActionListener(c);;
+                           jComboBoxRegistroCLienteJuridicoMunicipioDireccionFisica.addActionListener(c);;
+                           jComboBoxRegistroCLienteJuridicoParroquiaDireccionFiscal.addActionListener(c);;
+                           jComboBoxRegistroCLienteJuridicoParroquiaDireccionFisica.addActionListener(c);;
+                          jComboBoxRegistroCLienteNaturalEstado.addActionListener(c);;
+                             jComboBoxRegistroCLienteNaturalMunicipio.addActionListener(c);;
+                            jComboBoxRegistroCLienteNaturalParroquia.addActionListener(c);;
+                         
                       //  textRegistroCLienteJuridicoWeb;
                         //Persona Contacto
                        //textRegistroCLienteJuridicoPersonaContacoTelefono1;
@@ -2638,7 +3584,38 @@ public class AdminVista extends javax.swing.JFrame {
     btnAdminClientesNaturalEliminar2.addActionListener(c);;
     btnAdminClientesNaturalRegistro.addActionListener(c);;
    
+   //TIPO DE PAGO
+     
+     textTarjetaCReditoNaturalesBuscarCleintesNaturales1.addKeyListener(c);;;
+     textTarjetaCreditoJuridicosBuscarClientsJuridicos1.addKeyListener(c);;;
+     textTarjetaDebitoJuridicosBuscarClientsJuridicos.addKeyListener(c);;;
+    textTarjetaDebitoNaturalesBuscarCleintesNaturales.addKeyListener(c);;;
+    textAfiliarNumeroTarjetaCredito.addKeyListener(c);;;
+    //textAfiliarNumeroTarjetaCreditoBuscarClientes.addKeyListener(c);;;
+    textAfiliarNumeroTarjetaCreditoFEchaVencimiento.addKeyListener(c);;;
+     textAfiliarNumeroTarjetaDebito.addKeyListener(c);;;
+   // textAfiliarTarjetaDebitoBuscarCLiente.addKeyListener(c);;;
+   textTarjetaDebitoNaturalesListar.addKeyListener(c);;;
+   textTarjetaDebitoJuridicosListar.addKeyListener(c);;;
+   textTarjetaCReditoNaturalesListar.addKeyListener(c);;;
+     
+     textTarjetaCreditoJuridicosListar.addKeyListener(c);;;
    
+   
+   
+   btnAfiliarNumeroTarjetaCreditoEliminar.addActionListener(c);;
+     btnAfiliarNumeroTarjetaCreditoEliminar1.addActionListener(c);;
+     btnAfiliarNumeroTarjetaDebitoEliminar.addActionListener(c);;
+    btnAfiliarNumeroTarjetaDebitoEliminar1.addActionListener(c);;
+    
+     
+    
+      btnTarjetaCreditoJuridicosAsignar1.addActionListener(c);;
+    btnTarjetaCreditoNaturalesAsignar1.addActionListener(c);;
+     btnTarjetaDebitoJuridicosAsignar.addActionListener(c);;
+     btnTarjetaDebitoNaturalesAsignar.addActionListener(c);;
+     
+     
      
     
   }
@@ -2669,6 +3646,269 @@ public class AdminVista extends javax.swing.JFrame {
                 btnAdminCLientesJuridicosPErsonaContactoActualizarOK2.setEnabled(false);
                 //Empleados Naturales
                 btnAdminClientesNaturalActuaizarOK2.setEnabled(false);
+                
+                
+                //Privilegios
+                //Permisos
+                    btnAdminPermisoActualizar.setEnabled(false);
+                    // jbtnAdminPErmisoActualizarOK.setEnabled(false);
+                     btnAdminPermisoListar.setEnabled(false);
+                     btnAdminPermisoEliminar.setEnabled(false);
+                     btnAdminPermisoRegistrar.setEnabled(false);
+                //Roles
+                    btnAdminRolActualizar1.setEnabled(false);
+                    btnAdminRolEliminar1.setEnabled(false);
+                    btnAdminRolListar1.setEnabled(false);
+                    btnAdminRolRegistrar1.setEnabled(false);
+                    //jbtnAdminRolActualizarOK1.setEnabled(false);
+                
+                //Empleados - Horarios
+                    btnAdminEmpleadosHorariosActualizar.setEnabled(false);
+                   // btnAdminEmpleadosHorariosActualizarOK.addActionListener(c);
+                    btnAdminEmpleadosHorariosEliminar.setEnabled(false);
+                    btnAdminEmpleadosHorariosListar.setEnabled(false);
+                    btnAdminEmpleadosHorariosRegistrar.setEnabled(false);
+                    btnAdminEmpleadosHorariosEmpleadosAsignar.setEnabled(false);
+                    
+                 //Control de entras y Salidas (CHECK)
+                    
+                    btnAdminEmpleadosHorariosActualizar1.setEnabled(false);
+                    
+                    btnAdminEmpleadosHorariosEliminar1.setEnabled(false);
+                    btnAdminEmpleadosHorariosActualizarOK1.setEnabled(false);;
+                    //btnAdminEmpleadosHorariosEmpleadosAsignar1.setEnabled(false);
+                   // btnAdminEmpleadosHorariosListar1.addActionListener(c);
+                    
+                    btnAdminEmpleadosHorariosRegistrar1.setEnabled(false);
+   
+                    
+              
+                //PAnel Beneficios
+                btnEmpleadosBeneficiosActualizar.setEnabled(false);
+                       // btnEmpleadosBeneficiosActualizarOK.addActionListener(c);
+                        btnEmpleadosBeneficiosEliminar.setEnabled(false);
+                        btnEmpleadosBeneficiosListar.setEnabled(false);
+                        btnEmpleadosBeneficiosRegistrar.setEnabled(false);
+                        btnAdminEmpleadosBeneficiosEmpleadosAgisnar.setEnabled(false);
+               //Vacaciones
+                 // textAdminVacacionesEmpleadosBuscarTiendaNombre.addKeyListener(c);
+                   
+                  btnAdminVacacionesActualizar2.setEnabled(false);
+                    //btnAdminVacacionesActualizarOK2.addActionListener(c);
+                     btnAdminVacacionesEliminar2.setEnabled(false);
+                    //btnAdminVacacionesListar2.addActionListener(c);
+                    btnAdminVacacionesRegistrar2.setEnabled(false);     
+                    
+                //Empleados
+                   // btnAdminEmpleadosActuaizarOK.addActionListener(c);
+                    btnAdminEmpleadosActualizar.setEnabled(false);
+                    btnAdminEmpleadosEliminar.setEnabled(false);
+                    btnAdminEmpleadosRegistrar.setEnabled(false);
+                    btnAdminEmpleadosListarEmpleados1.setEnabled(false);
+                    
+                    
+               //Clientes Juridicos
+              
+               btnAdminClientesJuridicosActualizar1.setEnabled(false);
+               btnAdminClientesJuridicosEliminar1.setEnabled(false);
+               btnAdminClientesJuridicosRegistrar.setEnabled(false);
+               
+               btnAdminCLientesJuridicosPErsonaContactoActualizarOK2.setEnabled(false);
+                            btnAdminClientesJuridicoPErsonaContactoEliminar2.setEnabled(false);
+                           btnAdminClientesJuridicoPersonaContactoAgisnar1.setEnabled(false);
+                            btnAdminClientesJuridicosPersonaContacoActualizar2.setEnabled(false);
+               
+               //Naturales
+              // btnAdminClientesNaturalActuaizarOK2.addActionListener(c);;
+                btnAdminClientesNaturalActualizar2.setEnabled(false);
+                 btnAdminClientesNaturalEliminar2.setEnabled(false);
+                 btnAdminClientesNaturalRegistro.setEnabled(false);
+              
+              //Tipo de Pago
+               btnAfiliarNumeroTarjetaCreditoEliminar.setEnabled(false);
+                btnAfiliarNumeroTarjetaCreditoEliminar1.setEnabled(false);
+                btnAfiliarNumeroTarjetaDebitoEliminar.setEnabled(false);
+               btnAfiliarNumeroTarjetaDebitoEliminar1.setEnabled(false);
+
+
+
+                 btnTarjetaCreditoJuridicosAsignar1.setEnabled(false);
+               btnTarjetaCreditoNaturalesAsignar1.setEnabled(false);
+                btnTarjetaDebitoJuridicosAsignar.setEnabled(false);
+                btnTarjetaDebitoNaturalesAsignar.setEnabled(false);
+     permisos();
+  }
+  public void permisos(){
+      //Permisos
+
+            if( LoginModel.getPermisoXNOmbre("Agregar Permiso")){
+                btnAdminPermisoRegistrar.setEnabled(true);
+            }
+            if( LoginModel.getPermisoXNOmbre("Actualizar Permiso")){                 
+                 btnAdminPermisoActualizar.setEnabled(true);
+
+            }
+            if( LoginModel.getPermisoXNOmbre("Eliminar Permiso")){                 
+                btnAdminPermisoEliminar.setEnabled(true);
+            }         
+             if( LoginModel.getPermisoXNOmbre("Consultar Permiso")){                 
+                btnAdminPermisoListar.setEnabled(true);
+             } 
+      //Roles
+                    
+                    
+                    
+                    
+            if( LoginModel.getPermisoXNOmbre("Agregar Rol")){
+                btnAdminRolRegistrar1.setEnabled(true);
+            }
+            if( LoginModel.getPermisoXNOmbre("Actualizar Rol")){                 
+                 btnAdminRolActualizar1.setEnabled(true);
+
+            }
+            if( LoginModel.getPermisoXNOmbre("Eliminar Rol")){                 
+               
+                btnAdminRolEliminar1.setEnabled(true);
+            }         
+             if( LoginModel.getPermisoXNOmbre("Consultar Rol")){                 
+               btnAdminRolListar1.setEnabled(true);
+             } 
+      //Horarios
+            if( LoginModel.getPermisoXNOmbre("Agregar Horario")){
+                    btnAdminEmpleadosHorariosRegistrar.setEnabled(true);
+                    btnAdminEmpleadosHorariosEmpleadosAsignar.setEnabled(true);
+            }
+            if( LoginModel.getPermisoXNOmbre("Actualizar Horario")){                 
+                 btnAdminEmpleadosHorariosActualizar.setEnabled(true);
+
+            }
+            if( LoginModel.getPermisoXNOmbre("Eliminar Horario")){                 
+                btnAdminEmpleadosHorariosEliminar.setEnabled(true);
+            }         
+             if( LoginModel.getPermisoXNOmbre("Consultar Horario")){                 
+                 btnAdminEmpleadosHorariosListar.setEnabled(true);
+             } 
+       
+                   // btnAdminEmpleadosHorariosActualizarOK.addActionListener(c);
+                    
+                    
+                   
+                    
+     //CHECK
+      if( LoginModel.getPermisoXNOmbre("Agregar Check")){
+            btnAdminEmpleadosHorariosRegistrar1.setEnabled(true);
+      }
+      if( LoginModel.getPermisoXNOmbre("Actualizar Check")){                 
+           btnAdminEmpleadosHorariosActualizar1.setEnabled(true);
+                    
+      }
+      if( LoginModel.getPermisoXNOmbre("Eliminar Check")){                 
+          btnAdminEmpleadosHorariosEliminar1.setEnabled(true); 
+      }
+      
+           
+                   
+   //Beneficios
+   
+      if( LoginModel.getPermisoXNOmbre("Agregar Beneficio")){
+            btnEmpleadosBeneficiosRegistrar.setEnabled(true);
+            btnAdminEmpleadosBeneficiosEmpleadosAgisnar.setEnabled(true );
+      }
+      if( LoginModel.getPermisoXNOmbre("Actualizar Beneficio")){                 
+           btnEmpleadosBeneficiosActualizar.setEnabled(true);  
+      }
+      if( LoginModel.getPermisoXNOmbre("Eliminar Beneficio")){                 
+           btnEmpleadosBeneficiosEliminar.setEnabled(true); 
+      }
+      if( LoginModel.getPermisoXNOmbre("Consultar Beneficio")){                 
+           btnEmpleadosBeneficiosListar.setEnabled(true);
+      }
+      
+       //Empleados                
+           if( LoginModel.getPermisoXNOmbre("Agregar Empleado")){
+            btnAdminEmpleadosRegistrar.setEnabled(true);
+            }
+            if( LoginModel.getPermisoXNOmbre("Actualizar Empleado")){                 
+                 btnAdminEmpleadosActualizar.setEnabled(true);
+
+            }
+            if( LoginModel.getPermisoXNOmbre("Eliminar Empleado")){                 
+                btnAdminEmpleadosEliminar.setEnabled(true);
+            }         
+             if( LoginModel.getPermisoXNOmbre("Consultar Empleado")){                 
+                 btnAdminEmpleadosListarEmpleados1.setEnabled(true);
+             }
+             
+       //Clientes Juridicos
+  
+      if( LoginModel.getPermisoXNOmbre("Agregar Juridico")){
+           btnAdminClientesJuridicosRegistrar.setEnabled(true);
+      }
+      if( LoginModel.getPermisoXNOmbre("Actualizar Juridico")){                 
+         btnAdminClientesJuridicosActualizar1.setEnabled(true);  
+      }
+      if( LoginModel.getPermisoXNOmbre("Eliminar Juridico")){                 
+           btnAdminClientesJuridicosEliminar1.setEnabled(true);
+      }
+      
+      //Persona COntacto
+      
+                            
+                          
+                           
+      if( LoginModel.getPermisoXNOmbre("Agregar Persona Contacto")){
+           btnAdminClientesJuridicoPersonaContactoAgisnar1.setEnabled(true);
+      }
+      if( LoginModel.getPermisoXNOmbre("Actualizar Persona Contacto")){                 
+          btnAdminClientesJuridicosPersonaContacoActualizar2.setEnabled(true);
+      }
+      if( LoginModel.getPermisoXNOmbre("Eliminar Persona Contacto")){                 
+           btnAdminClientesJuridicoPErsonaContactoEliminar2.setEnabled(true);
+      }      
+      //Clientes  Naturales
+      
+                 
+                 
+      if( LoginModel.getPermisoXNOmbre("Agregar Natural")){
+           btnAdminClientesNaturalRegistro.setEnabled(true);
+      }
+      if( LoginModel.getPermisoXNOmbre("Actualizar Natural")){                 
+        btnAdminClientesNaturalActualizar2.setEnabled(true); 
+      }
+      if( LoginModel.getPermisoXNOmbre("Eliminar Natural")){                 
+           btnAdminClientesNaturalEliminar2.setEnabled(true);
+      }     
+      //Vacaciones             
+                   
+        if( LoginModel.getPermisoXNOmbre("Agregar Vacaciones")){
+              btnAdminVacacionesRegistrar2.setEnabled(true);     
+        }
+        if( LoginModel.getPermisoXNOmbre("Actualizar Vacaciones")){                 
+          btnAdminVacacionesActualizar2.setEnabled(true);
+        }
+        if( LoginModel.getPermisoXNOmbre("Eliminar Vacaciones")){                 
+             btnAdminVacacionesEliminar2.setEnabled(true);
+        } 
+        
+        //Consultar Tipo de Pago
+        
+
+
+
+               
+        if( LoginModel.getPermisoXNOmbre("Agregar Tipo de Pago")){                 
+            btnTarjetaCreditoJuridicosAsignar1.setEnabled(true);
+               btnTarjetaCreditoNaturalesAsignar1.setEnabled(true);
+                btnTarjetaDebitoJuridicosAsignar.setEnabled(true);
+                btnTarjetaDebitoNaturalesAsignar.setEnabled(true);
+                
+        }
+        if( LoginModel.getPermisoXNOmbre("Eliminar Tipo de Pago")){                 
+             btnAfiliarNumeroTarjetaCreditoEliminar.setEnabled(true);
+                btnAfiliarNumeroTarjetaCreditoEliminar1.setEnabled(true);
+                btnAfiliarNumeroTarjetaDebitoEliminar.setEnabled(true);
+               btnAfiliarNumeroTarjetaDebitoEliminar1.setEnabled(true);
+        }      
   }
  
 
@@ -2724,12 +3964,22 @@ public class AdminVista extends javax.swing.JFrame {
     public javax.swing.JButton btnAdminVacacionesActualizarOK2;
     public javax.swing.JButton btnAdminVacacionesEliminar2;
     public javax.swing.JButton btnAdminVacacionesRegistrar2;
+    public javax.swing.JButton btnAfiliarNumeroTarjetaCreditoEliminar;
+    public javax.swing.JButton btnAfiliarNumeroTarjetaCreditoEliminar1;
+    public javax.swing.JButton btnAfiliarNumeroTarjetaDebitoEliminar;
+    public javax.swing.JButton btnAfiliarNumeroTarjetaDebitoEliminar1;
     public javax.swing.JButton btnEmpleadosBeneficiosActualizar;
     public javax.swing.JButton btnEmpleadosBeneficiosActualizarOK;
     public javax.swing.JButton btnEmpleadosBeneficiosEliminar;
     public javax.swing.JButton btnEmpleadosBeneficiosListar;
     public javax.swing.JButton btnEmpleadosBeneficiosRegistrar;
+    public javax.swing.JButton btnTarjetaCreditoJuridicosAsignar1;
+    public javax.swing.JButton btnTarjetaCreditoNaturalesAsignar1;
+    public javax.swing.JButton btnTarjetaDebitoJuridicosAsignar;
+    public javax.swing.JButton btnTarjetaDebitoNaturalesAsignar;
     public javax.swing.JComboBox<String> jComboBoxAdminEmpleadosHorariosDias;
+    public javax.swing.JComboBox<String> jComboBoxAfiliarTarjetaCreditoTipo;
+    public javax.swing.JComboBox<String> jComboBoxAfiliarTarjetaDebitoTipoCuenta;
     public javax.swing.JComboBox jComboBoxRegistroCLienteJuridicoEstadoDireccionFiscal;
     public javax.swing.JComboBox jComboBoxRegistroCLienteJuridicoEstadoDireccionFisica;
     public javax.swing.JComboBox jComboBoxRegistroCLienteJuridicoMunicipioDireccionFiscal;
@@ -2753,6 +4003,8 @@ public class AdminVista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
@@ -2767,6 +4019,7 @@ public class AdminVista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
@@ -2776,6 +4029,7 @@ public class AdminVista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
@@ -2785,10 +4039,36 @@ public class AdminVista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelAdminTitulo;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel20;
+    private javax.swing.JPanel jPanel21;
+    private javax.swing.JPanel jPanel22;
+    private javax.swing.JPanel jPanel23;
+    private javax.swing.JPanel jPanel24;
+    private javax.swing.JPanel jPanel25;
+    private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -2821,14 +4101,31 @@ public class AdminVista extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane18;
     private javax.swing.JScrollPane jScrollPane19;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane20;
     private javax.swing.JScrollPane jScrollPane21;
     private javax.swing.JScrollPane jScrollPane23;
+    private javax.swing.JScrollPane jScrollPane24;
     private javax.swing.JScrollPane jScrollPane25;
     private javax.swing.JScrollPane jScrollPane26;
     private javax.swing.JScrollPane jScrollPane27;
     private javax.swing.JScrollPane jScrollPane28;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane30;
+    private javax.swing.JScrollPane jScrollPane31;
+    private javax.swing.JScrollPane jScrollPane32;
+    private javax.swing.JScrollPane jScrollPane33;
+    private javax.swing.JScrollPane jScrollPane34;
+    private javax.swing.JScrollPane jScrollPane35;
+    private javax.swing.JScrollPane jScrollPane36;
+    private javax.swing.JScrollPane jScrollPane37;
+    private javax.swing.JScrollPane jScrollPane38;
+    private javax.swing.JScrollPane jScrollPane39;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane40;
+    private javax.swing.JScrollPane jScrollPane41;
+    private javax.swing.JScrollPane jScrollPane42;
+    private javax.swing.JScrollPane jScrollPane43;
+    private javax.swing.JScrollPane jScrollPane44;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
@@ -2838,7 +4135,14 @@ public class AdminVista extends javax.swing.JFrame {
     public javax.swing.JScrollPane jScrollPaneAdminEmpleadosBeneficios;
     public javax.swing.JScrollPane jScrollPaneAdminEmpleadosCOntroldeEntradas;
     public javax.swing.JScrollPane jScrollPaneAdminEmpleadosHorarios;
+    private javax.swing.JScrollPane jScrollPaneAfiliarTarjetaCredito;
+    private javax.swing.JScrollPane jScrollPaneAfiliarTarjetaDebito;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JTabbedPane jTabbedPane3;
+    private javax.swing.JTabbedPane jTabbedPane4;
+    private javax.swing.JTabbedPane jTabbedPane5;
+    private javax.swing.JTabbedPane jTabbedPane6;
     public javax.swing.JTabbedPane jTabbedPaneAdmin;
     public javax.swing.JTabbedPane jTabbedPanelAdminEmpleados;
     public javax.swing.JTable jTableAdminEmpleadosBuscarPermisos;
@@ -2849,6 +4153,7 @@ public class AdminVista extends javax.swing.JFrame {
     private javax.swing.JLabel jblAdminRolBuscar2;
     public javax.swing.JLabel jblAdminRolNombre1;
     public javax.swing.JLabel jblAdminRolNombre2;
+    public javax.swing.JLabel jblAdminRolNombre3;
     public javax.swing.JLabel jblEmpleadosBeneficiosNombre;
     public javax.swing.JButton jbtnAdminCerrarSession;
     public javax.swing.JButton jbtnAdminPErmisoActualizarOK;
@@ -2867,7 +4172,15 @@ public class AdminVista extends javax.swing.JFrame {
     private javax.swing.JLabel lblAdminEmpleadosHorariosBuscarHorarioCodigo1;
     private javax.swing.JLabel lblAdminEmpleadosHorariosBuscarHorarioCodigo10;
     private javax.swing.JLabel lblAdminEmpleadosHorariosBuscarHorarioCodigo11;
+    private javax.swing.JLabel lblAdminEmpleadosHorariosBuscarHorarioCodigo13;
+    private javax.swing.JLabel lblAdminEmpleadosHorariosBuscarHorarioCodigo14;
+    private javax.swing.JLabel lblAdminEmpleadosHorariosBuscarHorarioCodigo15;
+    private javax.swing.JLabel lblAdminEmpleadosHorariosBuscarHorarioCodigo16;
+    private javax.swing.JLabel lblAdminEmpleadosHorariosBuscarHorarioCodigo17;
+    private javax.swing.JLabel lblAdminEmpleadosHorariosBuscarHorarioCodigo18;
+    private javax.swing.JLabel lblAdminEmpleadosHorariosBuscarHorarioCodigo19;
     private javax.swing.JLabel lblAdminEmpleadosHorariosBuscarHorarioCodigo2;
+    private javax.swing.JLabel lblAdminEmpleadosHorariosBuscarHorarioCodigo20;
     private javax.swing.JLabel lblAdminEmpleadosHorariosBuscarHorarioCodigo3;
     private javax.swing.JLabel lblAdminEmpleadosHorariosBuscarHorarioCodigo4;
     private javax.swing.JLabel lblAdminEmpleadosHorariosBuscarHorarioCodigo5;
@@ -2906,6 +4219,14 @@ public class AdminVista extends javax.swing.JFrame {
     public javax.swing.JTable tableAdminPersonaContactoJuridicosBuscarClientsPersonaCOntacto;
     public javax.swing.JTable tableAdminRol;
     public javax.swing.JTable tableAdminVacacionesuscarTienda;
+    public javax.swing.JTable tableTarjetaCreditoJuridicosBuscarClientsJuridicos1;
+    public javax.swing.JTable tableTarjetaCreditoJuridicosBuscarClientsJuridicos2;
+    public javax.swing.JTable tableTarjetaCreditoNaturalesBuscarCleintesNaturales2;
+    public javax.swing.JTable tableTarjetaCreditoNaturalesBuscarCleintesNaturales3;
+    public javax.swing.JTable tableTarjetaDebitoJuridicosBuscarClientsJuridicos;
+    public javax.swing.JTable tableTarjetaDebitoJuridicosBuscarClientsJuridicos1;
+    public javax.swing.JTable tableTarjetaDebitoNaturalesBuscarCleintesNaturales1;
+    public javax.swing.JTable tableTarjetaDebitoNaturalesBuscarCleintesNaturales2;
     public javax.swing.JTable tablebtnEmpleadosBeneficios;
     public javax.swing.JTextField textAdminClientesJuridicosBuscarClintes;
     public javax.swing.JTextField textAdminClientesJuridicosBuscarTiendas;
@@ -2944,6 +4265,9 @@ public class AdminVista extends javax.swing.JFrame {
     public javax.swing.JTextField textAdminVacacionesEmpleadosBuscarTiendaNombre;
     public com.toedter.calendar.JDateChooser textAdminVacacionesFechaFinal;
     public com.toedter.calendar.JDateChooser textAdminVacacionesFechaInicial;
+    public javax.swing.JTextField textAfiliarNumeroTarjetaCredito;
+    public com.toedter.calendar.JDateChooser textAfiliarNumeroTarjetaCreditoFEchaVencimiento;
+    public javax.swing.JTextField textAfiliarNumeroTarjetaDebito;
     public javax.swing.JTextField textEmpleadosBeneficiosBuscarNombre;
     public javax.swing.JTextField textEmpleadosBeneficiosDescripcion;
     public javax.swing.JTextField textEmpleadosBeneficiosNombre;
@@ -2975,5 +4299,13 @@ public class AdminVista extends javax.swing.JFrame {
     public javax.swing.JTextField textRegistroCLienteNaturalSegundoNombre;
     public javax.swing.JTextField textRegistroCLienteNaturalTelefono;
     public javax.swing.JTextField textRegistroCLienteNaturalUser;
+    public javax.swing.JTextField textTarjetaCReditoNaturalesBuscarCleintesNaturales1;
+    public javax.swing.JTextField textTarjetaCReditoNaturalesListar;
+    public javax.swing.JTextField textTarjetaCreditoJuridicosBuscarClientsJuridicos1;
+    public javax.swing.JTextField textTarjetaCreditoJuridicosListar;
+    public javax.swing.JTextField textTarjetaDebitoJuridicosBuscarClientsJuridicos;
+    public javax.swing.JTextField textTarjetaDebitoJuridicosListar;
+    public javax.swing.JTextField textTarjetaDebitoNaturalesBuscarCleintesNaturales;
+    public javax.swing.JTextField textTarjetaDebitoNaturalesListar;
     // End of variables declaration//GEN-END:variables
 }

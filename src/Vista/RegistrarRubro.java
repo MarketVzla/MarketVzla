@@ -22,6 +22,7 @@ public class RegistrarRubro extends javax.swing.JFrame {
      */
     public RegistrarRubro() {
         initComponents();
+             getContentPane().setBackground(java.awt.Color.white);
         this.tienda="Market Venezuela CCS";
         this.almacen="Refrigeracion";
         ArrayList <String> rubros = Controlador.ControladorRubro.ConsultarRubros(almacen, tienda);

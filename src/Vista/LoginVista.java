@@ -44,7 +44,8 @@ public class LoginVista extends javax.swing.JFrame {
         jbtnSalir = new javax.swing.JButton();
         textLoginPassword = new javax.swing.JPasswordField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle("Login");
 
         panelLogin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -53,10 +54,21 @@ public class LoginVista extends javax.swing.JFrame {
         lblLoginPass.setText("Contraseña");
 
         jbtnLogin.setText("Login");
+        jbtnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnLoginActionPerformed(evt);
+            }
+        });
 
         jbtnRegistrar.setText("Registrar");
+        jbtnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnRegistrarActionPerformed(evt);
+            }
+        });
 
         jbtnRecuperarPass.setText("Recuperar");
+        jbtnRecuperarPass.setEnabled(false);
 
         lblLoginRegistro.setForeground(new java.awt.Color(51, 51, 255));
         lblLoginRegistro.setText("¿Nuevo Usuario?");
@@ -71,18 +83,23 @@ public class LoginVista extends javax.swing.JFrame {
         lblLoginErrorPass.setText("¡Contraseña incorrecta!");
 
         jbtnSalir.setText("Salir");
+        jbtnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelLoginLayout = new javax.swing.GroupLayout(panelLogin);
         panelLogin.setLayout(panelLoginLayout);
         panelLoginLayout.setHorizontalGroup(
             panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLoginLayout.createSequentialGroup()
-                .addGap(89, 89, 89)
+                .addContainerGap()
                 .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblLoginRegistro)
                     .addComponent(lblLoginPass)
                     .addComponent(LblLoginUsuario))
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLoginLayout.createSequentialGroup()
                         .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -93,7 +110,7 @@ public class LoginVista extends javax.swing.JFrame {
                         .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblLoginErrorUsuario)
                             .addComponent(lblLoginErrorPass))
-                        .addGap(197, 197, 197))
+                        .addGap(161, 161, 161))
                     .addGroup(panelLoginLayout.createSequentialGroup()
                         .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jbtnSalir)
@@ -103,12 +120,12 @@ public class LoginVista extends javax.swing.JFrame {
                                 .addComponent(jbtnRecuperarPass)))
                         .addGap(18, 18, 18)
                         .addComponent(lblLoginRecuperarPass)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(154, Short.MAX_VALUE))))
         );
         panelLoginLayout.setVerticalGroup(
             panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLoginLayout.createSequentialGroup()
-                .addGap(120, 120, 120)
+                .addGap(21, 21, 21)
                 .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LblLoginUsuario)
                     .addComponent(textLoginUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -128,17 +145,14 @@ public class LoginVista extends javax.swing.JFrame {
                     .addComponent(lblLoginRecuperarPass))
                 .addGap(29, 29, 29)
                 .addComponent(jbtnSalir)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 569, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(panelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 581, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,13 +163,29 @@ public class LoginVista extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jbtnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnLoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbtnLoginActionPerformed
+
+    private void jbtnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSalirActionPerformed
+        // TODO add your handling code here:
+        Bienvenida bienvenida = new Bienvenida();
+        bienvenida.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jbtnSalirActionPerformed
+
+    private void jbtnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnRegistrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbtnRegistrarActionPerformed
 
 public void setLoginController (LoginController controller){
     jbtnLogin.addActionListener(controller);
     jbtnRecuperarPass.addActionListener(controller);
     jbtnRegistrar.addActionListener(controller);
-    jbtnSalir.addActionListener(controller);
+   // jbtnSalir.addActionListener(controller);
     textLoginPassword.addActionListener(controller);
     textLoginUsuario.addActionListener(controller);
 }

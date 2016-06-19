@@ -5,6 +5,9 @@
  */
 package Modelo;
 
+import java.sql.ResultSet;
+import java.util.ArrayList;
+
 /**
  *
  * @author migue
@@ -16,22 +19,59 @@ public class RolPermiso {
                    rp_fk_empleado,rp_fk_juridico,rp_fk_natural;
 
 
-   
-/*
-    public  void iniciarRolPermiso(String rp_codigo, String rp_nick, 
-            String rp_contraseña, String rp_pregunta_secreta, String rp_respuesta_secreta, int rp_fk_rol,
-            int  rp_fk_permiso, int  rp_fk_empleado,int rp_fk_juridico,int rp_fk_natural) {
-        RolPermiso.setRp_codigo(rp_codigo);
-        RolPermiso.setRp_nick(rp_nick);
-        RolPermiso.setRp_contraseña(rp_contraseña);
-        RolPermiso.setRp_pregunta_secreta(rp_pregunta_secreta);
-        RolPermiso.setRp_respuesta_secreta(rp_respuesta_secreta);
-        RolPermiso.setRp_fk_rol(rp_fk_rol);
-        RolPermiso.setRp_fk_permiso(rp_fk_permiso);
-        RolPermiso.setRp_fk_empleado(rp_fk_empleado);
-        RolPermiso.setRp_fk_juridico(rp_fk_juridico);
-        RolPermiso.setRp_fk_natural(rp_fk_natural);
+   public  ArrayList<Permiso> permisos ;
+
+    /*public  void getPermisos() {
+         for (int i = 0; i <  permisos  .size(); i++) {
+           
+            if(! permisos .isEmpty()){
+                
+                   System.out.println("Permisos "+permisos.get(i).getNombrePermiso());
+               
+
+                
+            }else {System.out.println("Lista Vacia get LugarFK");}
+        }
     }*/
+
+    public ArrayList<Permiso> getPermisos() {
+        return permisos;
+    }
+    
+     
+
+    public void setPermisos(String nick,String pass) {
+        
+        permisos = new ArrayList<Permiso>();
+        Permiso emp;
+            try {
+
+            PrincipalModel.setStm(
+                    PrincipalModel.getCon().createStatement());
+
+            String sql;
+                sql = "select per_codigo,per_nombre,per_descripcion " +
+"from usuario,rol,permiso,rol_per " +
+"where usu_nick = '"+nick+"' and  \"usu_contraseña\" = '"+pass+"' and rp_fk_usuario = usu_nick and rp_fk_rol = rol_codigo and  per_codigo = rp_fk_permiso " +
+"order by per_nombre ;"; //Consulta
+             ResultSet rs =PrincipalModel.getStm().executeQuery(sql);     
+                   while (rs.next()) {   
+                           emp= new  Permiso();
+                        emp.setCondigoPermiso(rs.getString("per_codigo"));
+                        emp.setNombrePermiso(rs.getString("per_nombre"));
+                        emp.setDescripcionPermiso(rs.getString("per_descripcion"));
+                        
+                 
+                          permisos  .add(emp);      
+                    } 
+            
+            rs.close();
+            PrincipalModel.getStm().close();
+       
+        } catch (Exception e) {
+        }
+        
+    }
     
     
     
